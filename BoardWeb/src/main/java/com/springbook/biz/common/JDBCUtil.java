@@ -9,7 +9,7 @@ public class JDBCUtil {
 	public static Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost:9753/spring?autoReconnect=true&useSSL=true", "root", "0266");
+			return DriverManager.getConnection("jdbc:mysql://localhost:4020/jdbcexam?useUnicode=true&serverTimezone=Asia/Seoul", "root", "1234");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
