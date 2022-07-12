@@ -18,6 +18,7 @@ public class UserDAO {
 	private ResultSet rs = null;
 	// SQL 명령어들
 	private final String USER_GET = "select * from users where id=? and password=?";
+	private final String USER_INSERT = "insert users(id, password, name, role) values(?, ?, ?, ?)";
 
 	// CRUD 기능의 메소드 구현
 	// 회원 등록
@@ -43,5 +44,28 @@ public class UserDAO {
 			JDBCUtil.close(rs, stmt, conn);
 		}
 		return user;
+	}
+	
+	// 회원가입
+	public boolean insertMember(UserVO vo) {
+		boolean flag = false;
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(USER_INSERT);
+			stmt.setString(1, vo.getId());
+			stmt.setString(2, vo.getPassword());
+			stmt.setString(3, vo.getName());
+			stmt.setString(4, vo.getRole());
+			
+			if(stmt.executeUpdate() == 1)
+				flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, stmt, conn);
+		}
+		return flag;
+		
 	}
 }
