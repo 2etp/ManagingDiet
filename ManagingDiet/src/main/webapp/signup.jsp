@@ -19,8 +19,8 @@
 		<label for="name">이름</label>
 		<input id="name" type="text" name="name">
 		
-		<label for="job">직업</label>
-		<input id="job" type="text" name="role">
+		<label for="job">휴대폰번호</label>
+		<input id="job" type="text" name="mobile">
 		
 		<input type="submit" value="가입하기">
 		<input type="reset" value="취소">

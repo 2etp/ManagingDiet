@@ -1,11 +1,11 @@
-package com.springbook.biz.user;
+package com.diet.biz.user;
 
 //VO(Value Object)
 public class UserVO {
 	private String id;
 	private String password;
 	private String name;
-	private String role;
+	private String mobile;
 
 	public String getId() {
 		return id;
@@ -31,16 +31,16 @@ public class UserVO {
 		this.name = name;
 	}
 
-	public String getRole() {
-		return role;
+	public String getMobile() {
+		return mobile;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 	@Override
 	public String toString() {
-		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", role=" + role + "]";
+		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", mobile=" + mobile + "]";
 	}
 }

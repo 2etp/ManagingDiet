@@ -3,6 +3,9 @@ package com.springbook.biz.user;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
+import com.diet.biz.user.UserService;
+import com.diet.biz.user.UserVO;
+
 public class UserServiceClient {
 	public static void main(String[] args) {
 		// 1. Spring 컨테이너를 구동한다.

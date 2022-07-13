@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.diet.biz.board.BoardVO;
-import com.springbook.biz.common.JDBCUtil;
+import com.diet.biz.common.JDBCUtil;
 
 // DAO(Data Access Object)
 @Repository

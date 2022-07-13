@@ -1,4 +1,4 @@
-package com.springbook.view.user;
+package com.diet.view.user;
 
 import javax.servlet.http.HttpSession;
 

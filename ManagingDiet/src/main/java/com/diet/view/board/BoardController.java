@@ -1,4 +1,4 @@
-package com.springbook.view.board;
+package com.diet.view.board;
 
 import java.util.HashMap;
 import java.util.Map;

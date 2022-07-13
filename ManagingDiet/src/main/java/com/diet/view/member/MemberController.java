@@ -1,12 +1,12 @@
-package com.springbook.view.member;
+package com.diet.view.member;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.springbook.biz.user.UserVO;
-import com.springbook.biz.user.impl.UserDAO;
+import com.diet.biz.user.UserVO;
+import com.diet.biz.user.impl.UserDAO;
 
 @Controller
 public class MemberController {
