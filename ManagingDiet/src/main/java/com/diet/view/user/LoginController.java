@@ -22,7 +22,7 @@ public class LoginController {
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
 	public String login(UserVO vo, UserDAO userDAO){
 		System.out.println("로그인 인증 처리...");
-		if(userDAO.getUser(vo) != null) return "dietProgram.do";
+		if(userDAO.getUser(vo) != null) return "getBoardList.do";
 		else return "login.jsp";
 	}
 }

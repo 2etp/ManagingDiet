@@ -6,10 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>두 번째 단계</title>
+<title>세 번째 단계</title>
 </head>
 <body>
-	<p>${bmr}</p>
-
+	<p>${kcal}</p>
 </body>
 </html>

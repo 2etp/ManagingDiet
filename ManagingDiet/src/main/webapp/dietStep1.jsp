@@ -9,9 +9,10 @@
 <body>
 
 <main>
-	<form action="insertInfo.do" method="post">
+	<form action="dietStep1.do" method="post">
 		<label for="sex">성별</label>
-		<input id="sex" type="text" name="sex">
+		<input id="sex" type="radio" name="sex" value="남">남
+		<input id="sex" type="radio" name="sex" value="여">여
 		
 		<label for="height">신장</label>
 		<input id="height" type="number" name="height">
@@ -22,7 +23,7 @@
 		<label for="age">나이</label>
 		<input id="age" type="number" name="age">
 		
-		<input type="submit" value="확인하기">
+		<input type="submit" value="1단계">
 	</form>
 </main>
 </body>

@@ -12,8 +12,8 @@ public class DietProgramServiceImpl implements DietProgramService{
 	private DietProgramDAOSpring dietProgramDAO;
 
 	@Override
-	public double insertInfo(DietProgramVO vo) {
-		return dietProgramDAO.insertInfo(vo);
+	public double dietStep1(DietProgramVO vo) {
+		return dietProgramDAO.dietStep1(vo);
 		
 	}
 
