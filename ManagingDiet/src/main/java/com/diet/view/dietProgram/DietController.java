@@ -35,4 +35,12 @@ public class DietController {
 		return "dietStep3.jsp";	
 	}
 	
+	@RequestMapping("/dietStep3.do")
+	public String dietStep3(KcalVO vo, Model model) {
+		model.addAttribute("nutrients", dietProgramService.dietStep3(vo));
+		System.out.println("dietStep3 발동!!!");
+		System.out.println(dietProgramService.dietStep3(vo));
+		return "dietStep4.jsp";
+	}
+	
 }

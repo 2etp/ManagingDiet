@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,6 +10,13 @@
 <title>네 번째 단계</title>
 </head>
 <body>
-	<p>당신의 일일 칼로리는 ${kcal}입니다. 돼지야</p>
+	<h1>영양소에 맞는 칼로리 구성</h1>
+	
+	<c:forEach items="${nutrients}" var="nutrients">
+	<ul>
+		<li>탄수화물 : ${nutrients}</li>
+
+	</ul>
+	</c:forEach>
 </body>
 </html>

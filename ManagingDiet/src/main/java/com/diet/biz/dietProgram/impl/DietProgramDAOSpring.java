@@ -1,5 +1,8 @@
 package com.diet.biz.dietProgram.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -76,5 +79,24 @@ public class DietProgramDAOSpring {
 		}
 		
 		return kcal;				
+	}
+	
+	// 영양소에 맞는 칼로리 구성
+	public List<Integer> dietStep3(KcalVO vo) {
+		
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		int carbs = 0;
+		int protein = 0;
+		int fat = 0;
+		
+		carbs = (int)Math.round(vo.getKcal() * 0.5);
+		protein = (int)Math.round(vo.getKcal() * 0.3);
+		fat = (int)Math.round(vo.getKcal() * 0.2);
+		
+		list.add(carbs);
+		list.add(protein);
+		list.add(fat);
+		
+		return list;
 	}
 }

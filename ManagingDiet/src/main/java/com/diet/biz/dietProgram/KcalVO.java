@@ -1,5 +1,7 @@
 package com.diet.biz.dietProgram;
 
+import java.util.List;
+
 public class KcalVO {
 	
 	private String type;
@@ -10,6 +12,7 @@ public class KcalVO {
 	private double bmr;
 	private String activityAmount;
 	private int kcal;
+	private List<Integer> nutrients;
 	
 	public String getType() {
 		return type;
@@ -59,8 +62,12 @@ public class KcalVO {
 	public void setKcal(int kcal) {
 		this.kcal = kcal;
 	}
-	
-	
+	public List<Integer> getNutrients() {
+		return nutrients;
+	}
+	public void setNutrients(List<Integer> nutrients) {
+		this.nutrients = nutrients;
+	}
 	
 	
 }

@@ -1,5 +1,7 @@
 package com.diet.biz.dietProgram;
 
+import java.util.List;
+
 public interface DietProgramService {
 	
 	// 사용자 스펙을 기반으로 한 기초대사량 계산
@@ -9,5 +11,5 @@ public interface DietProgramService {
 	int dietStep2(KcalVO vo);
 	
 	// 영양소에 맞는 칼로리 구성
-	
+	List<Integer> dietStep3(KcalVO vo);
 }
