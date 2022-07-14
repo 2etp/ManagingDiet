@@ -6,14 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>세 번째 단계</title>
+<title>네 번째 단계</title>
 </head>
 <body>
 	<p>당신의 일일 칼로리는 ${kcal}입니다. 돼지야</p>
-	
-	<form action="dietStep3.do" method="post">
-		<input type="hidden" name="kcal" value="${kcal}">
-		<input type="submit" value="3단계">
-	</form>
 </body>
 </html>
