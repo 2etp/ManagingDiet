@@ -1,0 +1,274 @@
+:root {
+    --white: #fdf9f3;
+    --bg: #fdf9f3;
+    --black: #211f22;
+    --pink: #ff6188;
+    --orange: #fc9867;
+    --yellow: #ffd866;
+    --green: #a9dc76;
+    --blue: #78dce8;
+    --purple: #ab9df2;
+    --font-regular: 'IBM Plex Mono', monospace;
+  }
+
+#menu {
+    z-index: 1000;
+    height: 100%;
+    position: fixed;
+    background-color: #FED057;
+    width: 300px;
+    transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateX(-100%);
+    left: 60px;
+    color: white;
+}
+
+#menu.expanded {
+    transform: translateX(0%);
+    left: 0px;
+}
+
+.menu-inner {
+    width: 100%;
+    height: 100%;
+    margin-left: 30px;
+}
+
+#blob {
+    top: 0;
+    z-index: -1;
+    right: 60px;
+    transform: translateX(100%);
+    height: 100%;
+    position: absolute;
+}
+
+#blob-path {
+    height: 100%;
+    fill:  #FED057;
+}
+
+.hamburger {
+    right: 20px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;	
+}
+
+.hamburger .line {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
+}
+
+.hamburger .line:nth-child(2) {
+    top: 50%;
+    margin-top: -2px;
+}
+
+.hamburger .line:nth-child(3) {
+    bottom: 0;
+}
+
+h1 {
+    position: fixed;
+    right: 0;
+    margin: 0;
+}
+
+.menu-unner ul {
+    padding: 0;
+    list-style: none;
+    width: 80%;
+    position: absolute;
+    top: 10px;
+}
+
+ul li {
+    color: #fff;
+    font-family: '메이플';
+    padding: 20px 0;
+}
+
+h2 {
+    position: absolute;
+    left: 50%;
+    color: #fff;
+    margin: 0;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+/* 로그인 */
+
+a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  a#rainbow-btn {
+    display: inline-block;
+    width: 155px;
+    border-bottom: 2px solid currentColor;
+    background: none;
+    color: var(--white);
+    cursor: pointer;
+    margin-top: 5%;
+    margin-left: 40%;
+    padding: .65em 0.65em;
+    font-family: var(--regular-font);
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    z-index: 0;
+    text-align: center;
+    transition: transform 450ms ease-in-out;
+    transition-delay: 100ms;
+  }
+  a#rainbow-btn:before, a#rainbow-btn:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    background: var(--blue);
+    z-index: 1;
+    width: 100%;
+    height: 2px;
+    transition: transform 450ms ease-in-out;
+    transform: scale(0, 1);
+    transform-origin: right center;
+    transition-delay: 200ms;
+  }
+  a#rainbow-btn:after {
+    background: var(--c);
+    transition-delay: 300ms;
+    z-index: 2;
+  }
+  a#rainbow-btn:focus, a#rainbow-btn:hover {
+    color: currentColor;
+    border-color: var(--yellow);
+  }
+  a#rainbow-btn:focus:before, a#rainbow-btn:hover:before {
+    transform-origin: left center;
+    transform: scale(1, 1);
+  }
+  a#rainbow-btn:focus:after, a#rainbow-btn:hover:after {
+    transform-origin: left center;
+    transform: scale(1, 1);
+  }
+  
+  a#monokai-link {
+    color: var(--white);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 1em;
+  }
+  a#monokai-link:hover, a#monokai-link:focus {
+    color: var(--orange);
+  }
+
+::selection {
+    color: #fff;
+}
+
+
+/* ------------- */
+/* Content Style */
+/* ------------- */
+
+.btn-section {
+    position: relative;
+    top: 71%;
+    left: 15%;
+}
+
+.btn-section button {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 400ms;
+    animation: zoom 500ms ease;
+}
+
+.btn-section button i {
+    position: absolute;
+    font-size: 1.5em;
+    transition: 400ms;    
+}
+
+.btn-section .btn-fb {
+    color: #3b5998;
+}
+
+.btn-section .btn-tw {
+    color: #1da1f2;
+}
+
+.btn-section .btn-ig {
+    color: #833ab4;
+}
+
+.btn-section .btn-cp {
+    color: #47cf73;
+}
+
+.btn-section .first-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+.btn-section .second-logo {
+    position: absolute;
+    top: calc(50% + 30px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.btn-section button:hover .first-logo {
+    position: absolute;
+    top: -30px;
+    opacity: 0;
+}
+
+.btn-section button:hover .second-logo {
+    top: 50%;
+    opacity: 1;
+}
+
+.btn-section button:active {
+    background-color: #ffffff00;
+}
+
+/* 메뉴 호버시 애니메이션 */
+.hover-1 {
+    --c: #1095c1; /* the color */
+    --s: .15em;
+    
+    line-height:1.1em;
+    padding-bottom: calc(2.1*var(--s));
+    background: 
+      conic-gradient(from 135deg at top,var(--c) 90deg,#0000 0) 
+        left 0 bottom var(--s)/calc(2*var(--s)) var(--s) repeat-x,
+      conic-gradient(from -45deg at bottom,var(--c) 90deg,#0000 0) 
+        left var(--s) bottom 0/calc(2*var(--s)) var(--s) repeat-x;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0) 0/var(--_p,0%) padding-box no-repeat;
+    transition: 1s;
+  }
+  .hover-1:hover {
+    --_p: 100%;
+    color: var(--c);
+  }
+
