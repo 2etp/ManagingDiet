@@ -11,12 +11,10 @@
 </head>
 <body>
 	<h1>영양소에 맞는 칼로리 구성</h1>
-	
-	<c:forEach items="${nutrients}" var="nutrients">
-	<ul>
-		<li>탄수화물 : ${nutrients}</li>
-
-	</ul>
-	</c:forEach>
+		<ul>
+			<li>탄수화물 : ${nutrients[0]}</li>
+			<li>단백질 : ${nutrients[1]}</li>
+			<li>지방 : ${nutrients[2]}</li>
+		</ul>
 </body>
 </html>
