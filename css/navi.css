@@ -78,12 +78,11 @@ h1 {
     margin: 0;
 }
 
-.menu-unner ul {
+.menu-inner ul {
     padding: 0;
     list-style: none;
-    width: 80%;
-    position: absolute;
-    top: 10px;
+    width: 85%;
+    margin-left: 15px;
 }
 
 ul li {
@@ -180,7 +179,7 @@ a {
 
 .btn-section {
     position: relative;
-    top: 71%;
+    top: 67%;
     left: 15%;
 }
 

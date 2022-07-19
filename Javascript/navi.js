@@ -85,13 +85,13 @@ $(window).load(function () {
 
 // login button animation
 const ASCII_CHARS = "abcdefghijklmnñopqrstuvwxyz0123456789!#$%&/?'_-"
-const COLORS = ["#ff6188", "#fc9867", "#ffd866", "#a9dc76", "#78dce8", "#ab9df2"]
+const COLORS = ["#ff6188", "#fc9867", "#ffd866", "#a9dc76", "#78dce8", "#ab9df2", "black"]
 
 class RainbowButton {
     constructor(_btn) {
         this.el = _btn
         this.txt = this.el.innerText
-        this.overColor = COLORS[4]
+        this.overColor = COLORS[6]
         this.fps = 24
         this.events()
     }
