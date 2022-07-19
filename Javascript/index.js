@@ -56,4 +56,4 @@ function loadingRemove() {
     document.body.style.overflow = "visible";
 }
 
-setTimeout(loadingRemove, 5000);
+setTimeout(loadingRemove, 6000);
