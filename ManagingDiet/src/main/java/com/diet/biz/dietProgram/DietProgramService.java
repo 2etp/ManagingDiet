@@ -10,6 +10,9 @@ public interface DietProgramService {
 	// 기초대사량에 근거한 칼로리 계산
 	int dietStep2(KcalVO vo);
 	
-	// 영양소에 맞는 칼로리 구성
+	// 영양소대로 칼로리 구성
 	List<Integer> dietStep3(KcalVO vo);
+	
+	// 칼로리에 맞는 음릭 리스트 추천
+	List<String> dietStep4(FoodVO vo);
 }

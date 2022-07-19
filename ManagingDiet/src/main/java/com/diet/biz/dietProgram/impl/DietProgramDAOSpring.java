@@ -7,12 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.diet.biz.dietProgram.FoodVO;
 import com.diet.biz.dietProgram.KcalVO;
 
 @Repository
 public class DietProgramDAOSpring {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	
+	// SQL 명령어들
+	private final String FOOD_SELECT = "select from diet ";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -81,7 +85,7 @@ public class DietProgramDAOSpring {
 		return kcal;				
 	}
 	
-	// 영양소에 맞는 칼로리 구성
+	// 영양소대로 칼로리 구성
 	public List<Integer> dietStep3(KcalVO vo) {
 		
 		ArrayList<Integer> list = new ArrayList<Integer>();
@@ -98,5 +102,14 @@ public class DietProgramDAOSpring {
 		list.add(fat);
 		
 		return list;
+	}
+	
+	// 칼로리에 맞는 음식 리스트 추천
+	public List<String> dietStep4(FoodVO vo) {
+		
+		ArrayList<String> list = new ArrayList<String>();
+		
+		
+		
 	}
 }
