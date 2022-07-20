@@ -27,7 +27,7 @@ public class DietProgramServiceImpl implements DietProgramService{
 		return dietProgramDAO.dietStep3(vo);
 	}
 	
-	public List<String> dietStep4(FoodVO vo) {
+	public List<FoodVO> dietStep4(FoodVO vo) {
 		return dietProgramDAO.dietStep4(vo);
 	}
 }

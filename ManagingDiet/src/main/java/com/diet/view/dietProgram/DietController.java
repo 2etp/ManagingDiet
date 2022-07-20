@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.diet.biz.dietProgram.DietProgramService;
+import com.diet.biz.dietProgram.FoodVO;
 import com.diet.biz.dietProgram.KcalVO;
 
 @Controller
@@ -41,6 +42,13 @@ public class DietController {
 		System.out.println("dietStep3 발동!!!");
 		System.out.println(dietProgramService.dietStep3(vo));
 		return "dietStep4.jsp";
+	}
+	
+	@RequestMapping("/dietStep4.do")
+	public String dietStep4(FoodVO vo, Model model) {
+		model.addAttribute("foodList", dietProgramService.dietStep4(vo));
+		System.out.println("dietStep4 발동!!!");
+		return "dietStep5.jsp";
 	}
 	
 }

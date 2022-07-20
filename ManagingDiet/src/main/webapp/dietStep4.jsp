@@ -17,9 +17,9 @@
 	</ul>
 		
 	<form action="dietStep4.do" method="post">
-		<input type="hidden" value="${nutrients[0]}">
-		<input type="hidden" value="${nutrients[1]}">
-		<input type="hidden" value="${nutrients[2]}">
+		<input type="hidden" name="foodCarbs" value="${nutrients[0]}">
+		<input type="hidden" name="foodProtein" value="${nutrients[1]}">
+		<input type="hidden" name="foodFat" value="${nutrients[2]}">
 		<input type="submit" value="4단계">
 	</form>
 </body>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.diet.biz.dietProgram.FoodVO;
 import com.diet.biz.dietProgram.KcalVO;
+import com.diet.biz.dietProgram.impl.DietProgramRowMapper;
 
 @Repository
 public class DietProgramDAOSpring {
@@ -16,7 +17,7 @@ public class DietProgramDAOSpring {
 	private JdbcTemplate jdbcTemplate;
 	
 	// SQL 명령어들
-	private final String FOOD_SELECT = "select from diet ";
+	private final String FOOD_SELECT = "select * from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -85,7 +86,7 @@ public class DietProgramDAOSpring {
 		return kcal;				
 	}
 	
-	// 영양소대로 칼로리 구성
+	// 영양소대로 칼로리 구성(g으로 환산)
 	public List<Integer> dietStep3(KcalVO vo) {
 		
 		ArrayList<Integer> list = new ArrayList<Integer>();
@@ -93,9 +94,9 @@ public class DietProgramDAOSpring {
 		int protein = 0;
 		int fat = 0;
 		
-		carbs = (int)Math.round(vo.getKcal() * 0.5);
-		protein = (int)Math.round(vo.getKcal() * 0.3);
-		fat = (int)Math.round(vo.getKcal() * 0.2);
+		carbs = (int)Math.round((vo.getKcal() * 0.5)/4);
+		protein = (int)Math.round((vo.getKcal() * 0.3)/4);
+		fat = (int)Math.round((vo.getKcal() * 0.2)/9);
 		
 		list.add(carbs);
 		list.add(protein);
@@ -105,11 +106,10 @@ public class DietProgramDAOSpring {
 	}
 	
 	// 칼로리에 맞는 음식 리스트 추천
-	public List<String> dietStep4(FoodVO vo) {
-		
-		ArrayList<String> list = new ArrayList<String>();
-		
-		
+	public List<FoodVO> dietStep4(FoodVO vo) {
+		System.out.println("dietStep4(DAO) 발동!!!");
+		Object[] args = { vo.getFoodCarbs(), vo.getFoodProtein(), vo.getFoodFat() };
+		return jdbcTemplate.query(FOOD_SELECT, args, new DietProgramRowMapper());
 		
 	}
 }

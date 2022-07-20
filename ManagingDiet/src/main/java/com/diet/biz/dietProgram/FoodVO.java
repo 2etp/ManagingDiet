@@ -3,7 +3,7 @@ package com.diet.biz.dietProgram;
 public class FoodVO {
 
 	private String foodName;
-	private String foodCalorie;
+	private int foodCalorie;
 	private double foodCarbs;
 	private double foodProtein;
 	private double foodFat;
@@ -14,10 +14,10 @@ public class FoodVO {
 	public void setFoodName(String foodName) {
 		this.foodName = foodName;
 	}
-	public String getFoodCalorie() {
+	public int getFoodCalorie() {
 		return foodCalorie;
 	}
-	public void setFoodCalorie(String foodCalorie) {
+	public void setFoodCalorie(int foodCalorie) {
 		this.foodCalorie = foodCalorie;
 	}
 	public double getFoodCarbs() {
