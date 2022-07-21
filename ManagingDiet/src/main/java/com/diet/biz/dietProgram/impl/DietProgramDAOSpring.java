@@ -17,7 +17,7 @@ public class DietProgramDAOSpring {
 	private JdbcTemplate jdbcTemplate;
 	
 	// SQL 명령어들
-	private final String FOOD_SELECT = "select * from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ?";
+	private final String FOOD_SELECT = "select * from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ? limit ?, ?";
 	private final String FOOD_TOT_COUNT = "select count(*) from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ?";
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -106,17 +106,17 @@ public class DietProgramDAOSpring {
 	}
 	
 	// 칼로리에 맞는 음식 리스트 추천
-	public List<FoodVO> dietStep4(FoodVO vo, Criteria cri) {
+	public List<FoodVO> dietStep4(KcalVO vo, Criteria cri) {
 		System.out.println("dietStep4(DAO) 발동!!!");
-		Object[] args = { vo.getFoodCarbs(), vo.getFoodProtein(), vo.getFoodFat() };
+		Object[] args = { vo.getCarbs(), vo.getProtein(), vo.getFat(), cri.getSkip(), cri.getAmount() };
 		return jdbcTemplate.query(FOOD_SELECT, args, new DietProgramRowMapper());
 		
 	}
 	
 	// 음식 총 개수
-	public int getTotalFood(FoodVO vo) {
+	public int getTotalFood(KcalVO vo) {
 		System.out.println("getTotalFood 발동!!!");
-		Object[] args = { vo.getFoodCarbs(), vo.getFoodProtein(), vo.getFoodFat() };
+		Object[] args = { vo.getCarbs(), vo.getProtein(), vo.getFat() };
 		return jdbcTemplate.queryForObject(FOOD_TOT_COUNT, args, Integer.class);
 	}
 }

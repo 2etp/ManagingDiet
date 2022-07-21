@@ -28,11 +28,11 @@ public class DietProgramServiceImpl implements DietProgramService{
 		return dietProgramDAO.dietStep3(vo);
 	}
 	
-	public List<FoodVO> dietStep4(FoodVO vo, Criteria cri) {
+	public List<FoodVO> dietStep4(KcalVO vo, Criteria cri) {
 		return dietProgramDAO.dietStep4(vo, cri);
 	}
 	
-	public int getTotalFood(FoodVO vo) {
+	public int getTotalFood(KcalVO vo) {
 		return dietProgramDAO.getTotalFood(vo);
 	}
 

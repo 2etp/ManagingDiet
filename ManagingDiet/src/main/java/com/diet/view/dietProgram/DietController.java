@@ -48,7 +48,7 @@ public class DietController {
 	
 	// 음식 추천 리스트 불러오기
 	@RequestMapping("/dietStep4.do")
-	public String dietStep4(FoodVO vo, Model model, Criteria cri) {
+	public String dietStep4(KcalVO vo, Model model, Criteria cri) {
 		model.addAttribute("foodList", dietProgramService.dietStep4(vo, cri));
 		int totalFood = dietProgramService.getTotalFood(vo);
 		PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);

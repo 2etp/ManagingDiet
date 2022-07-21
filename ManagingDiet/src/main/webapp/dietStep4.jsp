@@ -15,11 +15,11 @@
 		<li>단백질 : ${nutrients[1]}</li>
 		<li>지방 : ${nutrients[2]}</li>
 	</ul>
-		
+	<p>${kcal}</p>
 	<form action="dietStep4.do" method="post">
-		<input type="hidden" name="foodCarbs" value="${nutrients[0]}">
-		<input type="hidden" name="foodProtein" value="${nutrients[1]}">
-		<input type="hidden" name="foodFat" value="${nutrients[2]}">
+		<input type="hidden" name="carbs" value="${nutrients[0]}">
+		<input type="hidden" name="protein" value="${nutrients[1]}">
+		<input type="hidden" name="fat" value="${nutrients[2]}">
 		<input type="submit" value="4단계">
 	</form>
 </body>
