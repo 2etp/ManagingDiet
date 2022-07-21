@@ -14,5 +14,8 @@ public interface DietProgramService {
 	List<Integer> dietStep3(KcalVO vo);
 	
 	// 칼로리에 맞는 음릭 리스트 추천
-	List<FoodVO> dietStep4(FoodVO vo);
+	List<FoodVO> dietStep4(FoodVO vo, Criteria cri);
+	
+	// 음식 총 개수
+	public int getTotalFood(FoodVO vo);
 }

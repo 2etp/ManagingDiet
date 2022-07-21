@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.diet.biz.dietProgram.Criteria;
 import com.diet.biz.dietProgram.DietProgramService;
 import com.diet.biz.dietProgram.FoodVO;
 import com.diet.biz.dietProgram.KcalVO;
@@ -27,7 +28,13 @@ public class DietProgramServiceImpl implements DietProgramService{
 		return dietProgramDAO.dietStep3(vo);
 	}
 	
-	public List<FoodVO> dietStep4(FoodVO vo) {
-		return dietProgramDAO.dietStep4(vo);
+	public List<FoodVO> dietStep4(FoodVO vo, Criteria cri) {
+		return dietProgramDAO.dietStep4(vo, cri);
 	}
+	
+	public int getTotalFood(FoodVO vo) {
+		return dietProgramDAO.getTotalFood(vo);
+	}
+
+
 }
