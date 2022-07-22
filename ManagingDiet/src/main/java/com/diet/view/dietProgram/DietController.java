@@ -3,6 +3,8 @@ package com.diet.view.dietProgram;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.diet.biz.dietProgram.Criteria;
 import com.diet.biz.dietProgram.DietProgramService;
-import com.diet.biz.dietProgram.FoodVO;
 import com.diet.biz.dietProgram.KcalVO;
 import com.diet.biz.dietProgram.PageMakerDTO;
 
@@ -39,7 +40,8 @@ public class DietController {
 	}
 	
 	@RequestMapping("/dietStep3.do")
-	public String dietStep3(KcalVO vo, Model model) {
+	public String dietStep3(KcalVO vo, Model model, HttpSession session) {
+		session.setAttribute("session", dietProgramService.dietStep3(vo));
 		model.addAttribute("nutrients", dietProgramService.dietStep3(vo));
 		System.out.println("dietStep3 발동!!!");
 		System.out.println(dietProgramService.dietStep3(vo));

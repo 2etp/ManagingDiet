@@ -38,7 +38,10 @@
 	
 	<c:forEach items="${foodList}" var="food">
 		<p>${food.foodName}</p>
+		<p>${food.foodCalorie}</p>
 		<p>${food.foodCarbs}</p>
+		<p>${food.foodProtein}</p>
+		<p>${food.foodFat}</p>
 	</c:forEach>
 	
 	<div class="pageInfo_wrap" >
@@ -67,18 +70,12 @@
 	<form class="moveForm" method="get">	
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
 		<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+		<input type="hidden" name="carbs" value="${session[0]}">
+		<input type="hidden" name="protein" value="${session[1]}">
+		<input type="hidden" name="fat" value="${session[2]}"> 
 		
 	</form>
 	
-	<p>${nutrients}</p>
-	
- 	<form class="moveForm" method="post">
-		<input type="hidden" name="carbs" value="${nutrients[0]}">
-		<input type="hidden" name="protein" value="${nutrients[1]}">
-		<input type="hidden" name="fat" value="${nutrients[2]}"> 
-	</form>
-	
-
 <script>
 
 	let moveForm = $(".moveForm");
