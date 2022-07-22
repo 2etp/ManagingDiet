@@ -14,6 +14,7 @@ import com.diet.biz.dietProgram.Criteria;
 import com.diet.biz.dietProgram.DietProgramService;
 import com.diet.biz.dietProgram.KcalVO;
 import com.diet.biz.dietProgram.PageMakerDTO;
+import com.diet.biz.dietProgram.UserDietVO;
 
 @Controller
 public class DietController {
@@ -56,6 +57,13 @@ public class DietController {
 		PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
 		model.addAttribute("pageMaker", pageMake);
 		System.out.println("dietStep4 발동!!!");
+		return "dietStep5.jsp";
+	}
+	
+	// 음식 리스트 DB에 넣기
+	@RequestMapping("/insertFood.do")
+	public String insertFood(UserDietVO vo) {
+		dietProgramService.insertFood(vo);
 		return "dietStep5.jsp";
 	}
 	

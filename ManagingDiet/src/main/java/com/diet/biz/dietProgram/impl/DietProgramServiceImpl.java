@@ -9,6 +9,7 @@ import com.diet.biz.dietProgram.Criteria;
 import com.diet.biz.dietProgram.DietProgramService;
 import com.diet.biz.dietProgram.FoodVO;
 import com.diet.biz.dietProgram.KcalVO;
+import com.diet.biz.dietProgram.UserDietVO;
 
 @Service
 public class DietProgramServiceImpl implements DietProgramService{
@@ -35,6 +36,10 @@ public class DietProgramServiceImpl implements DietProgramService{
 	public int getTotalFood(KcalVO vo) {
 		return dietProgramDAO.getTotalFood(vo);
 	}
-
+	
+	// 음식 리스트 DB에 넣기
+	public void insertFood(UserDietVO vo) {
+		dietProgramDAO.insertFood(vo);
+	}
 
 }

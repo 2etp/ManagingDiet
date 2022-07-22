@@ -34,15 +34,31 @@
 
 </head>
 <body>
+
 	<h1>음식 추천 리스트</h1>
 	
-	<c:forEach items="${foodList}" var="food">
-		<p>${food.foodName}</p>
-		<p>${food.foodCalorie}</p>
-		<p>${food.foodCarbs}</p>
-		<p>${food.foodProtein}</p>
-		<p>${food.foodFat}</p>
-	</c:forEach>
+	<form action="insertFood.do" method="post">
+		<c:forEach items="${foodList}" var="food">
+			<label>	
+			<input type="checkbox" name="foodChk" value="${food.foodName}">
+				<div>	
+					<p>음식명 : ${food.foodName}</p>
+					<p>칼로리 : ${food.foodCalorie}kcal</p>
+					<p>탄수화물 : ${food.foodCarbs}g</p>
+					<p>단백질 : ${food.foodProtein}g</p>
+					<p>지방 : ${food.foodFat}g</p>
+				</div>
+				<br>
+			</label>
+	
+		</c:forEach>
+		
+		<input type="hidden" name="id" value="${idKey.id }">
+		<input type="submit" name="breakfast" value="아침">
+		<input type="submit" name="lunch" value="점심">
+		<input type="submit" name="dinner" value="저녁">
+
+	</form>
 	
 	<div class="pageInfo_wrap" >
 		<div class="pageInfo_area">
@@ -73,20 +89,19 @@
 		<input type="hidden" name="carbs" value="${session[0]}">
 		<input type="hidden" name="protein" value="${session[1]}">
 		<input type="hidden" name="fat" value="${session[2]}"> 
-		
 	</form>
 	
 <script>
 
-	let moveForm = $(".moveForm");
+let moveForm = $(".moveForm");
+
+$(".pageInfo a").on("click", function(e){
+	e.preventDefault();
+	moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+	moveForm.attr("action", "dietStep4.do");
+	moveForm.submit();
 	
-	$(".pageInfo a").on("click", function(e){
-		e.preventDefault();
-		moveForm.find("input[name='pageNum']").val($(this).attr("href"));
-		moveForm.attr("action", "dietStep4.do");
-		moveForm.submit();
-		
-	});
+});
 	
 </script>
 

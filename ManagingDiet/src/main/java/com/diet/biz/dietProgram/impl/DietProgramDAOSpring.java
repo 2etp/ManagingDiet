@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.diet.biz.dietProgram.Criteria;
 import com.diet.biz.dietProgram.FoodVO;
 import com.diet.biz.dietProgram.KcalVO;
+import com.diet.biz.dietProgram.UserDietVO;
 
 @Repository
 public class DietProgramDAOSpring {
@@ -19,6 +20,8 @@ public class DietProgramDAOSpring {
 	// SQL 명령어들
 	private final String FOOD_SELECT = "select * from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ? limit ?, ?";
 	private final String FOOD_TOT_COUNT = "select count(*) from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ?";
+	private final String FOOD_INSERT = "insert into tbldiet(id, breakfast, lunch, dinner, regdate) values(?, ?, ?, ?, now())";
+	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
 		
@@ -110,7 +113,6 @@ public class DietProgramDAOSpring {
 		System.out.println("dietStep4(DAO) 발동!!!");
 		Object[] args = { vo.getCarbs(), vo.getProtein(), vo.getFat(), cri.getSkip(), cri.getAmount() };
 		return jdbcTemplate.query(FOOD_SELECT, args, new DietProgramRowMapper());
-		
 	}
 	
 	// 음식 총 개수
@@ -118,5 +120,11 @@ public class DietProgramDAOSpring {
 		System.out.println("getTotalFood 발동!!!");
 		Object[] args = { vo.getCarbs(), vo.getProtein(), vo.getFat() };
 		return jdbcTemplate.queryForObject(FOOD_TOT_COUNT, args, Integer.class);
+	}
+	
+	// 음식 리스트 DB에 넣기
+	public void insertFood(UserDietVO vo) {
+		System.out.println("insertFood 발동!!!");
+		jdbcTemplate.update(FOOD_INSERT, vo.getId(), vo.getBreakfast(), vo.getLunch(), vo.getDinner());
 	}
 }

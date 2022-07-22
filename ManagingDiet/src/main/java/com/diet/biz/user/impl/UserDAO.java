@@ -21,7 +21,7 @@ public class UserDAO {
 	private final String USER_INSERT = "insert tblmember(id, password, name, mobile) values(?, ?, ?, ?)";
 
 	// CRUD 기능의 메소드 구현
-	// 회원 등록
+	// 로그인 처리
 	public UserVO getUser(UserVO vo) {
 		UserVO user = null;
 		try {
