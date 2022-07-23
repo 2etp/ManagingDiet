@@ -40,7 +40,7 @@
 	<form action="insertFood.do" method="post">
 		<c:forEach items="${foodList}" var="food">
 			<label>	
-			<input type="checkbox" name="foodChk" value="${food.foodName}">
+			<input type="checkbox" name="food" value="${food.foodName}">
 				<div>	
 					<p>음식명 : ${food.foodName}</p>
 					<p>칼로리 : ${food.foodCalorie}kcal</p>
@@ -52,11 +52,9 @@
 			</label>
 	
 		</c:forEach>
-		
+
 		<input type="hidden" name="id" value="${idKey.id }">
-		<input type="submit" name="breakfast" value="아침">
-		<input type="submit" name="lunch" value="점심">
-		<input type="submit" name="dinner" value="저녁">
+		<input type="submit" value="식단짜기">
 
 	</form>
 	
