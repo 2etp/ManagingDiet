@@ -41,7 +41,8 @@
 		<c:forEach items="${foodList}" var="food">
 			<label>	
 			<input type="checkbox" name="food" value="${food.foodName}">
-				<div>	
+				<div>
+					<img src="image/${food.imgPath}" width="300px" height="300px">
 					<p>음식명 : ${food.foodName}</p>
 					<p>칼로리 : ${food.foodCalorie}kcal</p>
 					<p>탄수화물 : ${food.foodCarbs}g</p>

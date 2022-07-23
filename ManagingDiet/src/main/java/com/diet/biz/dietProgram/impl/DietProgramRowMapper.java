@@ -14,6 +14,7 @@ public class DietProgramRowMapper implements RowMapper<FoodVO> {
 		foodList.setFoodCarbs(rs.getInt("탄수화물(g)"));
 		foodList.setFoodProtein(rs.getInt("단백질(g)"));
 		foodList.setFoodFat(rs.getInt("지방(g)"));
+		foodList.setImgPath(rs.getString("이미지경로"));
 		
 		return foodList;
 	}

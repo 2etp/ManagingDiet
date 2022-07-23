@@ -7,7 +7,14 @@ public class FoodVO {
 	private double foodCarbs;
 	private double foodProtein;
 	private double foodFat;
+	private String imgPath;
 	
+	public String getImgPath() {
+		return imgPath;
+	}
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
 	public String getFoodName() {
 		return foodName;
 	}
@@ -42,8 +49,7 @@ public class FoodVO {
 	@Override
 	public String toString() {
 		return "FoodVO [foodName=" + foodName + ", foodCalorie=" + foodCalorie + ", foodCarbs=" + foodCarbs
-				+ ", foodProtein=" + foodProtein + ", foodFat=" + foodFat + "]";
+				+ ", foodProtein=" + foodProtein + ", foodFat=" + foodFat + ", imgPath=" + imgPath + "]";
 	}
-	
 	
 }
