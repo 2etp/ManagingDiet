@@ -31,8 +31,8 @@
  	background-color: #cdd5ec;
 }
 </style>
-
 </head>
+
 <body>
 
 	<h1>음식 추천 리스트</h1>
