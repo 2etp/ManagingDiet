@@ -1,0 +1,47 @@
+@font-face {
+  font-family: '메이플';
+  src: url(../font/Maplestory\ Light.ttf);    
+}
+
+body {    
+background: #3AAFA9;
+}
+
+
+.text {
+border: 1px solid #000;
+}
+	
+.typewriter {
+	font-family: '메이플';
+	padding: 10%;
+	color: white;
+	display:flex;
+	justify-content: center;
+}
+.choice {
+	font-size: 30px;
+}
+h1 {
+	overflow: hidden;
+	font-weight: normal;
+	font-size: 40px;
+
+}
+h1:after{
+	content: '';
+	display: inline-block;
+	background-color: white;
+	margin-left: 2px;
+	height: 14px;
+	width: 4px;
+	animation: cursor 0.5s infinite;
+}
+
+/* The typewriter cursor effect */
+@keyframes cursor {
+	0% { opacity: 1; }
+	49% { opacity: 1; }
+	50% { opacity: 0; }
+	100% { opacity: 0; }
+}

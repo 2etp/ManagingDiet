@@ -72,12 +72,6 @@
     bottom: 0;
 }
 
-h1 {
-    position: fixed;
-    right: 0;
-    margin: 0;
-}
-
 .menu-inner ul {
     padding: 0;
     list-style: none;
@@ -179,7 +173,7 @@ a {
 
 .btn-section {
     position: relative;
-    top: 67%;
+    top: 60%;
     left: 15%;
 }
 
@@ -249,6 +243,10 @@ a {
     background-color: #ffffff00;
 }
 
+.index-control {
+  margin-bottom: -20px;
+}
+
 /* 메뉴 호버시 애니메이션 */
 .hover-1 {
     --c: #1095c1; /* the color */
@@ -270,4 +268,5 @@ a {
     --_p: 100%;
     color: var(--c);
   }
+
 

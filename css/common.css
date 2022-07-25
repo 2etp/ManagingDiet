@@ -247,4 +247,10 @@
     height: 24px;
     fill: white;
   }
+
+  /* 다크모드 활성화시 */
+  .dark-mode {
+    background-color: #111;
+    color: #fff;
+  }
   

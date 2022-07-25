@@ -10,18 +10,7 @@
 <link rel="stylesheet" href="../css/common.css">
 <!-- icon -->
 <script src="https://kit.fontawesome.com/a3dc88dac3.js" crossorigin="anonymous"></script>
-<script>
-  function eggToggle() {
-  var check = document.getElementById('eggToggle');
-  if (check.checked = true) {
-      check.checked = false;
-      console.log('켯다');
-  } else {
-      check.checked = true;
-      console.log('껏다');
-  }
-}
-</script>
+
 </head>
 <body>
   
@@ -36,38 +25,34 @@
       <div class="shadow"></div>
     </div>
   </div>
-  <script src=""></script>
  
 
-    <div id="menu">
+  <div id="menu">
 		<div class="hamburger">
 			<div class="line"></div>
 			<div class="line"></div>
 			<div class="line"></div>
 		</div>
-    
 		<div class="menu-inner">
 			
-			<ul>
-        <!-- 로그인 -->
-        <li class=" main-nav"><a id="rainbow-btn" class="signin" href="#0" >Login / Signup</a></li>
-        
-        <!-- 메뉴 -->
+			<ul class="index-control">
+				<!-- 로그인 -->
+				<li class=" main-nav"><a id="rainbow-btn" class="signin" href="#0" >Login / Signup</a></li>
+				
+				<!-- 메뉴 -->
 				<li><a class="hover-1" href="./index.html">MAIN</a></li>
 				<li><a class="hover-1" href="./main.html">INTRODUCE</a></li>
-        <li><a class="hover-1" href="./dietProgram.html">DIET PROGRAM</a></li>
-        <li><a class="hover-1" href="#">RECORD</a></li>
-                    
+				<li><a class="hover-1" href="./dietProgram.html">DIET PROGRAM</a></li>
+				<li><a class="hover-1" href="#">RECORD</a></li>
+							
 			</ul>
-
-      
-      <!-- sns 버튼 -->
-      <section class="btn-section">
-        <button class="btn-cp"><i class="fab fa-lg first-logo fa-codepen"></i><i class="fab fa-lg second-logo fa-codepen"></i></button>
-        <button class="btn-tw"><i class="fab fa-lg first-logo fa-twitter"></i><i class="fab fa-lg second-logo fa-twitter"></i></button>
-        <button class="btn-fb"><i class="fab fa-lg first-logo fa-facebook-f"></i><i class="fab fa-lg second-logo fa-facebook-f"></i></button>
-        <button class="btn-ig"><i class="fab fa-lg first-logo fa-instagram"></i><i class="fab fa-lg second-logo fa-instagram"></i></button>
-      </section>
+    		 <!-- sns 버튼 -->
+			<section class="btn-section">
+				<button class="btn-cp"><i class="fab fa-lg first-logo fa-codepen"></i><i class="fab fa-lg second-logo fa-codepen"></i></button>
+				<button class="btn-tw"><i class="fab fa-lg first-logo fa-twitter"></i><i class="fab fa-lg second-logo fa-twitter"></i></button>
+				<button class="btn-fb"><i class="fab fa-lg first-logo fa-facebook-f"></i><i class="fab fa-lg second-logo fa-facebook-f"></i></button>
+				<button class="btn-ig"><i class="fab fa-lg first-logo fa-instagram"></i><i class="fab fa-lg second-logo fa-instagram"></i></button>
+			</section>
 		</div>
 		
 		<svg version="1.1" id="blob"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -170,7 +155,7 @@
 
   <!-- 계란후라이 토글 -->
   <label class="egg-switch">
-    <input type="checkbox" id="eggToggle" onclick="eggToggle()" checked>
+    <input type="checkbox" id="darkModeToggle" class="dark-mode-toggle" value="off"   checked>
     <div>
         <div class="flipper">
             <svg>

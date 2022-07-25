@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
-<link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
-<link rel="stylesheet" href="../css/step.css">
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/typing.css">
+<link rel="stylesheet" href="../css/step3.css">
 <link rel="stylesheet" href="../css/navi.css">
 <link rel="stylesheet" href="../css/login.css">
 <link rel="stylesheet" href="../css/common.css">
@@ -14,6 +14,21 @@
 
 </head>
 <body>
+	<!-- float Img -->
+	<div class="image-grid">				
+		<div class="image-grid__item pos-2">
+			<img src="https://assets.codepen.io/2479807/img-2.jpg" alt="">
+		</div>
+		<div class="image-grid__item pos-4">
+			<img src="https://assets.codepen.io/2479807/img-4.jpg" alt="">
+		</div>
+		<div class="image-grid__item pos-5">
+			<img src="https://assets.codepen.io/2479807/img-5.jpg" alt="">
+		</div>
+		<div class="image-grid__item pos-9">
+			<img src="https://assets.codepen.io/2479807/img-9.jpg" alt="">
+		</div>		
+	</div>
     <div id="menu">
 		<div class="hamburger">
 			<div class="line"></div>
@@ -22,7 +37,7 @@
 		</div>
 		<div class="menu-inner">
 			
-			<ul class="index-control">
+			<ul>
 				<!-- 로그인 -->
 				<li class=" main-nav"><a id="rainbow-btn" class="signin" href="#0" >Login / Signup</a></li>
 				
@@ -47,59 +62,19 @@
 		</svg>
 	</div>
 
-    <div class="main">
-        <form id="frm">
-			<div class="gentle">성별 &nbsp </div>
-				<label>
-					<span>남자</span>
-					<input class="input_gentle" type="radio" name="gentle" value="man" checked>
-				</label>
-
-				<label>
-					<span>여자</span>
-					<input class="input_gentle input_gentle2" type="radio" name="gentle" value="woman">
-				</label>
-				<div class="input_inp">
-					<div>
-						<label for="inp" class="inp">
-							<input type="number" id="inp" min="100" max="250" placeholder="&nbsp;">
-							<span class="label">신장</span>
-							<svg width="120px" height="26px" viewBox="0 0 120 26">
-							  <path d="M0,25 C21,25 46,25 74,25 C102,25 118,25 120,25"></path>
-							</svg>
-						  </label>
-					</div>
-	
-					<div style="margin-top: 30px;">
-						<label for="inp2" class="inp">
-							<input type="number" id="inp2" min="1" max="250" placeholder="&nbsp;">
-							<span class="label">체중</span>
-							<svg width="120px" height="26px" viewBox="0 0 120 26">
-							  <path d="M0,25 C21,25 46,25 74,25 C102,25 118,25 120,25"></path>
-							</svg>
-						  </label>
-					</div>
-	
-					<div style="margin-top: 30px;">
-						<label for="inp3" class="inp">
-							<input type="number" id="inp3" min="1" max="150" placeholder="&nbsp;">
-							<span class="label">나이</span>
-							<svg width="120px" height="26px" viewBox="0 0 120 26">
-							  <path d="M0,25 C21,25 46,25 74,25 C102,25 118,25 120,25"></path>
-							</svg>
-						  </label>
-					</div>
-				</div>
-				<!-- submit 버튼 -->
-				<!-- submit.js에서 2.5초후에 frm라는 id를 가진 form을 submit -->
-				<div class="btn-submit" id="btn" >
-					<span>Submit</span>
-					<div class="rotate"></div>
-				</div>
-					
-        </form>	
-		
-    </div>
+		<div class="typewriter">
+			<h1 id="text">
+				<span style="font-size: 40px;">
+					영양소에 맞는 칼로리 구성<br>
+				</span><br>
+				<span class="contents" style="font-size: 30px;" >
+					탄수화물: 222<br><br>
+					단백질: 133<br><br>
+					지방: 39
+				</span>
+				
+			</h1>
+		</div>
 
 	  <!-- 모달 로그인 -->
 	  <div class="user-modal">
@@ -199,15 +174,18 @@
 </body>
     
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
 <script src="../Javascript/navi.js"></script>
-<script  src="../Javascript/index.js"></script>
+<script src="../Javascript/index.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js'></script>
 <!-- 로그인 js -->
 <script src="../Javascript/login.js"></script>
 <!-- egg Toggle -->
 <scripts src="../Javascript/eggToggle.js" ></script>
 <!-- Submit Button -->
-<script src="../Javascript/submit.js"></script>
+<script src="../Javascript/submit3.js"></script>
+<script src="../Javascript/Typing.js"></script>
+<!-- float Img -->
+<script src="../Javascript/floatImg.js"></script>
 
 </body>
 </html>
