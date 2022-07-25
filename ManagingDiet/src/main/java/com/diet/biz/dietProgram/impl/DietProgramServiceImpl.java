@@ -41,5 +41,15 @@ public class DietProgramServiceImpl implements DietProgramService{
 	public void insertFood(UserDietVO vo) {
 		dietProgramDAO.insertFood(vo);
 	}
+	
+	// 유저가 선택한 음식 리스트 수정하기
+	public void updateFood(UserDietVO vo) {
+		dietProgramDAO.updateFood(vo);
+	}
+	
+	// tbldiet의 유저 정보 유무 확인하기
+	public String getDietUser(UserDietVO vo) {
+		return dietProgramDAO.getDietUser(vo);
+	}
 
 }

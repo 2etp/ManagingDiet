@@ -21,4 +21,10 @@ public interface DietProgramService {
 	
 	// 유저가 선택한 음식 리스트 DB에 넣기
 	public void insertFood(UserDietVO vo);
+	
+	// 유저가 선택한 음식 리스트 수정하기
+	public void updateFood(UserDietVO vo);
+	
+	// tbldiet의 유저 정보 유무 확인하기
+	public String getDietUser(UserDietVO vo);
 }

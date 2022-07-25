@@ -29,7 +29,7 @@ public class DietController {
 		return "index.jsp";
 	}
 	
-	@RequestMapping(value = "/dietStep1.do")
+	@RequestMapping("/dietStep1.do")
 	public String dietStep1(KcalVO vo, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("type", vo.getType());
@@ -71,8 +71,18 @@ public class DietController {
 	// 유저가 선택한 음식 리스트 DB에 넣기
 	@RequestMapping("/insertFood.do")
 	public String insertFood(UserDietVO vo, RedirectAttributes redirectAttributes) {
-		dietProgramService.insertFood(vo);
-		redirectAttributes.addFlashAttribute("msg", "insertFood");
+		String result = dietProgramService.getDietUser(vo);
+		System.out.println(dietProgramService.getDietUser(vo));
+		if(result.equals(null)) {
+			System.out.println("insertFood의 false");
+			dietProgramService.insertFood(vo);
+			redirectAttributes.addFlashAttribute("msg", "insertFood");
+		} else if(!result.equals(null)) {
+			System.out.println("insertFood의 true");
+			dietProgramService.updateFood(vo);
+			redirectAttributes.addFlashAttribute("msg", "updateFood");
+		}
+		//System.out.println("컨트롤러의 insertFood 발동!!!");
 		return "redirect:index.do";
 	}
 	

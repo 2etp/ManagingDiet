@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -21,6 +22,8 @@ public class DietProgramDAOSpring {
 	private final String FOOD_SELECT = "select * from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ? limit ?, ?";
 	private final String FOOD_TOT_COUNT = "select count(*) from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ?";
 	private final String FOOD_INSERT = "insert into tbldiet(id, food, regdate) values(?, ?, now())";
+	private final String DIET_UPDATE = "update tbldiet set food = ?, regdate = now() where id = ?";
+	private final String DIET_USER_CHECK = "select id from tbldiet where id = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -126,5 +129,27 @@ public class DietProgramDAOSpring {
 	public void insertFood(UserDietVO vo) {
 		System.out.println("insertFood 발동!!!");
 		jdbcTemplate.update(FOOD_INSERT, vo.getId(), vo.getFood());
+	}
+	
+	// 유저가 선택한 음식 리스트 수정하기
+	public void updateFood(UserDietVO vo) {
+		System.out.println("updateFood 발동!!!");
+		jdbcTemplate.update(DIET_UPDATE, vo.getFood(), vo.getId());
+	}
+	
+	// tbldiet의 유저 정보 유무 확인하기
+	public String getDietUser(UserDietVO vo) {
+		try {
+			System.out.println("getDietUser 발동!!!");
+			Object[] args = {vo.getId()};
+			System.out.println("jdbc 템플릿 쿼리문 발동");
+			String user = jdbcTemplate.queryForObject(DIET_USER_CHECK, args, String.class);
+			System.out.println("DAOSpring : " + user);
+			return user;
+			
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+
 	}
 }
