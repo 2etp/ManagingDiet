@@ -30,7 +30,8 @@
 		<a href="signup.do">회원가입</a>
 		<br><br>
 		<a href="dietCategory.jsp">식단 프로그램</a>
-		<p>${idKey.id }</p>
+		<br><br>
+		<a href="myPage.jsp">마이페이지</a>
 	</center>
 </body>
 </html>

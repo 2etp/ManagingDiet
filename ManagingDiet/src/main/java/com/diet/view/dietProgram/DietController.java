@@ -86,4 +86,11 @@ public class DietController {
 		return "redirect:index.do";
 	}
 	
+	// 유저가 선택한 음식 리스트 확인하기
+	@RequestMapping("/myDiet.do")
+	public String getDietList(UserDietVO vo, Model model) {
+		model.addAttribute("dietList", dietProgramService.getDietList(vo));
+		System.out.println("컨트롤러 getDietList 발동!!!");
+		return "myDiet.jsp";
+	}
 }

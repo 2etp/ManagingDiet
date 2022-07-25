@@ -51,5 +51,10 @@ public class DietProgramServiceImpl implements DietProgramService{
 	public String getDietUser(UserDietVO vo) {
 		return dietProgramDAO.getDietUser(vo);
 	}
+	
+	// 유저가 선택한 음식 리스트 확인하기
+	public List<UserDietVO> getDietList(UserDietVO dietvo) {
+		return dietProgramDAO.getDietList(dietvo);
+	}
 
 }

@@ -24,6 +24,7 @@ public class DietProgramDAOSpring {
 	private final String FOOD_INSERT = "insert into tbldiet(id, food, regdate) values(?, ?, now())";
 	private final String DIET_UPDATE = "update tbldiet set food = ?, regdate = now() where id = ?";
 	private final String DIET_USER_CHECK = "select id from tbldiet where id = ?";
+	private final String DIET_SELECT = "select food from tbldiet where id = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -115,7 +116,7 @@ public class DietProgramDAOSpring {
 	public List<FoodVO> dietStep4(KcalVO vo, Criteria cri) {
 		System.out.println("dietStep4(DAO) 발동!!!");
 		Object[] args = { vo.getCarbs(), vo.getProtein(), vo.getFat(), cri.getSkip(), cri.getAmount() };
-		return jdbcTemplate.query(FOOD_SELECT, args, new DietProgramRowMapper());
+		return jdbcTemplate.query(FOOD_SELECT, args, new GetFoodListRowMapper());
 	}
 	
 	// 음식 총 개수
@@ -151,5 +152,12 @@ public class DietProgramDAOSpring {
 			return null;
 		}
 
+	}
+	
+	// 유저가 선택한 음식 리스트 확인하기
+	public List<UserDietVO> getDietList(UserDietVO dietvo) {
+		System.out.println("getDietList 발동!!!");
+		Object[] args = {dietvo.getId()};
+		return jdbcTemplate.query(DIET_SELECT, args, new GetDietListRowMapper());
 	}
 }

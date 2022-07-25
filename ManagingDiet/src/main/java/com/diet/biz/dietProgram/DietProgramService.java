@@ -27,4 +27,8 @@ public interface DietProgramService {
 	
 	// tbldiet의 유저 정보 유무 확인하기
 	public String getDietUser(UserDietVO vo);
+	
+	// 유저가 선택한 음식 리스트 확인하기
+	public List<UserDietVO> getDietList(UserDietVO vo);
+
 }

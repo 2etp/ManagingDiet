@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 import com.diet.biz.dietProgram.FoodVO;
 
-public class DietProgramRowMapper implements RowMapper<FoodVO> {
+public class GetFoodListRowMapper implements RowMapper<FoodVO> {
 	public FoodVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		FoodVO foodList = new FoodVO();
 		foodList.setFoodName(rs.getString("음식명"));

@@ -22,7 +22,7 @@ public class LoginController {
 	public String login(UserVO vo, UserDAO userDAO, HttpSession session){
 		session.setAttribute("idKey", userDAO.getUser(vo));
 		System.out.println("로그인 인증 처리...");
-		if(userDAO.getUser(vo) != null) return "dietCategory.jsp";
+		if(userDAO.getUser(vo) != null) return "index.jsp";
 		else return "login.jsp";
 	}
 }
