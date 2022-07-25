@@ -18,7 +18,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value= "/signup.do", method=RequestMethod.POST)
-	public String signup(UserVO vo, UserDAO userDAO,  RedirectAttributes redirectAttributes) {
+	public String signup(UserVO vo, UserDAO userDAO, RedirectAttributes redirectAttributes) {
 		System.out.println("회원가입 인증 처리...");
 		userDAO.insertMember(vo);
 		redirectAttributes.addFlashAttribute("msg", "REGISTERED");

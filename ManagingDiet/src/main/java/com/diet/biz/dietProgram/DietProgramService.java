@@ -19,6 +19,6 @@ public interface DietProgramService {
 	// 음식 총 개수
 	public int getTotalFood(KcalVO vo);
 	
-	// 음식 리스트 DB에 넣기
+	// 유저가 선택한 음식 리스트 DB에 넣기
 	public void insertFood(UserDietVO vo);
 }

@@ -122,7 +122,7 @@ public class DietProgramDAOSpring {
 		return jdbcTemplate.queryForObject(FOOD_TOT_COUNT, args, Integer.class);
 	}
 	
-	// 음식 리스트 DB에 넣기
+	// 유저가 선택한 음식 리스트 DB에 넣기
 	public void insertFood(UserDietVO vo) {
 		System.out.println("insertFood 발동!!!");
 		jdbcTemplate.update(FOOD_INSERT, vo.getId(), vo.getFood());

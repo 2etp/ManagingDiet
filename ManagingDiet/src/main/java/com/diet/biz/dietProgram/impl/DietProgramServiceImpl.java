@@ -37,7 +37,7 @@ public class DietProgramServiceImpl implements DietProgramService{
 		return dietProgramDAO.getTotalFood(vo);
 	}
 	
-	// 음식 리스트 DB에 넣기
+	// 유저가 선택한 음식 리스트 DB에 넣기
 	public void insertFood(UserDietVO vo) {
 		dietProgramDAO.insertFood(vo);
 	}

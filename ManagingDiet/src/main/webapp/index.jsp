@@ -5,7 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Main Page</title>
+
+<script>
+    var msg = "${msg}";
+    if (msg === "insertFood") {
+        alert("성공적으로 저장되었습니다.");
+    } else if (msg == "FAILURE") {
+        alert("다시 선택해 주세요.");
+    }
+</script>
+
 </head>
+
 <body>
 	<center>
 		<h1>게시판 프로그램</h1>
