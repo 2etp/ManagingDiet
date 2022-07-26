@@ -10,6 +10,7 @@ import com.diet.biz.dietProgram.DietProgramService;
 import com.diet.biz.dietProgram.FoodVO;
 import com.diet.biz.dietProgram.KcalVO;
 import com.diet.biz.dietProgram.UserDietVO;
+import com.diet.biz.user.UserVO;
 
 @Service
 public class DietProgramServiceImpl implements DietProgramService{
@@ -53,8 +54,8 @@ public class DietProgramServiceImpl implements DietProgramService{
 	}
 	
 	// 유저가 선택한 음식 리스트 확인하기
-	public List<UserDietVO> getDietList(UserDietVO dietvo) {
-		return dietProgramDAO.getDietList(dietvo);
+	public String getDietList(UserVO vo) {
+		return dietProgramDAO.getDietList(vo);
 	}
 
 }

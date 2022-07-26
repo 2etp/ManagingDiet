@@ -7,6 +7,6 @@
 <title>내 식단 확인하기</title>
 </head>
 <body>
-<p>${dietList}</p>
+<p>내가 선택한 음식 리스트 : ${dietList}</p>
 </body>
 </html>

@@ -11,6 +11,7 @@ public class GetDietListRowMapper implements RowMapper<UserDietVO> {
 	public UserDietVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		UserDietVO dietList = new UserDietVO();
 		dietList.setFood(rs.getString("food"));
+		System.out.println("rowMapper : " + dietList);
 		
 		return dietList;
 	}

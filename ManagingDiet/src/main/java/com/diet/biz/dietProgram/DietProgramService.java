@@ -2,6 +2,8 @@ package com.diet.biz.dietProgram;
 
 import java.util.List;
 
+import com.diet.biz.user.UserVO;
+
 public interface DietProgramService {
 	
 	// 사용자 스펙을 기반으로 한 기초대사량 계산
@@ -29,6 +31,6 @@ public interface DietProgramService {
 	public String getDietUser(UserDietVO vo);
 	
 	// 유저가 선택한 음식 리스트 확인하기
-	public List<UserDietVO> getDietList(UserDietVO vo);
+	public String getDietList(UserVO vo);
 
 }

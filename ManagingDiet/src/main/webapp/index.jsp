@@ -25,7 +25,7 @@
 		<hr>
 		<a href="login.do">로그인</a><br>
 		<br>
-		<br> <a href="getBoardList.do">글 목록 바로가기</a>
+		<br><a href="getBoardList.do">글 목록 바로가기</a>
 		<hr><br>
 		<a href="signup.do">회원가입</a>
 		<br><br>

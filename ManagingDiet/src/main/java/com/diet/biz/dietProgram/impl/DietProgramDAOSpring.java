@@ -3,15 +3,21 @@ package com.diet.biz.dietProgram.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.diet.biz.dietProgram.Criteria;
 import com.diet.biz.dietProgram.FoodVO;
 import com.diet.biz.dietProgram.KcalVO;
 import com.diet.biz.dietProgram.UserDietVO;
+import com.diet.biz.user.UserVO;
 
 @Repository
 public class DietProgramDAOSpring {
@@ -155,9 +161,21 @@ public class DietProgramDAOSpring {
 	}
 	
 	// 유저가 선택한 음식 리스트 확인하기
-	public List<UserDietVO> getDietList(UserDietVO dietvo) {
-		System.out.println("getDietList 발동!!!");
-		Object[] args = {dietvo.getId()};
-		return jdbcTemplate.query(DIET_SELECT, args, new GetDietListRowMapper());
+	public String getDietList(UserVO vo) {
+		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpServletRequest req = sra.getRequest();
+		HttpSession session = req.getSession();
+		try {
+			System.out.println("getDietList 발동!!!");
+			UserVO userInfo = (UserVO)session.getAttribute("idKey");
+			System.out.println(userInfo.getId());
+			Object[] args = {userInfo.getId()};
+			String dietList = jdbcTemplate.queryForObject(DIET_SELECT, args, String.class);
+			return dietList;
+			
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
+
 }
