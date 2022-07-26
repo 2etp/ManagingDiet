@@ -31,6 +31,7 @@
   form {
     position: relative;    
     width: 630px;
+    top: 43px;
     --background: #ffffff;
     --text: #414856;
     --radio: #7C96B2;
