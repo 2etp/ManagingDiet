@@ -1,5 +1,6 @@
 package com.diet.biz.dietProgram.impl;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class DietProgramDAOSpring {
 	private final String DIET_USER_CHECK = "select id from tbldiet where id = ?";
 	private final String DIET_CHECK = "select food from tbldiet where id = ?";
 	private final String DIET_SELECT = "select * from tblfood where `음식명` = ?";
+	private final String STAMP_CNT_UPDATE = "update tblmember set stampcnt = stampcnt+1 where id = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -169,7 +171,6 @@ public class DietProgramDAOSpring {
 		try {
 			System.out.println("dietListChk 발동!!!");
 			UserVO userInfo = (UserVO)session.getAttribute("idKey");
-			System.out.println(userInfo.getId());
 			Object[] args = {userInfo.getId()};
 			String dietList = jdbcTemplate.queryForObject(DIET_CHECK, args, String.class);
 			return dietList;
@@ -188,6 +189,24 @@ public class DietProgramDAOSpring {
 			list.add(jdbcTemplate.queryForObject(DIET_SELECT, args, new GetFoodListRowMapper()));
 		}
 		return list;
+	}
+	
+	// 달의 일수 구하기
+	public int getLengthOfMon() {
+		LocalDate now = LocalDate.now();
+		int lengthOfMon = now.lengthOfMonth();
+		return lengthOfMon;
+	}
+	
+	// 일일 미션 도장 찍기
+	public void stampMission() {
+		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpServletRequest req = sra.getRequest();
+		HttpSession session = req.getSession();
+		UserVO userInfo = (UserVO)session.getAttribute("idKey");
+		System.out.println(userInfo.getId());
+		Object[] args = {userInfo.getId()};
+		jdbcTemplate.update(STAMP_CNT_UPDATE, args);
 	}
 
 }

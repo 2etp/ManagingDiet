@@ -97,4 +97,20 @@ public class DietController {
 		System.out.println("컨트롤러 getDietList 발동!!!");
 		return "myDiet.jsp";
 	}
+		
+	// 일일 미션 체크 화면 보여주기
+	@RequestMapping(value = "/stampMission.do", method=RequestMethod.GET)
+	public String stampMissionView(Model model, HttpSession session) {
+		session.setAttribute("lengthOfMon", dietProgramService.getLengthOfMon());
+		//model.addAttribute("lengthOfMon", dietProgramService.getLengthOfMon());
+		System.out.println("이번 달의 일수 :" + dietProgramService.getLengthOfMon());
+		return "stampMission.jsp";
+	}
+	
+	// 일일 미션 도장 찍기
+	@RequestMapping(value = "/stampMission.do", method=RequestMethod.POST)
+	public String stampMission() {
+		dietProgramService.stampMission();
+		return "stampMission.jsp";
+	}
 }

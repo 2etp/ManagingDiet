@@ -12,5 +12,7 @@
 <p>휴대폰 번호 : ${idKey.mobile }</p>
 
 <a href="myDiet.do">내 식단 확인하기</a>
+<br><hr><br>
+<a href="stampMission.do">일일 미션 체크</a>
 </body>
 </html>

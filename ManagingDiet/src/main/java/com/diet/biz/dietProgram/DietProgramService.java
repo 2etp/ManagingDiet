@@ -35,5 +35,11 @@ public interface DietProgramService {
 	
 	// 확인된 음식 리스트 화면에 출력
 	List<FoodVO> getDietList(String[] dietArr);
+	
+	// 달의 일수 구하기
+	int getLengthOfMon();
+	
+	// 일일 미션 도장 찍기
+	void stampMission();
 
 }

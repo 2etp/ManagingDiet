@@ -6,6 +6,7 @@ public class UserVO {
 	private String password;
 	private String name;
 	private String mobile;
+	private int stampCnt;
 
 	public String getId() {
 		return id;
@@ -38,9 +39,18 @@ public class UserVO {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
+	
+	public int getStampCnt() {
+		return stampCnt;
+	}
+
+	public void setStampCnt(int stampCnt) {
+		this.stampCnt = stampCnt;
+	}
 
 	@Override
 	public String toString() {
-		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", mobile=" + mobile + "]";
+		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", mobile=" + mobile + ", stampCnt="
+				+ stampCnt + "]";
 	}
 }

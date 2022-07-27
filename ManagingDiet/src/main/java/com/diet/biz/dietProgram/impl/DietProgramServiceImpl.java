@@ -63,4 +63,13 @@ public class DietProgramServiceImpl implements DietProgramService{
 		return dietProgramDAO.getDietList(dietArr);
 	}
 
+	// 달의 일수 구하기
+	public int getLengthOfMon() {
+		return dietProgramDAO.getLengthOfMon();
+	}
+	
+	// 일일 미션 도장 찍기
+	public void stampMission() {
+		dietProgramDAO.stampMission();
+	}
 }
