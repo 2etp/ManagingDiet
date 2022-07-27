@@ -1,6 +1,7 @@
 package com.diet.biz.user.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -18,10 +19,15 @@ public class UserDAOSpring {
 
 	// 로그인 
 	public UserVO login(UserVO vo) {
-		UserVO user = null;
-		Object[] args = {vo.getId(), vo.getPassword()};
-		user = jdbcTemplate.queryForObject(USER_GET, args, new UserRowMapper());
-		return user;
+		try {	
+			UserVO user = null;
+			Object[] args = {vo.getId(), vo.getPassword()};
+			user = jdbcTemplate.queryForObject(USER_GET, args, new UserRowMapper());
+			return user;
+			
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 	
 	// 회원가입

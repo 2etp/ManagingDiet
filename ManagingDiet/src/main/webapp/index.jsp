@@ -1,4 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -23,12 +25,17 @@
 	<center>
 		<h1>식단 프로그램</h1>
 		<hr>
-		<a href="login.do">로그인</a><br>
+		<c:if test="${empty idKey}">
+			<a href="login.do">로그인</a><br>
+			<a href="signup.do">회원가입</a>
+		</c:if>
+		<c:if test="${!empty idKey}">
+			<p>${idKey.name}님 환영합니다!</p><br><br>
+			<a href="logout.do">로그아웃</a>
+		</c:if>
 		<br>
 		<br><a href="getBoardList.do">글 목록 바로가기</a>
 		<hr><br>
-		<a href="signup.do">회원가입</a>
-		<br><br>
 		<a href="dietCategory.jsp">식단 프로그램</a>
 		<br><br>
 		<a href="myPage.jsp">마이페이지</a>
