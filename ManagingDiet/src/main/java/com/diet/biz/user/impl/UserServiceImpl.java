@@ -9,13 +9,15 @@ import com.diet.biz.user.UserVO;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 	@Autowired
-	private UserDAO userDAO;
+	private UserDAOSpring userDAO;
 
-	public void setUserDAO(UserDAO userDAO) {
-		this.userDAO = userDAO;
+	// 로그인
+	public UserVO login(UserVO vo) {
+		return userDAO.login(vo);
 	}
-
-	public UserVO getUser(UserVO vo) {
-		return userDAO.getUser(vo);
+	
+	// 회원가입
+	public void insertMember(UserVO vo) {
+		userDAO.insertMember(vo);
 	}
 }

@@ -21,7 +21,7 @@
 
 <body>
 	<center>
-		<h1>게시판 프로그램</h1>
+		<h1>식단 프로그램</h1>
 		<hr>
 		<a href="login.do">로그인</a><br>
 		<br>

@@ -1,7 +1,10 @@
 package com.diet.biz.user;
 
 public interface UserService {
-	// CRUD 기능의 메소드 구현
-	// 회원 등록
-	public UserVO getUser(UserVO vo);
+	
+	// 로그인
+	UserVO login(UserVO vo);
+	
+	// 회원가입
+	void insertMember(UserVO vo);
 }
