@@ -30,8 +30,7 @@
 				<li><a class="hover-1" href="./index.html">MAIN</a></li>
 				<li><a class="hover-1" href="./main.html">INTRODUCE</a></li>
 				<li><a class="hover-1" href="./dietProgram.html">DIET PROGRAM</a></li>
-				<li><a class="hover-1" href="#">RECORD</a></li>
-							
+				<li><a class="hover-1" href="#">RECORD</a></li>							
 			</ul>
     		 <!-- sns 버튼 -->
 			<section class="btn-section">
@@ -49,42 +48,135 @@
 
     <!-- card img -->
     <div class="main">
-        <!-- #1 -->
-        <div class='card'>
-            <div class='card__image'>
-              <img src='https://assets.codepen.io/66496/watchmen-cover.jpg' alt='Watchmen'>
+        <div class='cards'>
+            <!-- line 1 -->
+            <div class="card-line">
+                <div class='card' data-card>
+                    <div class='card__inner'>
+                      <div class='card__image'>
+                        <img id="img-btn" src='https://xl.movieposterdb.com/07_12/2006/414993/xl_414993_0cbd42ba.jpg' alt='The Fountain' />
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class='card' data-card>
+                    <div class='card__inner'>
+                      <div class='card__image'>
+                        <img src='https://xl.movieposterdb.com/20_06/2017/5109784/xl_5109784_051e160f.jpg' alt='Mother!' />
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class='card' data-card>
+                    <div class='card__inner'>
+                      <div class='card__image'>
+                        <img src='https://xl.movieposterdb.com/10_09/2010/947798/xl_947798_f9a08ddf.jpg' alt='Black Swan' />
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class='card' data-card>
+                    <div class='card__inner'>
+                      <div class='card__image'>
+                        <img src='https://xl.movieposterdb.com/07_12/2006/414993/xl_414993_0cbd42ba.jpg' alt='The Fountain' />
+                      </div>
+                    </div>
+                </div>
             </div>
-          
-            <div class='card__content'>
-              <h3 class='card__heading'>Watchmen</h3>
-              <p class='card__detail'>2019</p>
-              <p class='card__text'>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod.</p>
+            
+            <!-- line 2 -->
+            <div class="card-line">
+                <div class='card' data-card>
+                    <div class='card__inner'>
+                        <div class='card__image'>
+                            <img src='https://xl.movieposterdb.com/20_06/2017/5109784/xl_5109784_051e160f.jpg' alt='Mother!' />
+                        </div>
+                    </div>
+                </div>
+            
+                <div class='card' data-card>
+                  <div class='card__inner'>
+                    <div class='card__image'>
+                        <img src='https://xl.movieposterdb.com/10_09/2010/947798/xl_947798_f9a08ddf.jpg' alt='Black Swan' />
+                    </div>
+                  </div>
+                </div>
+                <div class='card' data-card>
+                    <div class='card__inner'>
+                        <div class='card__image'>
+                            <img src='https://xl.movieposterdb.com/20_06/2017/5109784/xl_5109784_051e160f.jpg' alt='Mother!' />
+                        </div>
+                    </div>
+                </div>
+            
+                <div class='card' data-card>
+                  <div class='card__inner'>
+                    <div class='card__image'>
+                        <img src='https://xl.movieposterdb.com/10_09/2010/947798/xl_947798_f9a08ddf.jpg' alt='Black Swan' />
+                    </div>
+                  </div>
+                </div>
             </div>
-          </div>
-          
-          
-          <!-- #2 -->
-          <div class='card'>
-            <div class='card__image'>
-              <img src='../picture/tree.png' alt='Watchmen'>
-            </div>
-          
-            <div class='card__content'>
-              <h3 class='card__heading'>Watchmen</h3>
-              <p class='card__detail'>2019</p>
-              <p class='card__text'>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod.</p>
-            </div>
-          </div>
 
-          <!-- plusImg mouse cursor -->
-          <div class='cursor'>
-            <div class='cursor__inner'>
-              <div class='cursor__one'></div>
-              <div class='cursor__two'></div>
-            </div>
+            
           </div>
+          <!-- plus-img inner content -->
+          <div class='content'>
+            <div class='content__group'>
+              <p class='content__heading'>The Fountain</p>
+              <p class='content__category'>Science Fiction</p>
+              <p class='content__description'>
+                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui.
+              </p>
+            </div>
+          
+            <div class='content__group'>
+              <p class='content__heading'>Mother!</p>
+              <p class='content__category'>Horror</p>
+              <p class='content__description'>
+                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui.
+              </p>
+            </div>
+          
+            <div class='content__group'>
+              <p class='content__heading'>Black Swan</p>
+              <p class='content__category'>Psychological Thriller</p>
+              <p class='content__description'>
+                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui.
+              </p>
+            </div>
+          </div>        
           
     </div>
+
+    <!-- paging Number -->
+    <section class="pagination">
+        <button id="pg-button-prev" type="button" class="pagination__button">
+          <i class="fa fa-chevron-left"></i>
+        </button>
+      
+        <ul class="pagination__list">
+          <li class="pagination__item pagination__item--1">
+            <button id="pg-button-1" type="button">1</button>
+          </li>
+          <li class="pagination__item pagination__item--2">
+            <button id="pg-button-2" type="button">2</button>
+          </li>
+          <li class="pagination__item pagination__item--3">
+            <button id="pg-button-3" type="button">3</button>
+          </li>
+          <li class="pagination__item pagination__item--4">
+            <button id="pg-button-4" type="button">4</button>
+          </li>
+          <li class="pagination__item pagination__item--5">
+            <button id="pg-button-5" type="button">5</button>
+          </li>
+        </ul>
+      
+        <button id="pg-button-next" type="button" class="pagination__button">
+          <i class="fa fa-chevron-right"></i>
+        </button>
+      </section>
     
 
 		
@@ -195,8 +287,11 @@
 <!-- egg Toggle -->
 <scripts src="../Javascript/eggToggle.js" ></script>
 <!-- Submit Button -->
-<script src="../Javascript/submit3.js"></script>
 <script src="../Javascript/plusImg.js"></script>
+<!-- number paging -->
+<script src="../Javascript/numberPaging.js"></script>
+
+
 
 </body>
 </html>

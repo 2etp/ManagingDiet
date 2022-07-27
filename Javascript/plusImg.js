@@ -1,76 +1,68 @@
 gsap.registerPlugin(Flip);
 
-//
-// Common Variables
-//
+// Variables
+const activeClass = "is-active";
+const cards = document.querySelectorAll("[data-card]");
 
-const cursorEl = document.querySelector(".cursor");
-const card = document.querySelector(".card");
-const image = card.querySelector(".card__image");
+const updateCard = (card, idx, active) => {
+    const cardInner = card.querySelector(".card__inner");
+    const image = card.querySelector(".card__image");
 
-//
-// Cursor
-//
+    // Bail out if we're in the middle of a flip
+    if (Flip.isFlipping(cardInner)) return;
 
-const Cursor = function () {
-    let self = {};
-    const ease = 0.15;
-    const visibleClass = "is-visible";
-    const closeClass = "close";
-    let pos = { x: 0, y: 0 };
-    let targetPos = { x: 0, y: 0 };
-
-    document.addEventListener("mousemove", evt => {
-        targetPos = { x: evt.pageX, y: evt.pageY };
+    const cardState = Flip.getState(cardInner, {
+        props: "box-shadow, border-radius"
     });
 
-    card.addEventListener("mouseenter", () => {
-        cursorEl.classList.add(visibleClass);
+    const imageState = Flip.getState(image);
+    card.classList.toggle(activeClass, active);
+
+    const duration = active ? 0.7 : 0.5;
+    const ease = "quint.out";
+
+    const cardContent = document.querySelectorAll(".content__group")[idx];
+    gsap.killTweensOf(cardContent);
+    gsap.to(cardContent, {
+        duration: active ? 1 : 0.2,
+        ease: "expo.out",
+        stagger: 0.1,
+        alpha: active ? 1 : 0,
+        y: active ? 0 : 20,
+        delay: active ? 0.4 : 0
     });
 
-    card.addEventListener("mouseleave", () => {
-        cursorEl.classList.remove(visibleClass);
+
+    Flip.from(cardState, {
+        duration: duration,
+        ease: ease,
+        absolute: true,
+        zIndex: 1
     });
 
-    const update = () => {
-        // Update position
-        const changeX = (targetPos.x - pos.x) * ease;
-        const changeY = (targetPos.y - pos.y) * ease;
-        pos.x += changeX;
-        pos.y += changeY;
 
-        // Update transform
-        cursorEl.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0)`;
+    Flip.from(imageState, {
+        duration: duration,
+        absolute: true,
+        ease: ease,
+        simple: true
+    });
 
-        window.requestAnimationFrame(update);
-    };
-
-    window.requestAnimationFrame(update);
-
-    self.setState = expanded => {
-        cursorEl.classList.toggle(closeClass, expanded);
-    };
-
-    return self;
 };
 
-const cursor = new Cursor();
-
-//
-// Card
-//
-
-const activeClass = "is-active";
-
-card.addEventListener("click", evt => {
-    const state = Flip.getState([card, image]);
-    card.classList.toggle(activeClass);
-
-    Flip.from(state, {
-        duration: 0.4,
-        ease: "power4.out"
+// Init
+cards.forEach((card, idx) => {
+    updateCard(card, idx, false);
+    card.addEventListener("click", evt => {
+        updateCard(card, idx, !card.classList.contains(activeClass));
     });
-
-
-    cursor.setState(card.classList.contains(activeClass));
 });
+
+
+setTimeout(function () {
+    document.querySelector('.main').style.display = "block";
+    return false;
+}, 2500);
+
+
+
