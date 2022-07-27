@@ -31,6 +31,9 @@ public interface DietProgramService {
 	public String getDietUser(UserDietVO vo);
 	
 	// 유저가 선택한 음식 리스트 확인하기
-	public String getDietList(UserVO vo);
+	public String dietListChk(UserVO vo);
+	
+	// 확인된 음식 리스트 화면에 출력
+	List<FoodVO> getDietList(String[] dietArr);
 
 }

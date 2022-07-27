@@ -30,7 +30,8 @@ public class DietProgramDAOSpring {
 	private final String FOOD_INSERT = "insert into tbldiet(id, food, regdate) values(?, ?, now())";
 	private final String DIET_UPDATE = "update tbldiet set food = ?, regdate = now() where id = ?";
 	private final String DIET_USER_CHECK = "select id from tbldiet where id = ?";
-	private final String DIET_SELECT = "select food from tbldiet where id = ?";
+	private final String DIET_CHECK = "select food from tbldiet where id = ?";
+	private final String DIET_SELECT = "select * from tblfood where `음식명` = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -161,21 +162,32 @@ public class DietProgramDAOSpring {
 	}
 	
 	// 유저가 선택한 음식 리스트 확인하기
-	public String getDietList(UserVO vo) {
+	public String dietListChk(UserVO vo) {
 		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpServletRequest req = sra.getRequest();
 		HttpSession session = req.getSession();
 		try {
-			System.out.println("getDietList 발동!!!");
+			System.out.println("dietListChk 발동!!!");
 			UserVO userInfo = (UserVO)session.getAttribute("idKey");
 			System.out.println(userInfo.getId());
 			Object[] args = {userInfo.getId()};
-			String dietList = jdbcTemplate.queryForObject(DIET_SELECT, args, String.class);
+			String dietList = jdbcTemplate.queryForObject(DIET_CHECK, args, String.class);
 			return dietList;
 			
 		} catch (EmptyResultDataAccessException e) {
 			return null;
 		}
+	}
+	
+	// 확인된 음식 리스트 화면에 출력
+	public List<FoodVO> getDietList(String[] dietArr) {
+		System.out.println("getDietList 발동!!!");
+		ArrayList<FoodVO> list = new ArrayList<FoodVO>();
+		for(int i = 0; i < dietArr.length; ++i) {
+			Object[] args = {dietArr[i]};
+			list.add(jdbcTemplate.queryForObject(DIET_SELECT, args, new GetFoodListRowMapper()));
+		}
+		return list;
 	}
 
 }

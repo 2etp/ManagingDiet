@@ -1,5 +1,6 @@
 package com.diet.view.dietProgram;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -83,14 +84,16 @@ public class DietController {
 			dietProgramService.updateFood(vo);
 			redirectAttributes.addFlashAttribute("msg", "updateFood");
 		}
-		//System.out.println("컨트롤러의 insertFood 발동!!!");
 		return "redirect:index.do";
 	}
 	
 	// 유저가 선택한 음식 리스트 확인하기
 	@RequestMapping("/myDiet.do")
 	public String getDietList(UserVO vo, Model model) {
-		model.addAttribute("dietList", dietProgramService.getDietList(vo));
+		String dietChk = dietProgramService.dietListChk(vo);
+		String[] dietArr = dietChk.split(",");
+		System.out.println(Arrays.toString(dietArr));
+		model.addAttribute("dietList", dietProgramService.getDietList(dietArr));
 		System.out.println("컨트롤러 getDietList 발동!!!");
 		return "myDiet.jsp";
 	}
