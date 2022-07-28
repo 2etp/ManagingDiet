@@ -47,8 +47,18 @@
 		</svg>
 	</div>
 
+	<div class="slider">
+		<div class="slide" style="background-image:url(https://image.shutterstock.com/z/stock-photo-green-and-purple-fresh-juices-or-smoothies-with-fruit-greens-vegetables-in-wooden-tray-top-view-519988807.jpg);" ></div>
+		<div class="slide" style="background-image:url(https://image.shutterstock.com/z/stock-photo-selection-of-healthy-food-540997561.jpg);" ></div>
+		<div class="slide" style="background-image:url(https://image.shutterstock.com/z/stock-photo-healthy-salad-bowl-with-quinoa-tomatoes-chicken-avocado-lime-and-mixed-greens-lettuce-parsley-521741356.jpg" ></div>
+		<div class="slide" style="background-image:url(https://image.shutterstock.com/z/stock-photo-healthy-homemade-chickpea-and-veggies-salad-diet-vegetarian-vegan-food-vitamin-snack-535446121.jpg)" ></div>
+		<div class="slide" style="background-image:url(https://image.shutterstock.com/z/stock-photo-two-nice-glasses-of-beer-in-right-on-the-wooden-rustic-table-with-orange-bokeh-and-confetti-effect-554761900.jpg") ></div>
+		<div class="slide" style="background-image:url(https://image.shutterstock.com/z/stock-photo-green-and-purple-fresh-juices-or-smoothies-with-fruit-greens-vegetables-in-wooden-tray-top-view-519988807.jpg)" ></div>
+	</div>
+
     <div class="main">
         <form id="frm">
+			<div style="margin: 50px 10px;">해당 입력창에 정보를 기입해주세요</div>
 			<div class="gentle">성별 &nbsp </div>
 				<label>
 					<span>남자</span>
@@ -62,7 +72,7 @@
 				<div class="input_inp">
 					<div>
 						<label for="inp" class="inp">
-							<input type="number" id="inp" min="100" max="250" placeholder="&nbsp;">
+							<input type="number" id="inp" min="100" max="250" maxlength="3" oninput="numberMaxLength(this);"  placeholder="&nbsp;" >
 							<span class="label">신장</span>
 							<svg width="120px" height="26px" viewBox="0 0 120 26">
 							  <path d="M0,25 C21,25 46,25 74,25 C102,25 118,25 120,25"></path>
@@ -72,7 +82,7 @@
 	
 					<div style="margin-top: 30px;">
 						<label for="inp2" class="inp">
-							<input type="number" id="inp2" min="1" max="250" placeholder="&nbsp;">
+							<input type="number" id="inp2" min="1" max="250" maxlength="3" oninput="numberMaxLength(this);" placeholder="&nbsp;">
 							<span class="label">체중</span>
 							<svg width="120px" height="26px" viewBox="0 0 120 26">
 							  <path d="M0,25 C21,25 46,25 74,25 C102,25 118,25 120,25"></path>
@@ -82,7 +92,7 @@
 	
 					<div style="margin-top: 30px;">
 						<label for="inp3" class="inp">
-							<input type="number" id="inp3" min="1" max="150" placeholder="&nbsp;">
+							<input type="number" id="inp3" min="1" max="150" maxlength="3" oninput="numberMaxLength(this);" placeholder="&nbsp;">
 							<span class="label">나이</span>
 							<svg width="120px" height="26px" viewBox="0 0 120 26">
 							  <path d="M0,25 C21,25 46,25 74,25 C102,25 118,25 120,25"></path>
@@ -195,7 +205,19 @@
 	  </div>
 
 	 
+	  <script>
 
+		function numberMaxLength(e){
+	
+			if(e.value.length > e.maxLength){
+	
+				e.value = e.value.slice(0, e.maxLength);
+	
+			}
+	
+		}
+	
+	</script>
 </body>
     
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
