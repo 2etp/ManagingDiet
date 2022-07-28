@@ -72,4 +72,9 @@ public class DietProgramServiceImpl implements DietProgramService{
 	public void stampMission() {
 		dietProgramDAO.stampMission();
 	}
+	
+	// DB stampCnt 컬럼 가져오기
+	public int getStampCnt() {
+		return dietProgramDAO.getStampCnt();
+	}
 }

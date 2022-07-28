@@ -43,7 +43,8 @@ public class DietController {
 	}
 	
 	@RequestMapping("/dietStep2.do")
-	public String dietStep2(KcalVO vo, Model model) {
+	public String dietStep2(KcalVO vo, Model model, HttpSession session) {
+		session.setAttribute("kcal", dietProgramService.dietStep2(vo));
 		model.addAttribute("kcal", dietProgramService.dietStep2(vo));
 		System.out.println("dietStep2 발동!!!");
 		System.out.println(dietProgramService.dietStep2(vo));
@@ -112,5 +113,13 @@ public class DietController {
 	public String stampMission() {
 		dietProgramService.stampMission();
 		return "stampMission.jsp";
+	}
+	
+	// DB stampCnt 컬럼 가져오기
+	@RequestMapping("/statistics.do")
+	public String getStampCnt(Model model, HttpSession session) {
+		session.setAttribute("lengthOfMon", dietProgramService.getLengthOfMon());
+		model.addAttribute("stampCnt", dietProgramService.getStampCnt());
+		return "statistics.jsp";
 	}
 }

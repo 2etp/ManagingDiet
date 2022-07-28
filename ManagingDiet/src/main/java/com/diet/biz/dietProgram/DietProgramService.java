@@ -41,5 +41,8 @@ public interface DietProgramService {
 	
 	// 일일 미션 도장 찍기
 	void stampMission();
+	
+	// DB stampCnt 컬럼 가져오기
+	int getStampCnt();
 
 }

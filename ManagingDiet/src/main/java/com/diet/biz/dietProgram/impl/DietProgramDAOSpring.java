@@ -34,6 +34,7 @@ public class DietProgramDAOSpring {
 	private final String DIET_CHECK = "select food from tbldiet where id = ?";
 	private final String DIET_SELECT = "select * from tblfood where `음식명` = ?";
 	private final String STAMP_CNT_UPDATE = "update tblmember set stampcnt = stampcnt+1 where id = ?";
+	private final String STAMP_CNT_SELECT = "select stampcnt from tblmember where id = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -207,6 +208,16 @@ public class DietProgramDAOSpring {
 		System.out.println(userInfo.getId());
 		Object[] args = {userInfo.getId()};
 		jdbcTemplate.update(STAMP_CNT_UPDATE, args);
+	}
+	
+	// DB stampCnt 컬럼 가져오기
+	public int getStampCnt() {
+		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpServletRequest req = sra.getRequest();
+		HttpSession session = req.getSession();
+		UserVO userInfo = (UserVO)session.getAttribute("idKey");
+		Object[] args = {userInfo.getId()};
+		return jdbcTemplate.queryForObject(STAMP_CNT_SELECT, args, Integer.class);
 	}
 
 }

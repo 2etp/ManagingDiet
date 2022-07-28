@@ -5,7 +5,7 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Insert title here</title>
+<title>식단 프로그램 구성</title>
 <meta charset="UTF-8" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
@@ -37,14 +37,14 @@
 
 	<h1>음식 추천 리스트</h1>
 	
-	<form action="insertFood.do" method="post">
+	<form action="insertFood.do" method="post" name="frm">
 		<c:forEach items="${foodList}" var="food">
 			<label>	
-			<input type="checkbox" name="food" value="${food.foodName}">
-				<div>
+			<input type="checkbox" name="food" value="${food.foodName}" onClick="itemSum(this.form);">
+				<div id="list-wrap">
 					<img src="image/${food.imgPath}" width="300px" height="300px">
 					<p>음식명 : ${food.foodName}</p>
-					<p>칼로리 : ${food.foodCalorie}kcal</p>
+					<p>칼로리 : <span id="foodCalorie">${food.foodCalorie}</span>kcal</p>
 					<p>탄수화물 : ${food.foodCarbs}g</p>
 					<p>단백질 : ${food.foodProtein}g</p>
 					<p>지방 : ${food.foodFat}g</p>
@@ -53,8 +53,10 @@
 			</label>
 	
 		</c:forEach>
+		
+		칼로리 합계 <input type="text" name="sum" id="sum" readonly><br><br>
 
-		<input type="hidden" name="id" value="${idKey.id }">
+		<input type="hidden" name="id" value="${idKey.id}">
 		<input type="submit" value="식단짜기">
 
 	</form>
@@ -92,6 +94,26 @@
 	
 <script>
 
+// 유저가 선택한 음식의 칼로리 합 구하기
+function itemSum(frm) {
+	var kcal = "${kcal}";
+	var sum = 0;
+	var count = frm.food.length;
+	for(var i = 0; i < count; ++i) {
+		if(frm.food[i].checked == true) {
+			sum += parseInt(document.getElementsByTagName('span')[i].innerText);
+			
+			if(sum > kcal) {
+				alert("일일칼로리를 초과하였습니다! 다시 선택해 주세요.");
+				frm.food[i].checked == false;
+			}
+		}
+	}
+	 frm.sum.value = sum;
+
+}
+
+// 페이징 처리
 let moveForm = $(".moveForm");
 
 $(".pageInfo a").on("click", function(e){

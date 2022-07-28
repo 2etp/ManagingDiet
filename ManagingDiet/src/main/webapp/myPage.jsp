@@ -14,5 +14,7 @@
 <a href="myDiet.do">내 식단 확인하기</a>
 <br><hr><br>
 <a href="stampMission.do">일일 미션 체크</a>
+<br><hr><br>
+<a href="statistics.do">나의 목표 달성도</a>
 </body>
 </html>
