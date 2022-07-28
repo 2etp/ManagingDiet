@@ -1,12 +1,11 @@
 :root {
     --submit_btn : rgb(99, 92, 79);
     --background-color: #626985;
-    --selection-color: ;
-    --color-primary: #1a2556;
-    --color-primary2: #28346b;
-
-    --color-secondary: #a5b3d4;
-    --color-gray: #dde6f3;
+    --selection-color: white;
+    --color-primary: #9e8868;
+    --color-primary2: #9e8868;
+    --color-secondary: #ccbeab;
+    --color-gray: #d1cabf;
     --color-light-gray: #f3f6fb;
     --color-white: white;
     --color-black: #3e3743;
@@ -35,9 +34,8 @@ body {
     overflow-x: hidden;
     font-weight: 400;
     font-size: normal;
-    background-color: whitesmoke;
-    box-sizing: border-box;
-    
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;    
 }
   
 p{
@@ -51,7 +49,6 @@ label{
 .main {
     display: block;
     justify-content: space-between;
-    box-shadow: 5px 1px 10px 2px #ddd;
     border-radius: 10px;
 }
 .typewriter {
@@ -180,8 +177,8 @@ h1 {
     .card,
   .card__inner,
   .card__image {
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
     }
   }
   
@@ -460,6 +457,10 @@ h1 {
   transform-style: preserve-3d;
   perspective: 400px;
   text-align: center;  
+  margin-bottom: -30px;
+  font-weight:lighter;
+  font-family: 'Gugi', cursive;
+
 }
 
 .letter, .space {
@@ -742,4 +743,3 @@ h1 {
   right: 0;
   bottom: 0;
 }
-
