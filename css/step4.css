@@ -132,12 +132,7 @@ h1 {
   }
 
   /* float img */
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-  
+ 
 
   img,
   svg {
@@ -263,7 +258,7 @@ h1 {
   @media (min-width: 768px) {
     .content__group {
       top: 40px;
-      left: auto;
+      left: 50vw;
       bottom: 40px;
       width: 50vw;
     }
