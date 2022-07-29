@@ -24,15 +24,17 @@ window.onload = function () {
             if (man.checked == false && woman.checked == false) {
                 alert("성별을 지정해주세요!")
             }
-            else if (inp1.value < '100' || inp1.value > '250') {
+            else if (inp1.value < 100 || inp1.value > 250) {
                 alert("신장을 100~250 사이로 입력하세요!")
             }
-            else if (inp2.value < '1' || inp2.value > '250') {
+            else if (inp2.value < 1 || inp2.value > 250) {
                 alert("체중을 1~250 사이로 입력하세요!")
             }
-            else if (inp3.value < '1' || inp3.value > '150') {
-                alert("나이를 1~150 사이로 입력하세요!")
+            else if (inp3.value < 1 || inp3.value > 150) {
+                alert("나이을 1~150 사이로 입력하세요!")
             }
+
+
             else {
                 if ((man.checked == true && woman.checked == false) || (man.checked == false && woman.checked == true)) {
                     document.getElementById('frm').submit();

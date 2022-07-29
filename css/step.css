@@ -137,7 +137,9 @@ form input[type="radio"]:not(:checked)::before {
 .input_inp {
   margin-top: 50px;
   text-align: center;
-}
+  position: relative;
+  left: 40px;
+  }
 .inp {
   position: relative;
   margin: auto;
@@ -260,7 +262,7 @@ form input[type="radio"]:not(:checked)::before {
 	transition: all .3s ease-in;
 	-webkit-transition: all .3s ease-in;
 	cursor:pointer;
-  left: 45px;
+  left: 60px;
 }
 
 .btn-submit:hover{
