@@ -74,7 +74,7 @@ public class DietProgramServiceImpl implements DietProgramService{
 	}
 	
 	// DB stampCnt 컬럼 가져오기
-	public int getStampCnt() {
+	public String getStampCnt() {
 		return dietProgramDAO.getStampCnt();
 	}
 }

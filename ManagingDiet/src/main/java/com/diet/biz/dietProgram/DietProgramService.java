@@ -43,6 +43,6 @@ public interface DietProgramService {
 	void stampMission();
 	
 	// DB stampCnt 컬럼 가져오기
-	int getStampCnt();
+	String getStampCnt();
 
 }

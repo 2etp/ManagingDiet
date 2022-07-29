@@ -18,6 +18,13 @@
  	left: 10%;
 }
 
+canvas {
+	float: left;
+}
+
+#bar-chart {
+	margin-left: 100px;
+}
 </style>
 </head>
 <body>
@@ -26,6 +33,8 @@
 <div class="doughnut-inner">
 	<h1 id="statistics"></h1>
 </div>
+
+<canvas id="bar-chart" width="400" height="400"></canvas>
 
 
 <script>
@@ -44,7 +53,7 @@ new Chart(document.getElementById("doughnut-chart"), {
       labels: ["달성일 수", "미달성일 수"],
       datasets: [
         {
-          label: "Goal achievement",
+          label: "Goal Achievement",
           backgroundColor: ["#F56276", "#EBEBEB"],
           data: [stampCnt, lengthOfMon-stampCnt]
         }
@@ -54,9 +63,33 @@ new Chart(document.getElementById("doughnut-chart"), {
     	responsive: false,
       title: {
         display: true,
-        text: '나의 목표 달성도',
-       	fontSize: 50
+        text: '이번 달 목표 달성도',
+       	fontSize: 40
 
+      }
+    }
+});
+
+// 바 차트 구현
+new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+      datasets: [
+        {
+          label: "Monthly Goal Achievement",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [2478,5267,734,784,433]
+        }
+      ]
+    },
+    options: {
+    	responsive: false,
+      legend: { display: false },
+      title: {
+        display: true,
+        text: '월별 달성도',
+       	fontSize: 40
       }
     }
 });

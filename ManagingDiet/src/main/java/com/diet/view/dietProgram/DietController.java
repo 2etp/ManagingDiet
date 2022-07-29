@@ -110,15 +110,18 @@ public class DietController {
 	
 	// 일일 미션 도장 찍기
 	@RequestMapping(value = "/stampMission.do", method=RequestMethod.POST)
-	public String stampMission() {
+	public String stampMission(Model model) {
+		String[] stringArr = dietProgramService.getStampCnt().split(",");
+		int[] intArr = Arrays.stream(stringArr).mapToInt(Integer::parseInt).toArray();
+		System.out.println("int 배열은 : " + Arrays.toString(intArr));
+		model.addAttribute("stampCnt", dietProgramService.getStampCnt());
 		dietProgramService.stampMission();
 		return "stampMission.jsp";
 	}
 	
 	// DB stampCnt 컬럼 가져오기
 	@RequestMapping("/statistics.do")
-	public String getStampCnt(Model model, HttpSession session) {
-		session.setAttribute("lengthOfMon", dietProgramService.getLengthOfMon());
+	public String getStampCnt(Model model) {
 		model.addAttribute("stampCnt", dietProgramService.getStampCnt());
 		return "statistics.jsp";
 	}
