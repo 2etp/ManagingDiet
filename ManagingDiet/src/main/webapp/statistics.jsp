@@ -39,9 +39,9 @@ canvas {
 
 <script>
 
-var lengthOfMon = parseInt("${lengthOfMon}");
-var stampCnt = parseInt("${stampCnt}");
-var statistics = Math.ceil((stampCnt/lengthOfMon)*100);
+var lengthOfMon = "${lengthOfMon}";
+var thisMonthCnt = "${thisMonthCnt}";
+var statistics = Math.ceil((thisMonthCnt/lengthOfMon)*100);
 
 // 목표 달성도 화면에 출력
 document.getElementById('statistics').innerText = statistics + '%';
@@ -55,7 +55,7 @@ new Chart(document.getElementById("doughnut-chart"), {
         {
           label: "Goal Achievement",
           backgroundColor: ["#F56276", "#EBEBEB"],
-          data: [stampCnt, lengthOfMon-stampCnt]
+          data: [thisMonthCnt, lengthOfMon-thisMonthCnt]
         }
       ]
     },
@@ -79,7 +79,8 @@ new Chart(document.getElementById("bar-chart"), {
         {
           label: "Monthly Goal Achievement",
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [2478,5267,734,784,433]
+          data: ["${stampCnt[0]}", "${stampCnt[1]}", "${stampCnt[2]}", "${stampCnt[3]}", "${stampCnt[4]}", "${stampCnt[5]}",
+        	     "${stampCnt[6]}", "${stampCnt[7]}", "${stampCnt[8]}", "${stampCnt[9]}", "${stampCnt[10]}", "${stampCnt[11]}"]
         }
       ]
     },

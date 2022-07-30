@@ -110,14 +110,16 @@ public class DietController {
 	// 일일 미션 도장 찍기
 	@RequestMapping(value = "/stampMission.do", method=RequestMethod.POST)
 	public String stampMission(Model model) {
+		// DB의 stampCnt 데이터를 가져와서 String 배열로 변환
 		String[] stringArr = dietProgramService.getStampCnt().split(",");
-		// stringArr 문자열 배열을 int형 배열로 변환
+		// stringArr 배열을 int형 배열로 변환
 		int[] intArr = Arrays.stream(stringArr).mapToInt(Integer::parseInt).toArray();
 		int monthValue = dietProgramService.getMonth();
 		// intArr 배열 중 현재 달에 해당되는 인덱스 값 +1 하기
 		intArr[monthValue-1] += 1;
 		// intArr을 다시 문자열로 변환
-		String stampCnt = Arrays.toString(intArr);
+		String stampCnt = Arrays.toString(intArr).replace(", ",",").replace("[","").replace("]","");
+		System.out.println(stampCnt);
 		dietProgramService.stampMission(stampCnt);
 		return "stampMission.jsp";
 	}
@@ -125,7 +127,12 @@ public class DietController {
 	// DB stampCnt 컬럼 가져오기
 	@RequestMapping("/statistics.do")
 	public String getStampCnt(Model model) {
-		model.addAttribute("stampCnt", dietProgramService.getStampCnt());
+		String[] stringArr = dietProgramService.getStampCnt().split(",");
+		int[] intArr = Arrays.stream(stringArr).mapToInt(Integer::parseInt).toArray();
+		int monthValue = dietProgramService.getMonth();
+		model.addAttribute("stampCnt", intArr);
+		model.addAttribute("thisMonthCnt", intArr[monthValue-1]);
+		model.addAttribute("lengthOfMon", dietProgramService.getLengthOfMon());
 		return "statistics.jsp";
 	}
 }
