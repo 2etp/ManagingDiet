@@ -68,9 +68,14 @@ public class DietProgramServiceImpl implements DietProgramService{
 		return dietProgramDAO.getLengthOfMon();
 	}
 	
+	// 현재 달(월) 구하기
+	public int getMonth() {
+		return dietProgramDAO.getMonth();
+	}
+	
 	// 일일 미션 도장 찍기
-	public void stampMission() {
-		dietProgramDAO.stampMission();
+	public void stampMission(String stampCnt) {
+		dietProgramDAO.stampMission(stampCnt);
 	}
 	
 	// DB stampCnt 컬럼 가져오기

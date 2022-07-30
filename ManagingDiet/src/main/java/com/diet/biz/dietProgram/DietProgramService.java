@@ -39,8 +39,11 @@ public interface DietProgramService {
 	// 달의 일수 구하기
 	int getLengthOfMon();
 	
+	// 현재 달(월) 구하기
+	int getMonth();
+	
 	// 일일 미션 도장 찍기
-	void stampMission();
+	void stampMission(String stampCnt);
 	
 	// DB stampCnt 컬럼 가져오기
 	String getStampCnt();

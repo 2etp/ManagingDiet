@@ -33,7 +33,7 @@ public class DietProgramDAOSpring {
 	private final String DIET_USER_CHECK = "select id from tbldiet where id = ?";
 	private final String DIET_CHECK = "select food from tbldiet where id = ?";
 	private final String DIET_SELECT = "select * from tblfood where `음식명` = ?";
-	private final String STAMP_CNT_INSERT = "update tblmember set stampcnt = ? where id = ?";
+	private final String STAMP_CNT_UPDATE = "update tblmember set stampcnt = ? where id = ?";
 	private final String STAMP_CNT_SELECT = "select stampcnt from tblmember where id = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
@@ -199,15 +199,21 @@ public class DietProgramDAOSpring {
 		return lengthOfMon;
 	}
 	
+	// 현재 달(월) 구하기
+	public int getMonth() {
+		LocalDate now = LocalDate.now();
+		int monthValue = now.getMonthValue();
+		return monthValue;
+	}
+	
 	// 일일 미션 도장 찍기
-	public void stampMission() {
+	public void stampMission(String stampCnt) {
 		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpServletRequest req = sra.getRequest();
 		HttpSession session = req.getSession();
 		UserVO userInfo = (UserVO)session.getAttribute("idKey");
-		System.out.println(userInfo.getId());
-		Object[] args = {userInfo.getId()};
-		jdbcTemplate.update(STAMP_CNT_UPDATE1, args);
+		Object[] args = {stampCnt, userInfo.getId()};
+		jdbcTemplate.update(STAMP_CNT_UPDATE, args);
 	}
 	
 	// DB stampCnt 컬럼 가져오기

@@ -103,7 +103,6 @@ public class DietController {
 	@RequestMapping(value = "/stampMission.do", method=RequestMethod.GET)
 	public String stampMissionView(Model model, HttpSession session) {
 		session.setAttribute("lengthOfMon", dietProgramService.getLengthOfMon());
-		//model.addAttribute("lengthOfMon", dietProgramService.getLengthOfMon());
 		System.out.println("이번 달의 일수 :" + dietProgramService.getLengthOfMon());
 		return "stampMission.jsp";
 	}
@@ -112,10 +111,14 @@ public class DietController {
 	@RequestMapping(value = "/stampMission.do", method=RequestMethod.POST)
 	public String stampMission(Model model) {
 		String[] stringArr = dietProgramService.getStampCnt().split(",");
+		// stringArr 문자열 배열을 int형 배열로 변환
 		int[] intArr = Arrays.stream(stringArr).mapToInt(Integer::parseInt).toArray();
-		System.out.println("int 배열은 : " + Arrays.toString(intArr));
-		model.addAttribute("stampCnt", dietProgramService.getStampCnt());
-		dietProgramService.stampMission();
+		int monthValue = dietProgramService.getMonth();
+		// intArr 배열 중 현재 달에 해당되는 인덱스 값 +1 하기
+		intArr[monthValue-1] += 1;
+		// intArr을 다시 문자열로 변환
+		String stampCnt = Arrays.toString(intArr);
+		dietProgramService.stampMission(stampCnt);
 		return "stampMission.jsp";
 	}
 	
