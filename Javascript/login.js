@@ -91,7 +91,13 @@ jQuery(document).ready(function ($) {
         $form_forgot_password.addClass('is-selected');
     }
 
-
+    // // REMOVE THIS - it's just to show error messages 
+    // $form_login.find('input[type="submit"]').on('click', function (event) {
+    //     $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+    // });
+    // $form_signup.find('input[type="submit"]').on('click', function (event) {
+    //     $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+    // });
 
 
     //IE9 placeholder fallback
@@ -138,6 +144,7 @@ jQuery.fn.putCursorAtEnd = function () {
     });
 };
 
+
 // 체크박스 체크시 버튼 활성화
 function agreeCheck(frm) {
     if (frm.checkButton.disabled == true)
@@ -146,3 +153,64 @@ function agreeCheck(frm) {
     else
         frm.checkButton.disabled = true
 }
+
+// 회원가입 예외처리
+// 비밀번호 유효성 검사 문법
+function checkPassword() {
+    let userName = $("#signup-username").val();
+    let userEmail = $("#signup-email").val();
+    let userPhone = $("#signup-phone").val();
+
+    if (userName == '') {
+        $(".user-danger").css('display', 'block')
+        setTimeout(function () {
+            $("#user-danger").css('display', 'none');
+        }, 3000)
+    }
+
+    // 비밀번호 확인
+    let pwd1 = $("#password_1").val();
+    let pwd2 = $("#password_2").val();
+    // if (pwd1 !== pwd2) {
+    //     $('#password_1').val('').focus();
+    //     $('#password_2').val('').focus();
+    //     return false;
+    // }
+    // 정규식
+    if (!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/.test(pwd1)) {
+        if (!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/.test(pwd2)) {
+            $("#password-danger").css('display', 'block');
+            $("#password-danger3").css('display', 'none');
+            $('#password_1').val('').focus();
+            setTimeout(function () {
+                $("#password-danger").css('display', 'none');
+            }, 5000)
+            return false;
+        }
+    }
+    $('#signup').submit();
+}
+
+// 비밀번호 확인
+$('.pw').focusout(function () {
+    let pwd1 = $("#password_1").val();
+    let pwd2 = $("#password_2").val();
+    if (pwd1 == '' && pwd2 == '') {
+        null;
+    } else if (pwd1 != "" || pwd2 != "") {
+        if (pwd1 == pwd2) {
+            $("#alert-success").css('display', 'block');
+            $("#alert-danger").css('display', 'none');
+            setTimeout(function () {
+                $("#alert-success").css('display', 'none');
+            }, 3000)
+
+        } else {
+            $("#alert-success").css('display', 'none');
+            $("#alert-danger").css('display', 'block');
+            setTimeout(function () {
+                $("#alert-danger").css('display', 'none');
+            }, 3000)
+        }
+    }
+});

@@ -132,13 +132,17 @@
     background-position: 50% 0;
   }
   .form label.username {
-    background-image: url("https://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-username.svg");
+    background-image: url("../picture/user.svg");
   }
   .form label.email {
-    background-image: url("https://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-email.svg");
+    background-image: url("../picture/email.svg");
   }
   .form label.password {
-    background-image: url("https://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-password.svg");
+    background-image: url("../picture/key.svg");
+  }
+  .form label.phone {
+    background-image: url("../picture/phoneImg.svg");
+    color: #ddd;
   }
   .form input {
     margin: 0;
@@ -216,7 +220,7 @@
     color: #343642;
   }
   .form .error-message {
-    display: inline-block;
+    display: none;
     position: absolute;
     left: -5px;
     bottom: -35px;
@@ -229,8 +233,6 @@
     border-radius: 0.25em;
     /* prevent click and touch events */
     pointer-events: none;
-    visibility: hidden;
-    opacity: 0;
     -webkit-transition: opacity 0.2s 0, visibility 0 0.2s;
     -moz-transition: opacity 0.2s 0, visibility 0 0.2s;
     transition: opacity 0.2s 0, visibility 0 0.2s;
@@ -247,13 +249,7 @@
     border-right: 8px solid transparent;
     border-bottom: 8px solid rgba(215, 102, 102, 0.9);
   }
-  .form .error-message.is-visible {
-    opacity: 1;
-    visibility: visible;
-    -webkit-transition: opacity 0.2s 0, visibility 0 0;
-    -moz-transition: opacity 0.2s 0, visibility 0 0;
-    transition: opacity 0.2s 0, visibility 0 0;
-  }
+  
   @media only screen and (min-width: 600px) {
     .form {
       padding: 2em;

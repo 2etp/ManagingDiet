@@ -97,12 +97,13 @@
         <!-- <a href="#0" class="close-form">Close</a> -->
       </div>
 
+      <!-- 회원가입 -->
       <div id="signup">
-        <form class="form">
+        <form class="form" id="signup-form">
           <p class="fieldset">
             <label class="image-replace username" for="signup-username">Username</label>
             <input class="full-width has-padding has-border width" id="signup-username" type="text" placeholder="이름">
-            <span class="error-message">Your username can only contain numeric and alphabetic symbols!</span>
+            <span class="error-message" id="user-danger">이름을 입력하세요</span>
           </p>
 
           <p class="fieldset">
@@ -112,10 +113,25 @@
           </p>
 
           <p class="fieldset">
+            <i class="fa-solid fa-mobile-screen"></i>
+            <label class="image-replace phone" for="signup-phone">Phone-number</label>
+            <input class="full-width has-padding has-border width" id="signup-phoneNumber" type="tel" placeholder="휴대폰 번호">
+            <span class="error-message">Enter a valid email address!</span>
+          </p>
+
+          <p class="fieldset">
             <label class="image-replace password" for="signup-password">Password</label>
-            <input class="full-width has-padding has-border width" id="signup-password" type="password"  placeholder="비밀번호">
+            <input class="full-width has-padding has-border width pw" id="password_1" type="password"  placeholder="비밀번호">
             <a href="#0" class="hide-password">Show</a>
-            <span class="error-message">Your password has to be at least 6 characters long!</span>
+            <span class="error-message" id="password-danger">숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.</span>
+          </p>          
+
+          <p class="fieldset">
+            <label class="image-replace password" for="signup-password">Password</label>
+            <input class="full-width has-padding has-border width pw" id="password_2" type="password"  placeholder="비밀번호 확인">
+            <a href="#0" class="hide-password">Show</a>
+            <span class="error-message" id="alert-success">비밀번호가 일치합니다.</span>
+            <span class="error-message" id="alert-danger">비밀번호가 일치하지 않습니다.</span>
           </p>
 
           <p class="fieldset">
@@ -125,7 +141,7 @@
 
           <!-- 회원가입 제출 버튼 -->
           <p class="fieldset">
-            <input class="full-width has-padding agreeResult" name="checkButton" type="submit" value="회원가입" disabled>
+            <input class="full-width has-padding agreeResult" name="checkButton" type="submit" value="회원가입" onclick="checkPassword()" disabled>
           </p>
         </form>
 

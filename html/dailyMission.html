@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title></title>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="../css/myPage.css">
+<link rel="stylesheet" href="../css/dailyMission.css">
 <link rel="stylesheet" href="../css/navi.css">
 <link rel="stylesheet" href="../css/login.css">
 <link rel="stylesheet" href="../css/common.css">
@@ -47,31 +47,17 @@
 		</svg>
 	</div>
     <main>
-        <!-- board -->
-            <div class="container">             
-                <div class="board-tools">
-                    <div class="pen"></div>
-                    <div class="eraser">BOARD ERASER
-                        <div class="eraser-bg">청소당번</div>
-                    </div>
-                </div>            
-            <!-- board content -->
-            <div class="board-contents">
-                <div class="myPage-title">My page</div>
-
-                <div class="user-info">
-                    <div class="board-content">아이디</div>
-                    <div class="board-content">이름</div>
-                    <div class="board-content">휴대폰 번호</div>                    
-                </div> 
-                <hr style="margin: 100px 0px -120px 0px;">
-                <div class="board-link">
-                    <div class="yellow underline"><a href="./chkMydiet.html">내 식단 확인하기</a></div>
-                    <div class="yellow underline link"><a href="./dailyMission.html">일일 미션 체크</a></div>
-                    <div class="yellow underline link"><a href="./myAchievement.html">나의 목표 달성도</a></div>
-                </div>               
-            </div> 
-        </div>
+        <div class="main-container">            
+            <div class="mission1">
+                <div class="missionTitle">
+                    <input class="chkBox" type="checkbox">
+                    미션
+                </div>
+                <div class="missionStamp">stamp
+                    <img src="../picture/completestamp.png" alt="">
+                </div>
+            </div>
+        </div>        
     </main>
 
 	  <!-- 모달 로그인 -->
@@ -172,7 +158,7 @@
 <script  src="../Javascript/index.js"></script>
 <!-- 로그인 js -->
 <script src="../Javascript/login.js"></script>
-<!-- egg Toggle -->
-<scripts src="../Javascript/eggToggle.js" ></script>
+<!-- stamp -->
+<scripts src="../Javascript/stamp.js" ></script>
 </body>
 </html>
