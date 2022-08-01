@@ -9,6 +9,7 @@ import com.diet.biz.dietProgram.Criteria;
 import com.diet.biz.dietProgram.DietProgramService;
 import com.diet.biz.dietProgram.FoodVO;
 import com.diet.biz.dietProgram.KcalVO;
+import com.diet.biz.dietProgram.StampVO;
 import com.diet.biz.dietProgram.UserDietVO;
 import com.diet.biz.user.UserVO;
 
@@ -73,10 +74,21 @@ public class DietProgramServiceImpl implements DietProgramService{
 		return dietProgramDAO.getMonth();
 	}
 	
-	// 일일 미션 도장 찍기
-	public void stampMission(String stampCnt) {
-		dietProgramDAO.stampMission(stampCnt);
+	// stamp_date 데이터 가져오기
+	public List<StampVO> getStampDate() {
+		return dietProgramDAO.getStampDate();
 	}
+	
+	// 일일 미션 도장 찍기(월별 기록)
+	public void monthlyStampMission(String stampCnt) {
+		dietProgramDAO.monthlyStampMission(stampCnt);
+	}
+	
+	// 일일 미션 도장 찍기(일일 기록)
+	public void dailyStampMission() {
+		dietProgramDAO.dailyStampMission();
+	}
+	
 	
 	// DB stampCnt 컬럼 가져오기
 	public String getStampCnt() {

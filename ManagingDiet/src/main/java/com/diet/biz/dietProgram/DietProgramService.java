@@ -42,8 +42,14 @@ public interface DietProgramService {
 	// 현재 달(월) 구하기
 	int getMonth();
 	
-	// 일일 미션 도장 찍기
-	void stampMission(String stampCnt);
+	// stamp_date 데이터 가져오기
+	List<StampVO> getStampDate();
+	
+	// 일일 미션 도장 찍기(월별 기록)
+	void monthlyStampMission(String stampCnt);
+	
+	// 일일 미션 도장 찍기(일일 기록)
+	void dailyStampMission();
 	
 	// DB stampCnt 컬럼 가져오기
 	String getStampCnt();

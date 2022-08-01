@@ -47,6 +47,7 @@
 	  	</listener-class>
 	  </listener>
 	  
+	  <!-- HttpServletRequest를 인자로 전달하지 않고 직접 가져올 때 사용하는 클래스 -->
 	  <listener>
 	  	<listener-class>
 	  		org.springframework.web.context.request.RequestContextListener

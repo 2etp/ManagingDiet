@@ -17,6 +17,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import com.diet.biz.dietProgram.Criteria;
 import com.diet.biz.dietProgram.FoodVO;
 import com.diet.biz.dietProgram.KcalVO;
+import com.diet.biz.dietProgram.StampVO;
 import com.diet.biz.dietProgram.UserDietVO;
 import com.diet.biz.user.UserVO;
 
@@ -28,13 +29,15 @@ public class DietProgramDAOSpring {
 	// SQL 명령어들
 	private final String FOOD_SELECT = "select * from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ? limit ?, ?";
 	private final String FOOD_TOT_COUNT = "select count(*) from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ?";
-	private final String FOOD_INSERT = "insert into tbldiet(id, food, regdate) values(?, ?, now())";
-	private final String DIET_UPDATE = "update tbldiet set food = ?, regdate = now() where id = ?";
+	private final String DIET_INSERT = "insert into tbldiet(id, food, reg_date) values(?, ?, now())";
+	private final String DIET_UPDATE = "update tbldiet set food = ?, reg_date = now() where id = ?";
 	private final String DIET_USER_CHECK = "select id from tbldiet where id = ?";
 	private final String DIET_CHECK = "select food from tbldiet where id = ?";
 	private final String DIET_SELECT = "select * from tblfood where `음식명` = ?";
-	private final String STAMP_CNT_UPDATE = "update tblmember set stampcnt = ? where id = ?";
-	private final String STAMP_CNT_SELECT = "select stampcnt from tblmember where id = ?";
+	private final String STAMP_CNT_UPDATE = "update tblmember set stamp_cnt = ? where id = ?";
+	private final String STAMP_CNT_SELECT = "select stamp_cnt from tblmember where id = ?";
+	private final String STAMP_INSERT = "insert into tblstamp(id, stamp_date) values(?, now())";
+	private final String STAMP_SELECT = "select stamp_date from tblstamp where id = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -139,7 +142,7 @@ public class DietProgramDAOSpring {
 	// 유저가 선택한 음식 리스트 DB에 넣기
 	public void insertFood(UserDietVO vo) {
 		System.out.println("insertFood 발동!!!");
-		jdbcTemplate.update(FOOD_INSERT, vo.getId(), vo.getFood());
+		jdbcTemplate.update(DIET_INSERT, vo.getId(), vo.getFood());
 	}
 	
 	// 유저가 선택한 음식 리스트 수정하기
@@ -206,14 +209,35 @@ public class DietProgramDAOSpring {
 		return monthValue;
 	}
 	
+	// stamp_date 데이터 가져오기
+	public List<StampVO> getStampDate() {
+		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpServletRequest req = sra.getRequest();
+		HttpSession session = req.getSession();
+		UserVO userInfo = (UserVO)session.getAttribute("idKey");
+		Object[] args = {userInfo.getId()};
+		return jdbcTemplate.query(STAMP_SELECT, args, new GetStampRowMapper());
+	}
+	
 	// 일일 미션 도장 찍기
-	public void stampMission(String stampCnt) {
+	public void monthlyStampMission(String stampCnt) {
 		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpServletRequest req = sra.getRequest();
 		HttpSession session = req.getSession();
 		UserVO userInfo = (UserVO)session.getAttribute("idKey");
 		Object[] args = {stampCnt, userInfo.getId()};
 		jdbcTemplate.update(STAMP_CNT_UPDATE, args);
+	}
+	
+	// 일일 미션 도장 찍기(일일 기록)
+	public void dailyStampMission() {
+		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpServletRequest req = sra.getRequest();
+		HttpSession session = req.getSession();
+		UserVO userInfo = (UserVO)session.getAttribute("idKey");
+		Object[] args = {userInfo.getId()};
+		jdbcTemplate.update(STAMP_INSERT, args);
+		
 	}
 	
 	// DB stampCnt 컬럼 가져오기
