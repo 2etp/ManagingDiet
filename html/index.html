@@ -69,18 +69,20 @@
       </ul>
 
       <div id="login">
-        <form class="form">
+        <form class="form" id="signin-form">
           <p class="fieldset">
             <label class="image-replace email" for="signin-email">E-mail</label>
             <input class="full-width has-padding has-border width" id="signin-email" type="email" placeholder="이메일">
-            <span class="error-message">An account with this email address does not exist!</span>
+            <span class="error-message" id="login-email">이메일을 입력하세요.</span>
+            <span class="error-message" id="login-email2">이메일 형태로 입력하세요.</span>
           </p>
 
           <p class="fieldset">
             <label class="image-replace password" for="signin-password">Password</label>
             <input class="full-width has-padding has-border width" id="signin-password" type="password"  placeholder="비밀번호">
             <a href="#0" class="hide-password">Show</a>
-            <span class="error-message">Wrong password! Try again.</span>
+            <span class="error-message" id="login-pw">비밀번호를 확인해주세요.</span>
+            <span class="error-message" id="login-pw2">숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.</span>
           </p>
 
           <p class="fieldset">
@@ -89,7 +91,7 @@
           </p>
 
           <p class="fieldset">
-            <input class="full-width" type="submit" value="로그인">
+            <input class="full-width" type="button" onclick="loginchk()" value="로그인">
           </p>
         </form>
         
@@ -99,24 +101,26 @@
 
       <!-- 회원가입 -->
       <div id="signup">
-        <form class="form" id="signup-form">
+        <form action="" class="form" id="signup-form">
           <p class="fieldset">
             <label class="image-replace username" for="signup-username">Username</label>
             <input class="full-width has-padding has-border width" id="signup-username" type="text" placeholder="이름">
             <span class="error-message" id="user-danger">이름을 입력하세요</span>
+            <span class="error-message" id="user-danger2">이름이 잘못 되었습니다.</span>
           </p>
 
           <p class="fieldset">
             <label class="image-replace email" for="signup-email">E-mail</label>
-            <input class="full-width has-padding has-border width" id="signup-email" type="email" placeholder="이메일">
-            <span class="error-message">Enter a valid email address!</span>
+            <input type="email" class="full-width has-padding has-border width" id="signup-email"  placeholder="이메일">
+            <span class="error-message" id="email-danger">이메일을 입력하세요.</span>
+            <span class="error-message" id="email-danger2">이메일 형태로 입력하세요.</span>
           </p>
 
           <p class="fieldset">
             <i class="fa-solid fa-mobile-screen"></i>
             <label class="image-replace phone" for="signup-phone">Phone-number</label>
-            <input class="full-width has-padding has-border width" id="signup-phoneNumber" type="tel" placeholder="휴대폰 번호">
-            <span class="error-message">Enter a valid email address!</span>
+            <input class="full-width has-padding has-border width" id="signup-phone" type="tel" placeholder="휴대폰 번호 ex)01012345678">
+            <span class="error-message" id="phone-danger">휴대폰 번호를 입력하세요.</span>
           </p>
 
           <p class="fieldset">
@@ -141,7 +145,7 @@
 
           <!-- 회원가입 제출 버튼 -->
           <p class="fieldset">
-            <input class="full-width has-padding agreeResult" name="checkButton" type="submit" value="회원가입" onclick="checkPassword()" disabled>
+            <input class="full-width has-padding agreeResult" name="checkButton" type="button" value="회원가입" onclick="checkPassword()" disabled>
           </p>
         </form>
 

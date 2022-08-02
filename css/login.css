@@ -175,7 +175,7 @@
     /* space left for the HIDE button */
     padding-right: 65px;
   }
-  .form input[type=submit] {
+  .form input[type=button] {
     padding: 16px 0;
     cursor: pointer;
     background: #F64747;
@@ -193,7 +193,7 @@
       -o-transition: all 0.30s ease-in-out;
   }
 
-  .form input[type=submit]:hover {
+  .form input[type=button]:hover {
     background: #d83d3d;
   }
   .no-touch .form input[type=submit]:hover, .no-touch .form input[type=submit]:focus {

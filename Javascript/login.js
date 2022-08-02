@@ -154,43 +154,6 @@ function agreeCheck(frm) {
         frm.checkButton.disabled = true
 }
 
-// 회원가입 예외처리
-// 비밀번호 유효성 검사 문법
-function checkPassword() {
-    let userName = $("#signup-username").val();
-    let userEmail = $("#signup-email").val();
-    let userPhone = $("#signup-phone").val();
-
-    if (userName == '') {
-        $(".user-danger").css('display', 'block')
-        setTimeout(function () {
-            $("#user-danger").css('display', 'none');
-        }, 3000)
-    }
-
-    // 비밀번호 확인
-    let pwd1 = $("#password_1").val();
-    let pwd2 = $("#password_2").val();
-    // if (pwd1 !== pwd2) {
-    //     $('#password_1').val('').focus();
-    //     $('#password_2').val('').focus();
-    //     return false;
-    // }
-    // 정규식
-    if (!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/.test(pwd1)) {
-        if (!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/.test(pwd2)) {
-            $("#password-danger").css('display', 'block');
-            $("#password-danger3").css('display', 'none');
-            $('#password_1').val('').focus();
-            setTimeout(function () {
-                $("#password-danger").css('display', 'none');
-            }, 5000)
-            return false;
-        }
-    }
-    $('#signup').submit();
-}
-
 // 비밀번호 확인
 $('.pw').focusout(function () {
     let pwd1 = $("#password_1").val();
@@ -214,3 +177,124 @@ $('.pw').focusout(function () {
         }
     }
 });
+
+// 회원가입 예외처리
+// 비밀번호 유효성 검사 문법
+function checkPassword() {
+    let userName = $("#signup-username").val();
+    let userEmail = $("#signup-email").val();
+    let userPhone = $("#signup-phone").val();
+    let pwd1 = $("#password_1").val();
+    let pwd2 = $("#password_2").val();
+
+    //이메일 정규화 공식
+    var regul2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
+    //이름 정규화 공식
+    var regul3 = /^[가-힝a-zA-Z]{2,}$/;
+
+    // 이름 확인
+    if (userName == '') {
+        $("#user-danger").css('display', 'block')
+        setTimeout(function () {
+            $("#user-danger").css('display', 'none');
+        }, 3000)
+        return false;
+    }
+    // 이름 특수문자 사용막는 정규식
+    else if (!/^[가-힝a-zA-Z]{2,}$/.test(userName)) {
+        $("#user-danger2").css('display', 'block')
+        setTimeout(function () {
+            $("#user-danger2").css('display', 'none');
+        }, 3000)
+        return false;
+    }
+    // 이메일 확인
+    else if (userEmail == '') {
+        $("#email-danger").css('display', 'block')
+        setTimeout(function () {
+            $("#email-danger").css('display', 'none');
+        }, 3000)
+        return false;
+    }
+    // 이메일 정규식
+    else if (!/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/.test(userEmail)) {
+        $("#email-danger2").css('display', 'block')
+        setTimeout(function () {
+            $("#email-danger2").css('display', 'none');
+        }, 3000)
+        return false;
+    }
+
+    // 휴대폰 번호 확인
+    else if (userPhone == '') {
+        $("#phone-danger").css('display', 'block')
+        setTimeout(function () {
+            $("#phone-danger").css('display', 'none');
+        }, 3000)
+        return false;
+    }
+
+    // 비밀번호 확인
+    else if (pwd1 !== pwd2) {
+        $('#password_1').val('').focus();
+        $('#password_2').val('').focus();
+        return false;
+    }
+    // 비밀번호 정규식
+    else if (!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/.test(pwd1)) {
+        if (!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/.test(pwd2)) {
+            $("#password-danger").css('display', 'block');
+            $("#password-danger3").css('display', 'none');
+            $('#password_1').val('').focus();
+            setTimeout(function () {
+                $("#password-danger").css('display', 'none');
+            }, 5000)
+            return false;
+        }
+    }
+    else {
+        document.signup.submit();
+    }
+}
+
+
+
+function loginchk() {
+    let loginEmail = $("#signin-email").val();
+    let loginPw = $("#signin-password").val();
+    // 로그인 이메일 입력 안할시
+    if (loginEmail == '') {
+        $("#login-email").css('display', 'block')
+        setTimeout(function () {
+            $("#login-email").css('display', 'none');
+        }, 3000)
+        return false;
+    }
+    // 로그인 이메일 정규식
+    else if (!/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/.test(loginEmail)) {
+        $("#login-email2").css('display', 'block')
+        setTimeout(function () {
+            $("#login-email2").css('display', 'none');
+        }, 3000)
+        return false;
+    }
+    // 로그인 비밀번호 입력안할시
+    else if (loginPw == '') {
+        $("#login-pw").css('display', 'block')
+        setTimeout(function () {
+            $("#login-pw").css('display', 'none');
+        }, 3000)
+        return false;
+    }
+    // 로그인 비밀번호 정규식
+    else if (!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/.test(loginPw)) {
+        $("#login-pw2").css('display', 'block')
+        setTimeout(function () {
+            $("#login-pw2").css('display', 'none');
+        }, 3000)
+        return false;
+    }
+    else {
+        $('#signin-form').submit();
+    }
+}
