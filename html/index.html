@@ -86,7 +86,7 @@
           </p>
 
           <p class="fieldset">
-            <input type="checkbox" id="remember-me" checked>
+            <input type="checkbox" id="remember-me">
             <label for="remember-me">Remember me</label>
           </p>
 
@@ -140,13 +140,14 @@
           </p>
 
           <p class="fieldset">
-            <input type="checkbox" id="accept-terms" name="agree" onClick="agreeCheck(this.form)">
+            <input type="checkbox" id="accept-terms" name="agree">
+            <span class="error-message" id="accept-danger" style="left: -23px; top: 23px;">약관 동의를 체크 해주세요.</span>
             <label for="accept-terms">I agree to the <a class="accept-terms" href="#0">Terms</a></label>
           </p>
 
           <!-- 회원가입 제출 버튼 -->
           <p class="fieldset">
-            <input class="full-width has-padding agreeResult" name="checkButton" type="button" value="회원가입" onclick="checkPassword()" disabled>
+            <input class="full-width has-padding agreeResult" name="checkButton" type="button" value="회원가입" onclick="checkPassword();">
           </p>
         </form>
 
@@ -159,7 +160,7 @@
         <form class="form">
           <p class="fieldset">
             <label class="image-replace email" for="reset-email">E-mail</label>
-            <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="이메일">
+            <input class="full-width has-padding has-border has-width" id="reset-email" type="email" placeholder="이메일">
             <span class="error-message">An account with this email does not exist!</span>
           </p>
 

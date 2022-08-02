@@ -145,15 +145,6 @@ jQuery.fn.putCursorAtEnd = function () {
 };
 
 
-// 체크박스 체크시 버튼 활성화
-function agreeCheck(frm) {
-    if (frm.checkButton.disabled == true)
-        frm.checkButton.disabled = false
-
-    else
-        frm.checkButton.disabled = true
-}
-
 // 비밀번호 확인
 $('.pw').focusout(function () {
     let pwd1 = $("#password_1").val();
@@ -186,11 +177,7 @@ function checkPassword() {
     let userPhone = $("#signup-phone").val();
     let pwd1 = $("#password_1").val();
     let pwd2 = $("#password_2").val();
-
-    //이메일 정규화 공식
-    var regul2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
-    //이름 정규화 공식
-    var regul3 = /^[가-힝a-zA-Z]{2,}$/;
+    let agreechecked = $("#accept-terms");
 
     // 이름 확인
     if (userName == '') {
@@ -260,8 +247,17 @@ function checkPassword() {
             return false;
         }
     }
+    // 약관 동의 체크 안할시
+    else if ($(agreechecked).prop("checked") == false) {
+        $("#accept-danger").css('display', 'block')
+        setTimeout(function () {
+            $("#accept-danger").css('display', 'none');
+        }, 3000)
+        return false;
+    }
+
     else {
-        document.signup.submit();
+        $('#signup-form').submit();
     }
 }
 

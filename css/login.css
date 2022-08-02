@@ -49,6 +49,9 @@
     -moz-transition-duration: 0.3s;
     transition-duration: 0.3s;
   }
+  .switcher {
+    padding-right: 40px!important;
+  }
   .user-modal-container .switcher:after {
     content: "";
     display: table;
@@ -162,6 +165,7 @@
     -ms-appearance: none;
     -o-appearance: none;
     appearance: none;
+    width: 554px;
   }
   .form input.has-border:focus {
     border-color: #343642;
@@ -249,6 +253,8 @@
     border-right: 8px solid transparent;
     border-bottom: 8px solid rgba(215, 102, 102, 0.9);
   }
+
+  
   
   @media only screen and (min-width: 600px) {
     .form {
@@ -265,10 +271,12 @@
     }
     .form input.has-padding {
       padding: 16px 20px 16px 50px;
+      
     }
     .form input[type=submit] {
       padding: 16px 0;
     }
+    
   }
   
   .form-message {
