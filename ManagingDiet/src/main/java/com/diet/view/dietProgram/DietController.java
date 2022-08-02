@@ -107,37 +107,13 @@ public class DietController {
 	
 	// 일일 미션 체크 화면 보여주기
 	@RequestMapping(value = "/stampMission.do", method=RequestMethod.GET)
-	@ResponseBody	
-	public String stampMissionView(Model model) {
-		List<StampVO> listAll = dietProgramService.getStampDate();
-		
-		JSONObject jsonObj = new JSONObject();
-        JSONArray jsonArr = new JSONArray();
-        
-        HashMap<String, Object> hash = new HashMap<>();
-        
-        for (int i = 0; i < listAll.size(); i++) {
-            hash.put("title", "성공");
-            hash.put("start", listAll.get(i).getStampDate());
- 
-            jsonObj = new JSONObject(hash);
-            jsonArr.add(jsonObj);
-            
-            model.addAttribute("jsonArr", jsonArr);
-        }
-  
-        
-		return "stampMission.jsp";
+	 public String stampMissionView(Model model, HttpSession session) {
+		 session.setAttribute("lengthOfMon", dietProgramService.getLengthOfMon());
+		 model.addAttribute("stampDate", dietProgramService.getStampDate());
+		 
+		 return "stampMission.jsp"; 
 	}
-	
-	/*
-	 * public String stampMissionView(Model model, HttpSession session) {
-	 * session.setAttribute("lengthOfMon", dietProgramService.getLengthOfMon());
-	 * model.addAttribute("stampDate", dietProgramService.getStampDate());
-	 * 
-	 * return "stampMission.jsp"; }
-	 */
-	
+	 
 	// 일일 미션 도장 찍기
 	@RequestMapping(value = "/stampMission.do", method=RequestMethod.POST)
 	public String StampMission(Model model) {
