@@ -234,6 +234,14 @@ function checkPassword() {
         return false;
     }
 
+    else if (!/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/.test(userPhone)) {
+        $("#phone-danger2").css('display', 'block')
+        setTimeout(function () {
+            $("#phone-danger2").css('display', 'none');
+        }, 3000)
+        return false;
+    }
+
     // 비밀번호 확인
     else if (pwd1 !== pwd2) {
         $('#password_1').val('').focus();
