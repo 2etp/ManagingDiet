@@ -49,7 +49,7 @@ public interface DietProgramService {
 	void monthlyStampMission(String stampCnt);
 	
 	// 일일 미션 도장 찍기(일일 기록)
-	void dailyStampMission();
+	void dailyStampMission(String stampDate);
 	
 	// DB stampCnt 컬럼 가져오기
 	String getStampCnt();

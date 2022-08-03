@@ -2,27 +2,22 @@ package com.diet.view.dietProgram;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.diet.biz.dietProgram.Criteria;
 import com.diet.biz.dietProgram.DietProgramService;
 import com.diet.biz.dietProgram.KcalVO;
 import com.diet.biz.dietProgram.PageMakerDTO;
-import com.diet.biz.dietProgram.StampVO;
 import com.diet.biz.dietProgram.UserDietVO;
 import com.diet.biz.user.UserVO;
 
@@ -116,7 +111,8 @@ public class DietController {
 	 
 	// 일일 미션 도장 찍기
 	@RequestMapping(value = "/stampMission.do", method=RequestMethod.POST)
-	public String StampMission(Model model) {
+	public String StampMission(Model model, @RequestParam Map<String, Object> param) {
+		String stampDate = (String) param.get("parsedDate");
 		// DB의 stampCnt 데이터를 가져와서 String 배열로 변환
 		String[] stringArr = dietProgramService.getStampCnt().split(",");
 		// stringArr 배열을 int형 배열로 변환
@@ -127,7 +123,7 @@ public class DietController {
 		// intArr을 다시 문자열로 변환
 		String stampCnt = Arrays.toString(intArr).replace(", ",",").replace("[","").replace("]","");
 		dietProgramService.monthlyStampMission(stampCnt);
-		dietProgramService.dailyStampMission();
+		dietProgramService.dailyStampMission(stampDate);
 		return "stampMission.jsp";
 	}
 	

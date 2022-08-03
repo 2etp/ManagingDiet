@@ -14,9 +14,9 @@
 </head>
 <body>
 
-<h1>일일 미션 도장 찍자~</h1>
+<h1>정수야 일일 미션 도장 찍자~</h1>
 
-<form id="form">
+ 
 	<div class="calendar">
 	    <div class="header">
 	      <div class="year-month"></div>
@@ -26,6 +26,7 @@
 	        <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
 	      </div>
 	    </div>
+	    <form id="form">
 	    <div class="main">
 	      <div class="days">
 	        <div class="day">일</div>
@@ -38,10 +39,11 @@
 	      </div>
 	      <div class="dates"></div>
 	    </div>
+	    	<input type="button" id="btn" value="도장 찍기">
+ 		</form>
 	</div>
 	
-	<input type="button" id="btn" value="도장 찍기">
-</form>
+
 
 <%-- <form action="stampMission.do" method="post">
 	<c:forEach var="i" begin="1" end="${lengthOfMon}" >
@@ -57,18 +59,15 @@
 
 <script>
 
+// stampDate 컬럼 데이터를 담을 배열 선언
 var arr = [];
 <c:forEach items="${stampDate}" var="date">
 	var str = "${date}";
 	var obj = {
 			stampDate : "${date.stampDate}"
 	};
-	//console.log(obj.stampDate);
+
 	arr.push(parseInt(obj.stampDate.substring(8)));
-	console.log(arr);
-	
-	var obj_json = JSON.stringify(obj);
-	//console.log(obj_json);
 </c:forEach>
 console.log("arr : " + arr);
 
@@ -146,11 +145,13 @@ const renderCalender = () => {
 renderCalender();
 
 const prevMonth = () => {
+  date.setDate(1);
   date.setMonth(date.getMonth() - 1);
   renderCalender();
 };
 
 const nextMonth = () => {
+  date.setDate(1);
   date.setMonth(date.getMonth() + 1);
   renderCalender();
 };
@@ -160,23 +161,23 @@ const goToday = () => {
   renderCalender();
 };
 
+// 오늘 날짜를 특정 포맷(yyyy-MM-dd)으로 변경
+const parsedDate = new Date(+new Date() + 3240 * 10000).toISOString().split("T")[0];
+
 $('#btn').click(function() {
 	
     $.ajax({
 				
         type: 'POST',
-        url: '/stampMission.do',
-        data: $('#form').serialize(),
-        dataType: 'json',
-        success: function(dto) {
-        	if (result == '1') {
-                alert('성공');
-            } else {
-                alert('실패');
-            }
+        url: '/ManagingDiet/stampMission.do',
+        data: {"parsedDate" : parsedDate},
+        dataType: 'text',
+        success: function(data) {
+        	alert("성공");
         },
-        error: function(a, b, c) {
-            console.log(a, b, c);
+        error: function(jqXHR, textStatus, errorThrown) {
+        	alert("ERROR : " + textStatus + " : " + errorThrown);
+      
         }
 				
    });

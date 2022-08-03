@@ -36,7 +36,7 @@ public class DietProgramDAOSpring {
 	private final String DIET_SELECT = "select * from tblfood where `음식명` = ?";
 	private final String STAMP_CNT_UPDATE = "update tblmember set stamp_cnt = ? where id = ?";
 	private final String STAMP_CNT_SELECT = "select stamp_cnt from tblmember where id = ?";
-	private final String STAMP_INSERT = "insert into tblstamp(id, stamp_date) values(?, now())";
+	private final String STAMP_INSERT = "insert into tblstamp(id, stamp_date) values(?, ?)";
 	private final String STAMP_SELECT = "select stamp_date from tblstamp where id = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
@@ -230,12 +230,12 @@ public class DietProgramDAOSpring {
 	}
 	
 	// 일일 미션 도장 찍기(일일 기록)
-	public void dailyStampMission() {
+	public void dailyStampMission(String stampDate) {
 		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpServletRequest req = sra.getRequest();
 		HttpSession session = req.getSession();
 		UserVO userInfo = (UserVO)session.getAttribute("idKey");
-		Object[] args = {userInfo.getId()};
+		Object[] args = {userInfo.getId(), stampDate};
 		jdbcTemplate.update(STAMP_INSERT, args);
 		
 	}

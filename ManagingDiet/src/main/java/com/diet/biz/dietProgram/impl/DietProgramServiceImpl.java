@@ -85,8 +85,8 @@ public class DietProgramServiceImpl implements DietProgramService{
 	}
 	
 	// 일일 미션 도장 찍기(일일 기록)
-	public void dailyStampMission() {
-		dietProgramDAO.dailyStampMission();
+	public void dailyStampMission(String stampDate) {
+		dietProgramDAO.dailyStampMission(stampDate);
 	}
 	
 	
