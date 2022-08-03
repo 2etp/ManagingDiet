@@ -17,7 +17,7 @@ window.onload = function () {
     document.getElementById('btn').onclick = function () {
         setTimeout(function () {
             document.getElementById('frm').submit();
-            location.href = 'choice_diet4.html'
+            location.href = 'dietStep4.jsp';
             return false;
         }, 2500);
     };

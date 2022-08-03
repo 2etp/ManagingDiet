@@ -30,7 +30,7 @@ window.onload = function () {
             }
             else {
                 document.getElementById('frm').submit();
-                location.href = 'choice_diet3.html'
+                location.href = 'dietStep3.jsp'
                 return false;
             }
         }, 2500);

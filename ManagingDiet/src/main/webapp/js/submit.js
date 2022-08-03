@@ -38,7 +38,7 @@ window.onload = function () {
             else {
                 if ((man.checked == true && woman.checked == false) || (man.checked == false && woman.checked == true)) {
                     document.getElementById('frm').submit();
-                    location.href = 'choice_diet2.html'
+                    location.href = 'dietStep2.jsp'
                     return false;
                 }
             }
