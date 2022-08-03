@@ -16,17 +16,17 @@
 
 <h1>정수야 일일 미션 도장 찍자~</h1>
 
- 
-	<div class="calendar">
-	    <div class="header">
-	      <div class="year-month"></div>
-	      <div class="nav">
-	        <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
-	        <button class="nav-btn go-today" onclick="goToday()">Today</button>
-	        <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
-	      </div>
-	    </div>
-	    <form id="form">
+<div class="calendar">
+    <div class="header">
+      <div class="year-month"></div>
+      <div class="nav">
+        <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+        <button class="nav-btn go-today" onclick="goToday()">Today</button>
+        <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+      </div>
+    </div>
+    
+    <form id="form">
 	    <div class="main">
 	      <div class="days">
 	        <div class="day">일</div>
@@ -39,9 +39,9 @@
 	      </div>
 	      <div class="dates"></div>
 	    </div>
-	    	<input type="button" id="btn" value="도장 찍기">
- 		</form>
-	</div>
+    	<input type="button" id="btn" value="도장 찍기">
+	</form>
+</div>
 	
 
 
