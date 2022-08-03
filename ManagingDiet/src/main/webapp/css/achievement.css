@@ -1,0 +1,96 @@
+@font-face {
+    font-family: '동희체';
+    src: url(../font/나눔손글씨\ 노력하는\ 동희.ttf);    
+  }
+
+main{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.main-container {
+    width: 1300px;
+    height: 600px;
+    border-radius: 30px;
+    color: gray;
+    padding: 70px;
+    font-family: '동희체';
+    font-size: 35px;
+    font-weight: bold;
+    margin: 60px 30px 0px 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.month-chat1 {
+    width: 600px;
+    height: 600px;
+    box-shadow: 5px 5px 10px 5px #ddd;
+    border-radius: 30px;
+}
+.month-chat2 {
+    width: 600px;
+    height: 600px;
+    margin-left: 70px;
+    box-shadow: 5px 5px 10px 5px #ddd;
+    border-radius: 30px;
+}
+.chat1-title, .chat2-title {
+    margin-top: 20px;
+}
+
+/* button */
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 30px;
+  font-family: '동희체';
+}
+button.learn-more {
+  font-weight: 600;
+  color: #382b22;
+  text-transform: uppercase;
+  padding: 10px 30px;
+  background: #fff0f0;
+  border: 2px solid #b18597;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+button.learn-more::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 90%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f9c4d2;
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+  transform: translate3d(0, 0.75em, -1em);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+button.learn-more:hover {
+  background: #ffe9e9;
+  transform: translate(0, 0.25em);
+}
+button.learn-more:hover::before {
+  box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+  transform: translate3d(0, 0.5em, -1em);
+}
+button.learn-more:active {
+  background: #ffe9e9;
+  transform: translate(0em, 0.35em);
+}
+button.learn-more:active::before {
+  box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+  transform: translate3d(0, 0, -1em);
+}

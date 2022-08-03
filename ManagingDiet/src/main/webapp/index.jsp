@@ -9,10 +9,10 @@
 <title>Main Page</title>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="../css/index.css">
-<link rel="stylesheet" href="../css/navi.css">
-<link rel="stylesheet" href="../css/login.css">
-<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="./css/index.css">
+<link rel="stylesheet" href="./css/navi.css">
+<link rel="stylesheet" href="./css/login.css">
+<link rel="stylesheet" href="./css/common.css">
 <!-- icon -->
 <script src="https://kit.fontawesome.com/a3dc88dac3.js" crossorigin="anonymous"></script>
 
@@ -375,12 +375,12 @@
 <script src='https://unpkg.com/splitting@1.0.5/dist/splitting.min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.10.1/bodymovin.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
-<script src="../Javascript/navi.js"></script>
+<script src="./js/navi.js"></script>
 
-<script  src="../Javascript/index.js"></script>
+<script  src="./js/index.js"></script>
 <!-- 로그인 js -->
-<script src="../Javascript/login.js"></script>
+<script src="./js/login.js"></script>
 <!-- egg Toggle -->
-<scripts src="../Javascript/eggToggle.js"></script>
+<scripts src="./js/eggToggle.js"></script>
 </body>
 </html>
