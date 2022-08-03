@@ -15,7 +15,7 @@
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
 		lazy-init="false">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:4020/diet" />
+		<property name="url" value="jdbc:mysql://localhost:3007/diet" />
 		<property name="username" value="root" />
 		<property name="password" value="1234" />
 	</bean>

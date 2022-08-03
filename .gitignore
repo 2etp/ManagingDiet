@@ -13,6 +13,8 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+applicationContext.xml
+JDBCUtil.java
 
 # External tool builders
 .externalToolBuilders/
