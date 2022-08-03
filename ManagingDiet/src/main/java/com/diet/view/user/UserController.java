@@ -16,7 +16,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value=	"/login.do", method=RequestMethod.GET)
+	@RequestMapping(value="/login.do", method=RequestMethod.GET)
 	public String loginView(UserVO vo) {
 		System.out.println("로그인 화면으로 이동...");
 		return "login.jsp";
@@ -30,23 +30,18 @@ public class UserController {
 		else return "login.jsp";
 	}
 	
-	@RequestMapping("/logout.do")
-	public String logout(HttpSession session) {
-		session.invalidate();
-		return "login.jsp";
-	}
-	
-	@RequestMapping(value= "/signup.do", method=RequestMethod.GET)
-	public String signupView(UserVO vo) {
-		System.out.println("회원가입 페이지로 이동...");
-		return "signup.jsp";
-	}
-	
-	@RequestMapping(value= "/signup.do", method=RequestMethod.POST)
-	public String signup(UserVO vo, RedirectAttributes redirectAttributes) {
-		System.out.println("회원가입 인증 처리...");
-		userService.insertMember(vo);
-		redirectAttributes.addFlashAttribute("msg", "REGISTERED");
-		return "redirect:login.do";
-	}
+	/*
+	 * @RequestMapping("/logout.do") public String logout(HttpSession session) {
+	 * session.invalidate(); return "login.jsp"; }
+	 * 
+	 * @RequestMapping(value= "/signup.do", method=RequestMethod.GET) public String
+	 * signupView(UserVO vo) { System.out.println("회원가입 페이지로 이동..."); return
+	 * "signup.jsp"; }
+	 * 
+	 * @RequestMapping(value= "/signup.do", method=RequestMethod.POST) public String
+	 * signup(UserVO vo, RedirectAttributes redirectAttributes) {
+	 * System.out.println("회원가입 인증 처리..."); userService.insertMember(vo);
+	 * redirectAttributes.addFlashAttribute("msg", "REGISTERED"); return
+	 * "redirect:login.do"; }
+	 */
 }
