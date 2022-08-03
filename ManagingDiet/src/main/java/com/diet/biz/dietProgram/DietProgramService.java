@@ -45,6 +45,9 @@ public interface DietProgramService {
 	// stamp_date 데이터 가져오기
 	List<StampVO> getStampDate();
 	
+	// stamp_date 데이터 중복확인
+	int checkStampDate(String stampDate);
+	
 	// 일일 미션 도장 찍기(월별 기록)
 	void monthlyStampMission(String stampCnt);
 	

@@ -38,6 +38,7 @@ public class DietProgramDAOSpring {
 	private final String STAMP_CNT_SELECT = "select stamp_cnt from tblmember where id = ?";
 	private final String STAMP_INSERT = "insert into tblstamp(id, stamp_date) values(?, ?)";
 	private final String STAMP_SELECT = "select stamp_date from tblstamp where id = ?";
+	private final String STAMP_SELECT2 = "select stamp_num from tblstamp where id = ? and stamp_date = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -217,6 +218,21 @@ public class DietProgramDAOSpring {
 		UserVO userInfo = (UserVO)session.getAttribute("idKey");
 		Object[] args = {userInfo.getId()};
 		return jdbcTemplate.query(STAMP_SELECT, args, new GetStampRowMapper());
+	}
+	
+	// stamp_date 데이터 중복확인
+	public int checkStampDate(String stampDate) {
+		try {
+			ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+			HttpServletRequest req = sra.getRequest();
+			HttpSession session = req.getSession();
+			UserVO userInfo = (UserVO)session.getAttribute("idKey");
+			Object[] args = {userInfo.getId(), stampDate};
+			return jdbcTemplate.queryForObject(STAMP_SELECT2, args, Integer.class);
+			
+		} catch (EmptyResultDataAccessException e) {
+			return 0;
+		}
 	}
 	
 	// 일일 미션 도장 찍기

@@ -79,6 +79,11 @@ public class DietProgramServiceImpl implements DietProgramService{
 		return dietProgramDAO.getStampDate();
 	}
 	
+	// stamp_date 데이터 중복확인
+	public int checkStampDate(String stampDate) {
+		return dietProgramDAO.checkStampDate(stampDate);
+	}
+	
 	// 일일 미션 도장 찍기(월별 기록)
 	public void monthlyStampMission(String stampCnt) {
 		dietProgramDAO.monthlyStampMission(stampCnt);

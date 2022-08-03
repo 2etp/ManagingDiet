@@ -18,6 +18,7 @@ import com.diet.biz.dietProgram.Criteria;
 import com.diet.biz.dietProgram.DietProgramService;
 import com.diet.biz.dietProgram.KcalVO;
 import com.diet.biz.dietProgram.PageMakerDTO;
+import com.diet.biz.dietProgram.StampVO;
 import com.diet.biz.dietProgram.UserDietVO;
 import com.diet.biz.user.UserVO;
 
@@ -122,8 +123,13 @@ public class DietController {
 		intArr[monthValue-1] += 1;
 		// intArr을 다시 문자열로 변환
 		String stampCnt = Arrays.toString(intArr).replace(", ",",").replace("[","").replace("]","");
-		dietProgramService.monthlyStampMission(stampCnt);
-		dietProgramService.dailyStampMission(stampDate);
+		int flag = dietProgramService.checkStampDate(stampDate);
+		System.out.println("flag : " + flag);
+		if(flag == 0) {
+			dietProgramService.monthlyStampMission(stampCnt);
+			dietProgramService.dailyStampMission(stampDate);
+		}
+
 		return "stampMission.jsp";
 	}
 	

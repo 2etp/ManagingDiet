@@ -11,8 +11,7 @@ public class GetStampRowMapper implements RowMapper<StampVO> {
 	public StampVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		StampVO stampList = new StampVO();
 		stampList.setStampDate(rs.getString("stamp_date"));
-		System.out.println("Stamp rowMapper : " + stampList);
-		
+	
 		return stampList;
 	}
 

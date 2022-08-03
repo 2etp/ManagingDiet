@@ -42,20 +42,6 @@
     	<input type="button" id="btn" value="도장 찍기">
 	</form>
 </div>
-	
-
-
-<%-- <form action="stampMission.do" method="post">
-	<c:forEach var="i" begin="1" end="${lengthOfMon}" >
-		<label><input type="checkbox" name="stamp" value="${idKey.id}"><c:out value="${i}"/></label>
-	</c:forEach>
-	
-	<input type="submit" value="도장 찍기">
-</form>
-
-<c:forEach items="${stampDate}" var="date">
-	<p>${date.stampDate}</p>
-</c:forEach> --%>
 
 <script>
 
@@ -164,6 +150,7 @@ const goToday = () => {
 // 오늘 날짜를 특정 포맷(yyyy-MM-dd)으로 변경
 const parsedDate = new Date(+new Date() + 3240 * 10000).toISOString().split("T")[0];
 
+// 버튼 클릭 시, 오늘 날짜 DB에 저장
 $('#btn').click(function() {
 	
     $.ajax({
@@ -172,14 +159,13 @@ $('#btn').click(function() {
         url: '/ManagingDiet/stampMission.do',
         data: {"parsedDate" : parsedDate},
         dataType: 'text',
-        success: function(data) {
+        success: function(result) {
         	alert("성공");
         },
         error: function(jqXHR, textStatus, errorThrown) {
         	alert("ERROR : " + textStatus + " : " + errorThrown);
       
-        }
-				
+        }		
    });
 });
 </script>
