@@ -66,12 +66,12 @@
 				<div class="gentle">성별 &nbsp </div>
 					<label>
 						<span>남자</span>
-						<input id="gentle1" class="input_gentle" type="radio" name="sex"  value="man">
+						<input id="gentle1" class="input_gentle" type="radio" name="sex"  value="남">
 					</label>
 	
 					<label>
 						<span>여자</span>
-						<input id="gentle2" class="input_gentle input_gentle2" type="radio" name="sex" value="woman">
+						<input id="gentle2" class="input_gentle input_gentle2" type="radio" name="sex" value="여">
 					</label>
 				</div>
 					<div class="input_inp">
@@ -82,7 +82,7 @@
 								<svg width="120px" height="26px" viewBox="0 0 120 26">
 								  <path d="M0,25 C21,25 46,25 74,25 C102,25 118,25 120,25"></path>
 								</svg>
-							  </label>
+							</label>
 						</div>
 		
 						<div style="margin-top: 30px;">
@@ -92,7 +92,7 @@
 								<svg width="120px" height="26px" viewBox="0 0 120 26">
 								  <path d="M0,25 C21,25 46,25 74,25 C102,25 118,25 120,25"></path>
 								</svg>
-							  </label>
+							</label>
 						</div>
 		
 						<div style="margin-top: 30px;">
@@ -102,17 +102,16 @@
 								<svg width="120px" height="26px" viewBox="0 0 120 26">
 								  <path d="M0,25 C21,25 46,25 74,25 C102,25 118,25 120,25"></path>
 								</svg>
-							  </label>
+							</label>
 						</div>
 					</div>
 					<input type="hidden" name="type" value="diet">
 					<!-- submit 버튼 -->
 					<!-- submit.js에서 2.5초후에 frm라는 id를 가진 form을 submit -->
-					<div class="btn-submit" id="btn" >
+					<div class="btn-submit" id="btn">
 						<span>NEXT</span>
 						<div class="rotate"></div>
-					</div>
-						
+					</div>						
 			</form>	
 			
 		</div>

@@ -60,7 +60,7 @@
      
         
             
-        <form action="" id="frm" class="frm" action="dietStep2.do" metion="post">
+        <form  id="frm" class="frm" action="dietStep2.do" metion="post">
             <input id="choice_1" class="choice" type="radio" name="activityAmount" value="few">거의 없다(거의 좌식생활을 하고 운동 안함)<br><br>
             <input id="choice_2" class="choice" type="radio" name="activityAmount" value="aFew">조금 있다(활동량이 보통이거나 주 1~3회 운동)<br><br>
             <input id="choice_3" class="choice" type="radio" name="activityAmount" value="normal">보통(활동량이 다소 많거나 주 3~5회 운동)<br><br>
