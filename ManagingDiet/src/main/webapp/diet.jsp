@@ -51,12 +51,12 @@
 		</div>
 	
 		<div class="slider">
-			<div class="slide" style="background-image:url(../image/봄.png);" ></div>
-			<div class="slide" style="background-image:url(../image/여름.png);" ></div>
-			<div class="slide" style="background-image:url(../image/가을.png);"></div>
-			<div class="slide" style="background-image:url(../image/겨울.png);"></div>
-			<div class="slide" style="background-image:url(../image/야채모음.png)";></div>
-			<div class="slide" style="background-image:url(../image/바구니\ 야채.png)";></div>
+			<div class="slide" style="background-image:url(./image/봄.png);" ></div>
+			<div class="slide" style="background-image:url(./image/여름.png);" ></div>
+			<div class="slide" style="background-image:url(./image/가을.png);"></div>
+			<div class="slide" style="background-image:url(./image/겨울.png);"></div>
+			<div class="slide" style="background-image:url(./image/야채모음.png)";></div>
+			<div class="slide" style="background-image:url(./image/바구니\ 야채.png)";></div>
 		</div>
 	
 		<div class="main">

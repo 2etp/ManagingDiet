@@ -55,7 +55,7 @@
 				</h1>           
 			</div>
 		<div class="main">
-			<form action="dietStep3.do" method="post" style="background-color: transparent;">
+			<form id="frm" action="dietStep3.do" method="post" style="background-color: transparent;">
 				<input type="hidden" name="kcal" value="${kcal}">	
 				
 				<div class="btn-submit" id="btn">

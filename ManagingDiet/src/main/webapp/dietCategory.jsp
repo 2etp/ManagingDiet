@@ -171,7 +171,7 @@
 				<a href="./diet.jsp">
 				<div class="card__image--wrapper">
 					<div class="card__image--outer">
-						<img src="../image/Diet.jpg" alt="Portrait" class="card__image" />
+						<img src="./image/Diet.jpg" alt="Portrait" class="card__image" />
 					</div>
 				</div>
 				<div class="card__text">
@@ -184,7 +184,7 @@
 				<a href="./bulkup.jsp">
 					<div class="card__image--wrapper">
 						<div class="card__image--outer">
-							<img src="../image/bulkup.jfif" alt="Portrait" class="card__image" />
+							<img src="./image/bulkup.jfif" alt="Portrait" class="card__image" />
 						</div>
 					</div>
 					<div class="card__text">
