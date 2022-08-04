@@ -125,7 +125,6 @@ public class DietController {
 		// intArr을 다시 문자열로 변환
 		String stampCnt = Arrays.toString(intArr).replace(", ",",").replace("[","").replace("]","");
 		int flag = dietProgramService.checkStampDate(stampDate);
-		System.out.println("flag : " + flag);
 		if(flag == 0) {			
 			dietProgramService.monthlyStampMission(stampCnt);
 			dietProgramService.dailyStampMission(stampDate);

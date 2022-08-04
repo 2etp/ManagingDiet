@@ -78,7 +78,8 @@ new Chart(document.getElementById("bar-chart"), {
       datasets: [
         {
           label: "Monthly Goal Achievement",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#AB56F0", 
+        	  				"#F0BD16", "#2FE050", "#EB464F", "#E8DE72", "#E66B0E", "#0B1EE6"],
           data: ["${stampCnt[0]}", "${stampCnt[1]}", "${stampCnt[2]}", "${stampCnt[3]}", "${stampCnt[4]}", "${stampCnt[5]}",
         	     "${stampCnt[6]}", "${stampCnt[7]}", "${stampCnt[8]}", "${stampCnt[9]}", "${stampCnt[10]}", "${stampCnt[11]}"]
         }
