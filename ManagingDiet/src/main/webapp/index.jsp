@@ -30,24 +30,7 @@
 </head>
 
 <body>
-	<center>
-		<h1>식단 프로그램</h1>
-		<hr>
-		<c:if test="${empty idKey}">
-			<a href="login.do">로그인</a><br>
-			<a href="signup.do">회원가입</a>
-		</c:if>
-		<c:if test="${!empty idKey}">
-			<p>${idKey.name}님 환영합니다!</p><br><br>
-			<a href="logout.do">로그아웃</a>
-		</c:if>
-		<br>
-		<br><a href="getBoardList.do">글 목록 바로가기</a>
-		<hr><br>
-		<a href="dietCategory.jsp">식단 프로그램</a>
-		<br><br>
-		<a href="myPage.jsp">마이페이지</a>
-	</center>
+	
 	
 	 <!-- 로딩화면 -->
   <!-- <div class="loading" id="loading">
@@ -401,3 +384,22 @@
 <scripts src="./js/eggToggle.js"></script>
 </body>
 </html>
+
+<!-- <center>
+  <h1>식단 프로그램</h1>
+  <hr>
+  <c:if test="${empty idKey}">
+    <a href="login.do">로그인</a><br>
+    <a href="signup.do">회원가입</a>
+  </c:if>
+  <c:if test="${!empty idKey}">
+    <p>${idKey.name}님 환영합니다!</p><br><br>
+    <a href="logout.do">로그아웃</a>
+  </c:if>
+  <br>
+  <br><a href="getBoardList.do">글 목록 바로가기</a>
+  <hr><br>
+  <a href="dietCategory.jsp">식단 프로그램</a>
+  <br><br>
+  <a href="myPage.jsp">마이페이지</a>
+</center> -->
