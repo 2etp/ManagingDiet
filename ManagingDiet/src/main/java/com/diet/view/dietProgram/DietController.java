@@ -12,13 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.diet.biz.dietProgram.Criteria;
 import com.diet.biz.dietProgram.DietProgramService;
 import com.diet.biz.dietProgram.KcalVO;
 import com.diet.biz.dietProgram.PageMakerDTO;
-import com.diet.biz.dietProgram.StampVO;
 import com.diet.biz.dietProgram.UserDietVO;
 import com.diet.biz.user.UserVO;
 
@@ -112,7 +112,8 @@ public class DietController {
 	 
 	// 일일 미션 도장 찍기
 	@RequestMapping(value = "/stampMission.do", method=RequestMethod.POST)
-	public String StampMission(Model model, @RequestParam Map<String, Object> param) {
+	@ResponseBody
+	public int StampMission(Model model, @RequestParam Map<String, Object> param) {
 		String stampDate = (String) param.get("parsedDate");
 		// DB의 stampCnt 데이터를 가져와서 String 배열로 변환
 		String[] stringArr = dietProgramService.getStampCnt().split(",");
@@ -125,15 +126,11 @@ public class DietController {
 		String stampCnt = Arrays.toString(intArr).replace(", ",",").replace("[","").replace("]","");
 		int flag = dietProgramService.checkStampDate(stampDate);
 		System.out.println("flag : " + flag);
-		if(flag == 0) {
+		if(flag == 0) {			
 			dietProgramService.monthlyStampMission(stampCnt);
 			dietProgramService.dailyStampMission(stampDate);
-			model.addAttribute("flag", "inputSuccess");
-		} else {
-			model.addAttribute("flag", "inputFailure");
 		}
-
-		return "stampMission.jsp";
+		return flag;
 	}
 	
 	// DB stampCnt 컬럼 가져오기
