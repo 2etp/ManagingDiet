@@ -10,6 +10,15 @@
 <title>일일 미션 체크</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="./css/stampMission.css">
+<script>
+var msg = "${flag}";
+
+if(msg === "inputSuccess") {
+	alert("오늘의 미션 성공!");
+} else if (msg === "inputFailure") {
+	alert("이미 미션에 성공하였습니다.");
+}
+</script>
 
 </head>
 <body>

@@ -128,6 +128,9 @@ public class DietController {
 		if(flag == 0) {
 			dietProgramService.monthlyStampMission(stampCnt);
 			dietProgramService.dailyStampMission(stampDate);
+			model.addAttribute("flag", "inputSuccess");
+		} else {
+			model.addAttribute("flag", "inputFailure");
 		}
 
 		return "stampMission.jsp";
