@@ -39,6 +39,8 @@ public class DietProgramDAOSpring {
 	private final String STAMP_INSERT = "insert into tblstamp(id, stamp_date) values(?, ?)";
 	private final String STAMP_SELECT = "select stamp_date from tblstamp where id = ?";
 	private final String STAMP_SELECT2 = "select stamp_num from tblstamp where id = ? and stamp_date = ?";
+	private final String KCAL_UPDATE = "update tblmember set kcal = ? where id = ?";
+	private final String NUTRIENTS_UPDATE = "update tblmember set carbs = ?, protein = ?, fat = ? where id = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -60,6 +62,10 @@ public class DietProgramDAOSpring {
 	
 	// 기초대사량에 근거한 칼로리 계산
 	public int dietStep2(KcalVO vo) {
+		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpServletRequest req = sra.getRequest();
+		HttpSession session = req.getSession();
+		UserVO userInfo = (UserVO)session.getAttribute("idKey");
 		
 		int kcal = 0;
 		
@@ -103,12 +109,16 @@ public class DietProgramDAOSpring {
 					break;
 				}
 		}
-		
+		jdbcTemplate.update(KCAL_UPDATE, kcal, userInfo.getId());
 		return kcal;				
 	}
 	
 	// 영양소대로 칼로리 구성(g으로 환산)
 	public List<Integer> dietStep3(KcalVO vo) {
+		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpServletRequest req = sra.getRequest();
+		HttpSession session = req.getSession();
+		UserVO userInfo = (UserVO)session.getAttribute("idKey");
 		
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		int carbs = 0;
@@ -123,6 +133,7 @@ public class DietProgramDAOSpring {
 		list.add(protein);
 		list.add(fat);
 		
+		jdbcTemplate.update(NUTRIENTS_UPDATE, carbs, protein, fat, userInfo.getId());
 		return list;
 	}
 	

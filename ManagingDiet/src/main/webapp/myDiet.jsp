@@ -23,5 +23,7 @@
 	</div>
 	<br>
 </c:forEach>
+
+<a href="updateDiet.do">수정하기</a>
 </body>
 </html>
