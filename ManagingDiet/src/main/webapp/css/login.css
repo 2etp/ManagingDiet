@@ -135,16 +135,16 @@
     background-position: 50% 0;
   }
   .form label.username {
-    background-image: url("../picture/user.svg");
+    background-image: url("../image/user.svg");
   }
   .form label.email {
-    background-image: url("../picture/email.svg");
+    background-image: url("../image/email.svg");
   }
   .form label.password {
-    background-image: url("../picture/key.svg");
+    background-image: url("../image/key.svg");
   }
   .form label.phone {
-    background-image: url("../picture/phoneImg.svg");
+    background-image: url("../image/phoneImg.svg");
     color: #ddd;
   }
   .form input {

@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+@font-face {
+  font-family: '동희체';
+  src: url(../font/나눔손글씨\ 노력하는\ 동희.ttf);    
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +26,8 @@ body {
   padding: 40px;
   border-radius: 30px;
   margin: 30px;
+  font-family: '동희체';
+  font-size: 25px;
 }
 
 .calendar {
@@ -79,16 +86,16 @@ body {
   display: flex;
   flex-flow: row wrap;
   height: 500px;
-  border-top: 1px solid #333333;
-  border-right: 1px solid #333333;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
 }
 
 .date {
   width: calc(100% / 7);
   padding: 15px;
   text-align: right;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #333333;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
 }
 
 .day:nth-child(7n + 1),
@@ -111,15 +118,25 @@ body {
 }
 
 .today::before {
+  width: 100px;
+  height: 100px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
-  width: 30px;
-  height: 30px;
   display: block;
-  background-color: #FF0000;
+  background-image: url(../image/completestamp.jpg);
   border-radius: 50%;
   content: '';
+}
+
+.today2::before {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  right: 40%;
+  background-image: url(../image/completestamp.jpg);
+  z-index: 1000000000000000000000000000000000;
 }
