@@ -27,7 +27,7 @@ public class DietController {
 	@Autowired
 	private DietProgramService dietProgramService;
 	
-	@RequestMapping(value = "/index.do", method=RequestMethod.GET)
+	@RequestMapping(value="/index.do", method=RequestMethod.GET)
 	public String index() {
 		System.out.println("index 화면으로 이동...");
 		return "index.jsp";
@@ -66,7 +66,7 @@ public class DietController {
 	@RequestMapping("/dietStep4.do")
 	public String dietStep4(KcalVO vo, Model model, Criteria cri) {
 		model.addAttribute("foodList", dietProgramService.dietStep4(vo, cri));
-		int totalFood = dietProgramService.getTotalFood(vo);
+		int totalFood = dietProgramService.getTotalFood1(vo);
 		PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
 		model.addAttribute("pageMaker", pageMake);
 		System.out.println("dietStep4 발동!!!");
@@ -75,18 +75,36 @@ public class DietController {
 	
 	// 유저가 선택한 음식 리스트 DB에 넣기
 	@RequestMapping("/insertFood.do")
-	public String insertFood(UserDietVO vo, RedirectAttributes redirectAttributes) {
-		String result = dietProgramService.getDietUser(vo);
-		System.out.println(dietProgramService.getDietUser(vo));
-		if(result.equals(null)) {
-			System.out.println("insertFood의 false");
-			dietProgramService.insertFood(vo);
-			redirectAttributes.addFlashAttribute("msg", "insertFood");
-		} else if(!result.equals(null)) {
-			System.out.println("insertFood의 true");
-			dietProgramService.updateFood(vo);
-			redirectAttributes.addFlashAttribute("msg", "updateFood");
-		}
+	public String insertDiet(UserDietVO vo, RedirectAttributes redirectAttributes) {
+		//String result = dietProgramService.getDietUser(vo);
+		//System.out.println(dietProgramService.getDietUser(vo));
+		//if(result.equals(null)) {
+			//System.out.println("insertFood의 false");
+			dietProgramService.insertDiet(vo);
+			redirectAttributes.addFlashAttribute("msg", "insertDiet");
+		//} else if(!result.equals(null)) {
+			//System.out.println("insertFood의 true");
+			//dietProgramService.updateFood(vo);
+			//redirectAttributes.addFlashAttribute("msg", "updateFood");
+		//}
+		return "redirect:index.do";
+	}
+	
+	// 식단 수정페이지로 이동하기
+	@RequestMapping(value="/updateDiet.do", method=RequestMethod.GET)
+	public String updateDietView(Model model, Criteria cri) {
+		model.addAttribute("foodList", dietProgramService.getFoodList(cri));
+		int totalFood = dietProgramService.getTotalFood2();
+		PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
+		model.addAttribute("pageMaker", pageMake);
+		return "updateDiet.jsp";
+	}
+	
+	// 식단 수정하기
+	@RequestMapping(value="/updateDiet.do", method=RequestMethod.POST)
+	public String updateDiet(UserDietVO vo, RedirectAttributes redirectAttributes) {
+		dietProgramService.updateDiet(vo);
+		redirectAttributes.addFlashAttribute("msg", "updateDiet");
 		return "redirect:index.do";
 	}
 	
@@ -102,7 +120,7 @@ public class DietController {
 	}
 	
 	// 일일 미션 체크 화면 보여주기
-	@RequestMapping(value = "/stampMission.do", method=RequestMethod.GET)
+	@RequestMapping(value="/stampMission.do", method=RequestMethod.GET)
 	 public String stampMissionView(Model model, HttpSession session) {
 		 session.setAttribute("lengthOfMon", dietProgramService.getLengthOfMon());
 		 model.addAttribute("stampDate", dietProgramService.getStampDate());
@@ -111,7 +129,7 @@ public class DietController {
 	}
 	 
 	// 일일 미션 도장 찍기
-	@RequestMapping(value = "/stampMission.do", method=RequestMethod.POST)
+	@RequestMapping(value="/stampMission.do", method=RequestMethod.POST)
 	@ResponseBody
 	public int StampMission(Model model, @RequestParam Map<String, Object> param) {
 		String stampDate = (String) param.get("parsedDate");
