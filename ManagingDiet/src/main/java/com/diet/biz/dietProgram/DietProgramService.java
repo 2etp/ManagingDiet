@@ -21,10 +21,6 @@ public interface DietProgramService {
 	// 칼로리에 앚는 음식 리스트 추천(수정하기 경로로)
 	List<FoodVO> getFoodList(Criteria cri);
 	
-	/*
-	 * // 유저의 칼로리 및 탄단지 가져오기 String getUserInfo();
-	 */
-	
 	// 음식 총 개수
 	int getTotalFood1(KcalVO vo);
 	

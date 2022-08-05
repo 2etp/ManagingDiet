@@ -40,11 +40,6 @@ public class DietProgramServiceImpl implements DietProgramService{
 		return dietProgramDAO.getFoodList(cri);
 	}
 	
-	// 유저의 칼로리 및 탄단지 가져오기
-	/*
-	 * public String getUserInfo() { return dietProgramDAO.getUserInfo(); }
-	 */
-	
 	// 음식 총 개수
 	public int getTotalFood1(KcalVO vo) {
 		return dietProgramDAO.getTotalFood1(vo);

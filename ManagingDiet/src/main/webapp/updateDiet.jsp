@@ -35,10 +35,10 @@
 <body>
 	<h1>음식 추천 리스트</h1>
 	
-	<form action="updateDiet.do" method="post" name="frm">
+	<form action="updateDiet.do" method="post" name="frm" class="chkForm">
 		<c:forEach items="${foodList}" var="food">
 			<label>	
-			<input type="checkbox" name="food" value="${food.foodName}" onClick="itemSum(this.form);">
+			<input type="checkbox" name="food" value="${food.foodName}" onClick="itemSum(this.form); getCheckboxValue();">
 				<div id="list-wrap">
 					<img src="image/${food.imgPath}" width="300px" height="300px">
 					<p>음식명 : ${food.foodName}</p>
@@ -62,18 +62,14 @@
 	<div class="pageInfo_wrap" >
 		<div class="pageInfo_area">
 			<ul id="pageInfo" class="pageInfo">
-			
-				이전버튼
 				<c:if test="${pageMaker.prev}">
 					<li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}">Previous</a></li>
 				</c:if>
-				
-				각 번호 페이지 버튼
+			
 				<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
 					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
 				</c:forEach>
 				
-				다음페이지 버튼
 				<c:if test="${pageMaker.next}">
 					<li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
 				</c:if>	
@@ -87,8 +83,14 @@
 		<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
 		<input type="hidden" name="userCarbs" value="${idKey.userCarbs}">
 		<input type="hidden" name="userProtein" value="${idKey.userProtein}">
-		<input type="hidden" name="userFat" value="${idKey.userFat}"> 
+		<input type="hidden" name="userFat" value="${idKey.userFat}">
+		<input type="hidden" id="foodArr" name="food" value="">
 	</form>
+	
+	<input type="hidden" class="foodArr" value="${foodArr}">
+	<c:forEach items="${foodArr}" var="arr">
+		<p>${arr}</p>	
+	</c:forEach>
 	
 <script>
 
@@ -111,6 +113,23 @@ function itemSum(frm) {
 
 }
 
+// 체크박스 값 가져오기
+function getCheckboxValue()  {
+	  // 선택된 목록 가져오기
+	  const query = 'input[name="food"]:checked';
+	  const selectedEls = 
+	      document.querySelectorAll(query);
+	  
+	  // 선택된 목록에서 value 찾기
+	  let result = '';
+	  selectedEls.forEach((el) => {
+	    result += el.value + ',';
+	  });
+	  
+	  // hidden 타입의 input에 value 추가
+	  document.getElementById('foodArr').value = result;
+}
+
 // 페이징 처리
 let moveForm = $(".moveForm");
 
@@ -118,7 +137,7 @@ $(".pageInfo a").on("click", function(e){
 	e.preventDefault();
 	moveForm.find("input[name='pageNum']").val($(this).attr("href"));
 	moveForm.attr("action", "updateDiet.do");
-	moveForm.submit();	
+	moveForm.submit();
 });
 </script>
 </body>

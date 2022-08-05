@@ -31,7 +31,6 @@ public class DietProgramDAOSpring {
 	private final String FOOD_TOT_COUNT = "select count(*) from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ?";
 	private final String DIET_INSERT = "insert into tbldiet(id, food, reg_date) values(?, ?, now())";
 	private final String DIET_UPDATE = "update tbldiet set food = ?, reg_date = now() where id = ?";
-	//private final String DIET_USER_CHECK = "select id from tbldiet where id = ?";
 	private final String DIET_CHECK = "select food from tbldiet where id = ?";
 	private final String DIET_SELECT = "select * from tblfood where `음식명` = ?";
 	private final String STAMP_CNT_UPDATE = "update tblmember set stamp_cnt = ? where id = ?";
@@ -41,7 +40,6 @@ public class DietProgramDAOSpring {
 	private final String STAMP_SELECT2 = "select stamp_num from tblstamp where id = ? and stamp_date = ?";
 	private final String KCAL_UPDATE = "update tblmember set kcal = ? where id = ?";
 	private final String NUTRIENTS_UPDATE = "update tblmember set carbs = ?, protein = ?, fat = ? where id = ?";
-	private final String USERINFO_SELECT = "select * from tblmember where id = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
 	public double dietStep1(KcalVO vo) {
@@ -156,15 +154,6 @@ public class DietProgramDAOSpring {
 		return jdbcTemplate.query(FOOD_SELECT, args, new GetFoodListRowMapper());
 	}
 	
-	// 유저의 칼로리 및 탄단지 가져오기
-	/*
-	 * public String getUserInfo() { ServletRequestAttributes sra =
-	 * (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-	 * HttpServletRequest req = sra.getRequest(); HttpSession session =
-	 * req.getSession(); UserVO userInfo = (UserVO)session.getAttribute("idKey");
-	 * return jdbcTemplate.queryForObject() }
-	 */
-	
 	// 음식 총 개수
 	public int getTotalFood1(KcalVO vo) {
 		System.out.println("getTotalFood 발동!!!");
@@ -193,18 +182,6 @@ public class DietProgramDAOSpring {
 		System.out.println("updateFood 발동!!!");
 		jdbcTemplate.update(DIET_UPDATE, vo.getFood(), vo.getId());
 	}
-	
-	/*
-	 * // tbldiet의 유저 정보 유무 확인하기 public String getDietUser(UserDietVO vo) { try {
-	 * System.out.println("getDietUser 발동!!!"); Object[] args = {vo.getId()};
-	 * System.out.println("jdbc 템플릿 쿼리문 발동"); String user =
-	 * jdbcTemplate.queryForObject(DIET_USER_CHECK, args, String.class);
-	 * System.out.println("DAOSpring : " + user); return user;
-	 * 
-	 * } catch (EmptyResultDataAccessException e) { return null; }
-	 * 
-	 * }
-	 */
 	
 	// 유저가 선택한 음식 리스트 확인하기
 	public String dietListChk(UserVO vo) {

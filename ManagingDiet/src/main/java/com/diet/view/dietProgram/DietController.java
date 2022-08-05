@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,23 +77,18 @@ public class DietController {
 	// 유저가 선택한 음식 리스트 DB에 넣기
 	@RequestMapping("/insertFood.do")
 	public String insertDiet(UserDietVO vo, RedirectAttributes redirectAttributes) {
-		//String result = dietProgramService.getDietUser(vo);
-		//System.out.println(dietProgramService.getDietUser(vo));
-		//if(result.equals(null)) {
-			//System.out.println("insertFood의 false");
-			dietProgramService.insertDiet(vo);
-			redirectAttributes.addFlashAttribute("msg", "insertDiet");
-		//} else if(!result.equals(null)) {
-			//System.out.println("insertFood의 true");
-			//dietProgramService.updateFood(vo);
-			//redirectAttributes.addFlashAttribute("msg", "updateFood");
-		//}
+		dietProgramService.insertDiet(vo);
+		redirectAttributes.addFlashAttribute("msg", "insertDiet");
 		return "redirect:index.do";
 	}
 	
 	// 식단 수정페이지로 이동하기
 	@RequestMapping(value="/updateDiet.do", method=RequestMethod.GET)
-	public String updateDietView(Model model, Criteria cri) {
+	public String updateDietView(Model model, Criteria cri, HttpServletRequest request) {
+		String food = request.getParameter("food");
+		String[] foodArr = food.split(",");
+		//System.out.println(Arrays.toString(foodArr));
+		model.addAttribute("foodArr", foodArr);
 		model.addAttribute("foodList", dietProgramService.getFoodList(cri));
 		int totalFood = dietProgramService.getTotalFood2();
 		PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
