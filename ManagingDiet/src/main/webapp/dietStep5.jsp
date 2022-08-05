@@ -136,6 +136,14 @@
 			</div>
 		</div>
     </div>
+    
+   	<form class="moveForm" method="get">	
+		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+		<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+		<input type="hidden" name="carbs" value="${session[0]}">
+		<input type="hidden" name="protein" value="${session[1]}">
+		<input type="hidden" name="fat" value="${session[2]}"> 
+	</form>
 
 
     
@@ -471,7 +479,7 @@
 <!-- 로그인 js -->
 <script src="./js/login.js"></script>
 <!-- egg Toggle -->
-<scripts src="./js/eggToggle.js" ></script>
+<script src="./js/eggToggle.js" ></script>
 <!-- Submit Button -->
 <script src="./js/plusImg.js"></script>
 <!-- number paging -->

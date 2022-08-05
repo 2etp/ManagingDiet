@@ -18,9 +18,9 @@
 
 <script>
     var msg = "${msg}";
-    if (msg === "insertFood") {
+    if (msg === "insertDiet") {
         alert("성공적으로 저장되었습니다.");
-    } else if (msg == "updateFood") {
+    } else if (msg == "updateDiet") {
         alert("성공적으로 수정되었습니다.");
     } else if (msg == "failure") {
     	alert("다시 선택해 주세요.");

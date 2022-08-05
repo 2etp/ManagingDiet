@@ -7,6 +7,10 @@ public class UserVO {
 	private String name;
 	private String mobile;
 	private int stampCnt;
+	private int userKcal;
+	private int userCarbs;
+	private int userProtein;
+	private int userFat;
 
 	public String getId() {
 		return id;
@@ -48,9 +52,42 @@ public class UserVO {
 		this.stampCnt = stampCnt;
 	}
 
+	public int getUserKcal() {
+		return userKcal;
+	}
+
+	public void setUserKcal(int userKcal) {
+		this.userKcal = userKcal;
+	}
+
+	public int getUserCarbs() {
+		return userCarbs;
+	}
+
+	public void setUserCarbs(int userCarbs) {
+		this.userCarbs = userCarbs;
+	}
+
+	public int getUserProtein() {
+		return userProtein;
+	}
+
+	public void setUserProtein(int userProtein) {
+		this.userProtein = userProtein;
+	}
+
+	public int getUserFat() {
+		return userFat;
+	}
+
+	public void setUserFat(int userFat) {
+		this.userFat = userFat;
+	}
+
 	@Override
 	public String toString() {
 		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", mobile=" + mobile + ", stampCnt="
-				+ stampCnt + "]";
+				+ stampCnt + ", userKcal=" + userKcal + ", userCarbs=" + userCarbs + ", userProtein=" + userProtein
+				+ ", userFat=" + userFat + "]";
 	}
 }

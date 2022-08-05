@@ -14,6 +14,10 @@ public class UserRowMapper implements RowMapper<UserVO> {
 		user.setPassword(rs.getString("password"));
 		user.setName(rs.getString("name"));
 		user.setMobile(rs.getString("mobile"));
+		user.setUserKcal(rs.getInt("kcal"));
+		user.setUserCarbs(rs.getInt("carbs"));
+		user.setUserProtein(rs.getInt("protein"));
+		user.setUserFat(rs.getInt("fat"));
 
 		return user;
 	}

@@ -18,17 +18,28 @@ public interface DietProgramService {
 	// 칼로리에 맞는 음릭 리스트 추천
 	List<FoodVO> dietStep4(KcalVO vo, Criteria cri);
 	
+	// 칼로리에 앚는 음식 리스트 추천(수정하기 경로로)
+	List<FoodVO> getFoodList(Criteria cri);
+	
+	/*
+	 * // 유저의 칼로리 및 탄단지 가져오기 String getUserInfo();
+	 */
+	
 	// 음식 총 개수
-	public int getTotalFood(KcalVO vo);
+	int getTotalFood1(KcalVO vo);
+	
+	// 음식 총 개수(수정하기 경로로)
+	int getTotalFood2();
 	
 	// 유저가 선택한 음식 리스트 DB에 넣기
-	public void insertFood(UserDietVO vo);
+	public void insertDiet(UserDietVO vo);
 	
 	// 유저가 선택한 음식 리스트 수정하기
-	public void updateFood(UserDietVO vo);
+	public void updateDiet(UserDietVO vo);
 	
 	// tbldiet의 유저 정보 유무 확인하기
-	public String getDietUser(UserDietVO vo);
+	//public String getDietUser(UserDietVO vo);
+	
 	
 	// 유저가 선택한 음식 리스트 확인하기
 	public String dietListChk(UserVO vo);
