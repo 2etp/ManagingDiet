@@ -64,13 +64,14 @@
 		</svg>
 	</div>
     <div class="main-container">
+      <h1>일일 미션 체크!</h1>
       <div class="calendar">
           <div class="header">
             <div class="year-month"></div>
             <div class="nav">
-              <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
-              <button class="nav-btn go-today" onclick="goToday()">Today</button>
-              <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+              <button class="go-prev learn-more2" onclick="prevMonth()">&lt;</button>
+              <button class="go-today learn-more2" onclick="goToday()">Today</button>
+              <button class="go-next learn-more2" onclick="nextMonth()">&gt;</button>
             </div>
           </div>
           
@@ -87,7 +88,7 @@
               </div>
               <div class="dates"></div>
             </div>         
-          <input type="button" id="btn" class="calendar-btn" value="도장 찍기">
+          <button type="button" id="btn" value="도장 찍기" class="learn-more calendar-btn">도장 찍기</button>
         </form>
       </div>
     </div>        
@@ -263,9 +264,11 @@ const renderCalender = () => {
   // 날짜 부분을 span 태그로 감싸서 class로 지정
   dates.forEach((date, i) => {
     const condition = i >= firstDateIndex && i < lastDateIndex + 1
-                      ? 'this'
-                      : 'other';
-    dates[i] = "<div class='date'><span class=" + condition + ">" + date + "</span><span class=" + "today2" + ">" + "</span></div>";
+                      ? 'this '+''
+                      : 'other';   
+    dates[i] = "<div class='date'><span class=" + condition + ">" + date + "</span></div>";
+    
+
   });
   
   // Dates 그리기
