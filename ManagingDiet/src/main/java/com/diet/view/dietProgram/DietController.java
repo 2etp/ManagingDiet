@@ -85,7 +85,7 @@ public class DietController {
 	// 식단 수정페이지로 이동하기
 	@RequestMapping(value="/updateDiet.do", method=RequestMethod.GET)
 	public String updateDietView(Model model, Criteria cri, HttpServletRequest request) {
-		try {
+		/*try {
 			String food = request.getParameter("food");
 			String[] foodArr = food.split(",");
 			System.out.println(Arrays.toString(foodArr));
@@ -95,12 +95,12 @@ public class DietController {
 			PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
 			model.addAttribute("pageMaker", pageMake);
 		
-		} catch(NullPointerException e){
+		} catch(NullPointerException e){*/
 			model.addAttribute("foodList", dietProgramService.getFoodList(cri));
 			int totalFood = dietProgramService.getTotalFood2();
 			PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
 			model.addAttribute("pageMaker", pageMake);
-		}
+		//}
 		return "updateDiet.jsp";
 	}
 	
