@@ -113,6 +113,14 @@ function itemSum(frm) {
 
 }
 
+var foodArr = [];
+<c:forEach items="${foodArr}" var="arr">
+	foodArr += "${arr}";
+</c:forEach>
+
+console.log("foodArr :" + foodArr);
+
+
 // 체크박스 값 가져오기
 function getCheckboxValue()  {
 	  // 선택된 목록 가져오기
