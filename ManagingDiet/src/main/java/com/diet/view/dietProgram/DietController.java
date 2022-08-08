@@ -98,6 +98,7 @@ public class DietController {
 		} catch(NullPointerException e){*/
 			model.addAttribute("foodList", dietProgramService.getFoodList(cri));
 			int totalFood = dietProgramService.getTotalFood2();
+			model.addAttribute("totalFood", totalFood);
 			PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
 			model.addAttribute("pageMaker", pageMake);
 		//}

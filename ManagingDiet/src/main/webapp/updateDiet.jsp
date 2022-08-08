@@ -36,9 +36,9 @@
 	<h1>음식 추천 리스트</h1>
 	
 	<form action="updateDiet.do" method="post" name="frm" class="chkForm">
-		<c:forEach items="${foodList}" var="food">
+		<c:forEach items="${foodList}" var="food" varStatus="status">
 			<label>	
-			<input type="checkbox" name="food" id="checkbox" value="${food.foodName}" onClick="itemSum(this.form); addCookie('foodName', '${food.foodName}')">
+			<input type="checkbox" name="food" id="checkbox${status.index}" value="${food.foodName}" onClick="itemSum(this.form); addCookie('foodName', '${food.foodName}')">
 				<div id="list-wrap">
 					<img src="image/${food.imgPath}" width="300px" height="300px">
 					<p>음식명 : ${food.foodName}</p>
@@ -119,7 +119,6 @@ function getCookie(Name) {
 	Name = Name + '=';
 
 	var cookieData = document.cookie;
-	console.log("cookieData: " + cookieData);
 	var start = cookieData.indexOf(Name);
 	var cValue = ';' 
 	
@@ -148,9 +147,11 @@ function addCookie(Name, Value) {
 	var expire = new Date(); 
 	expire.setDate(expire.getDate()); 
 	let foodName;
-	const checkbox = document.getElementById('checkbox');
-	const is_checked = checkbox.checked;
-	console.log(is_checked);
+	for(i = 0; i < 10; ++i) {
+		var checkbox = document.getElementById('checkbox' + i);
+		console.log(checkbox);
+		var is_checked = checkbox.checked;
+		console.log("체크 유뮤 : " +is_checked);
 	
 	// 쿠키가 존재하지 않을 때 new 쿠키 생성
 	if (document.cookie.indexOf('foodName=') == -1 && is_checked == true) {
@@ -186,6 +187,7 @@ function addCookie(Name, Value) {
 	
 	// 쿠키 생성 코드
 	document.cookie = foodName; 
+	}
 }
 
 
