@@ -10,23 +10,25 @@
 <link rel="stylesheet" href="./css/login.css">
 <link rel="stylesheet" href="./css/common.css">
 <!-- icon -->
-<script src="https://kit.fontawesome.com/a3dc88dac3.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/a3dc88dac3.js" crossorigin="anonymous"></script>    
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js'></script>
 
 </head>
 <body>
 	<!-- float Img -->
 	<div class="image-grid">				
 		<div class="image-grid__item pos-2">
-			<img src="./image/불고기 음식.png" alt="">
+			<img src="./image/탄수화물.png" alt="">
 		</div>
 		<div class="image-grid__item pos-4">
-			<img src="./image/전복.png" alt="">
+			<img src="./image/단백질.png" alt="">
 		</div>
 		<div class="image-grid__item pos-5">
-			<img src="./image/계란말이.png" alt="">
+			<img src="./image/탄단지.png" alt="">
 		</div>
 		<div class="image-grid__item pos-9">
-			<img src="./image/굴.png" alt="">
+			<img src="./image/지방.png" alt="">
 		</div>		
 	</div>
     <div id="menu">
@@ -80,9 +82,9 @@
 					영양소에 맞는 칼로리 구성<br>
 				</span><br>
 				<span class="contents" style="font-size: 30px;" >
-					탄수화물: ${nutrients[0]}<br><br>
-					단백질: ${nutrients[1]}<br><br>
-					지방: ${nutrients[2]}
+					탄수화물: ${nutrients[0]} g<br><br>
+					단백질: ${nutrients[1]} g<br><br>
+					지방: ${nutrients[2]} g
 				</span>				
 			</h1>
 		</div>
@@ -214,11 +216,8 @@
 </div>
 	 
 
-    
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="./js/navi.js"></script>
 <script src="./js/index.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js'></script>
 <!-- 로그인 js -->
 <script src="./js/login.js"></script>
 <!-- egg Toggle -->

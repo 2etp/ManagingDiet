@@ -16,6 +16,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
 <!-- icon -->
 <script src="https://kit.fontawesome.com/a3dc88dac3.js" crossorigin="anonymous"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js'></script>
+<script src='https://assets.codepen.io/16327/Flip.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 </head>
 <body>	
@@ -80,7 +83,7 @@
     <!-- card img -->
     <div class="main">
 		<form action="insertFood.do" method="post" name="frm">
-			<c:forEach items="${foodList}" var="food">
+			<c:forEach items="${foodList}" varStatus="status" var="food">
 				<div class='cards'>
 					<!-- line 1 -->
 						<div class="card-line">
@@ -468,14 +471,9 @@
 	});
 </script>
 
-	 
-
-    
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="./js/navi.js"></script>
 <script src="./js/index.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js'></script>
-<script src='https://assets.codepen.io/16327/Flip.min.js'></script>
+
 <!-- 로그인 js -->
 <script src="./js/login.js"></script>
 <!-- egg Toggle -->
