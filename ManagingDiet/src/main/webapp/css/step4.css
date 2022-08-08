@@ -46,6 +46,12 @@ label{
     position: relative;
     margin-right: 70px!important;
 }
+
+form {
+    display: flex;
+    width: 500px;
+    height: 500px;
+}
 .main {
     display: block;
     justify-content: space-between;
@@ -157,7 +163,7 @@ h1 {
     margin: auto 0;
     width: 50%;
     max-width: 750px;
-    display: contents;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -740,20 +746,23 @@ h1 {
 }
 
 .pageInfo{
-  	list-style : none;
-  	display: inline-block;
-    margin: 50px 0 0 100px;  	
+  list-style : none;
+  display: inline-block;
+  margin: 50px 0 0 100px;  	
 }
-  
+
 .pageInfo li{
-  	float: left;
-    font-size: 20px;
-    margin-left: 18px;
-    padding: 7px;
-    font-weight: 500;
+  float: left;
+  font-size: 20px;
+  margin-left: 18px;
+  padding: 7px;
+  font-weight: 500;
 }
- 
+
+a:link {color:black; text-decoration: none;}
+a:visited {color:black; text-decoration: none;}
+a:hover {color:black; text-decoration: underline;}
+
 .active{
- 	background-color: #cdd5ec;
- 	
+ background-color: #cdd5ec;
 }

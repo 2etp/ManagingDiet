@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="./css/common.css">
 	<!-- icon -->
 	<script src="https://kit.fontawesome.com/a3dc88dac3.js" crossorigin="anonymous"></script>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	
 	</head>
 	<body>
@@ -194,8 +195,6 @@
 		 
 	
 	</body>
-		
-	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src="./js/navi.js"></script>
 	<script  src="./js/index.js"></script>
 	<!-- 로그인 js -->

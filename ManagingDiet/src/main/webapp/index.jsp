@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="./css/common.css">
 <!-- icon -->
 <script src="https://kit.fontawesome.com/a3dc88dac3.js" crossorigin="anonymous"></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://unpkg.com/splitting@1.0.5/dist/splitting.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.10.1/bodymovin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 
 <script>
     var msg = "${msg}";
@@ -368,13 +374,7 @@
         alert("회원가입이 완료되었습니다. 로그인해주세요~");
     }
 </script>
-<!-- partial -->
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426'></script>
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js'></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://unpkg.com/splitting@1.0.5/dist/splitting.min.js'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.10.1/bodymovin.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+
 <script src="./js/navi.js"></script>
 
 <script  src="./js/index.js"></script>
