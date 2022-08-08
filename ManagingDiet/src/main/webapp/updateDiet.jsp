@@ -36,9 +36,9 @@
 	<h1>음식 추천 리스트</h1>
 	
 	<form action="updateDiet.do" method="post" name="frm" class="chkForm">
-		<c:forEach items="${foodList}" var="food" varStatus="status">
+		<c:forEach items="${foodList}" var="food"  varStatus="status">
 			<label>	
-			<input type="checkbox" name="food" id="checkbox${status.index}" value="${food.foodName}" onClick="itemSum(this.form); addCookie('foodName', '${food.foodName}')">
+			<input type="checkbox" name="food" id="checkbox${status.index}" value="${food.foodName}" onClick="itemSum(this.form); getCheckboxValue()">
 				<div id="list-wrap">
 					<img src="image/${food.imgPath}" width="300px" height="300px">
 					<p>음식명 : ${food.foodName}</p>
@@ -113,14 +113,14 @@ function itemSum(frm) {
 
 }
 
-//쿠키 불러오기 함수
+/* //쿠키 불러오기 함수
 function getCookie(Name) {
 	
 	Name = Name + '=';
 
 	var cookieData = document.cookie;
 	var start = cookieData.indexOf(Name);
-	var cValue = ';' 
+	var Value = ';' 
 	
 	if(start != -1) {
 		// 'courseCode='의 길이만큼 추가
@@ -133,7 +133,7 @@ function getCookie(Name) {
 			// 'courseCode=과목코드'까지의 길이를 변수 end에 할당
 			end = cookieData.length;
 		// 'courseCode='이후부터 실제 과목코드까지 자름
-		// 결국 과목코드만 cValue에 남게 됨
+		// 결국 과목코드만 Value에 남게 됨
 		Value = cookieData.substring(start, end);
 		console.log("Value: " + Value);
 
@@ -142,34 +142,61 @@ function getCookie(Name) {
 	return unescape(Value);
 }
 
+var foodArr = "";
+<c:forEach items="${foodArr}" var="arr">
+	foodArr = "${arr}";
+</c:forEach>
+console.log("foodArr : " + foodArr);
 //쿠키 더미 생성 함수
 function addCookie(Name, Value) {
 	var expire = new Date(); 
 	expire.setDate(expire.getDate()); 
 	let foodName;
-	for(i = 0; i < 10; ++i) {
-		var checkbox = document.getElementById('checkbox' + i);
-		console.log(checkbox);
-		var is_checked = checkbox.checked;
-		console.log("체크 유뮤 : " +is_checked);
+	/* for(var i = 0; i < 8; ++i) {
+	const checkbox = document.getElementById('checkbox' + i);
+	console.log(checkbox);
+	const is_checked = checkbox.checked;
+	console.log("체크 유뮤 : " +is_checked); */
+/* 	const query = 'input[name="food"]:checked';
+  	const selectedEls = document.querySelectorAll(query);
+  	 let result = "";
+	  selectedEls.forEach((el) => {
+		  if(foodArr == "") {
+			  result += el.value;
+		  } else if(foodArr != "") {
+			  foodArr += el.value;
+		  }
+	  });
+	  console.log("result: " + result);
+	  console.log("foodArr11: " + foodArr);
+	  document.getElementById('foodArr').value = result; */
 	
 	// 쿠키가 존재하지 않을 때 new 쿠키 생성
-	if (document.cookie.indexOf('foodName=') == -1 && is_checked == true) {
-		foodName = Name + '=' + escape(Value) + '; path=/ ';
+	/* if (document.cookie.indexOf('foodName=') == -1) {
+		foodName = Name + '=' + result + '; path=/ ';
 		console.log("new " + foodName);
-	} else if (document.cookie.indexOf('foodName=') != -1 && is_checked == true) {
-		// 쿠키가 존재하면 getCookie 함수를 통해 과목코드 가져옴
+	} else if (document.cookie.indexOf('foodName=') != -1) {
 		let foodCookie = getCookie("foodName");
+		console.log("before: " + foodCookie);
+		foodCookie += ";" + result;
+		console.log("after: " + foodCookie);
+		foodName = 'foodName=' + escape(foodCookie) + '; path=/ '; */
+		
+/* 		foodName = Name + '=' + result + '; path=/ ';
+		console.log("new " + foodName); */
+	
+		// 쿠키가 존재하면 getCookie 함수를 통해 과목코드 가져옴
+		/* let foodCookie = getCookie("foodName");
 		console.log("foodCookie: " + foodCookie);
 		let arr = foodCookie.split(";");
 		console.log("arr(" + arr.length + "): " + arr);
 		
 		console.log("before: " + foodCookie);
-		foodCookie += ";" + Value;
+		foodCookie += ";" + result;
 		console.log("after: " + foodCookie);
 		foodName = 'foodName=' + escape(foodCookie) + '; path=/ ';
 		console.log("add: " + foodName);
-    } else if (document.cookie.indexOf('foodName=') != -1 && is_checked == false) {
+    } else  {
     	let foodCookie = getCookie("foodName");
 		console.log("foodCookie: " + foodCookie);
 
@@ -182,13 +209,14 @@ function addCookie(Name, Value) {
 		console.log("before: " + foodCookie);
     	//foodCookie -= ";" + Value;
 	    //console.log("체크해제 시 after: " + newValue);
-	    foodName = 'foodName=' + escape(newValue) + '; path=/ ';
-    }
+	    foodName = 'foodName=' + escape(newValue) + '; path=/ '; */
+    //}
 	
 	// 쿠키 생성 코드
-	document.cookie = foodName; 
-	}
-}
+	//document.cookie = foodName; 
+	//}
+	
+//} */
 
 
 // 체크박스 값 가져오기
