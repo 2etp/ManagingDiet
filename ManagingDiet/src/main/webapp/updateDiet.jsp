@@ -87,12 +87,26 @@
 		<input type="hidden" id="foodArr" name="food" value="">
 	</form>
 	
-	<input type="hidden" class="foodArr" value="${foodArr}">
 	<c:forEach items="${foodArr}" var="arr">
 		<p>${arr}</p>	
 	</c:forEach>
+
 	
 <script>
+
+var values = [];
+<c:forEach items="${foodArr}" var="arr" varStatus="status">
+	values.push("${arr}");
+</c:forEach>
+console.log("values : " + values);
+values.forEach(element => {
+	  console.log(element);
+	})
+console.log("length : " + values.length);
+for(var i=0; i<values.length; i++){
+	if(values[i].checked == true)
+      $("input:checkbox[value="+values[i]+"]").prop("checked", true);
+}
 
 // 유저가 선택한 음식의 칼로리 합 구하기
 function itemSum(frm) {
