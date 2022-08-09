@@ -94,35 +94,16 @@
 	
 <script>
 
-var arr = [];
-var values = [];
-var chk = true;
+var foodArr = [];
 <c:forEach items="${foodArr}" var="arr" varStatus="status">
-	arr.push("${arr}");
+	foodArr.push("${arr}");
 </c:forEach>
 
-values.forEach(element => {
-	  console.log(element);
-	})
-for(var i = 0; i < arr.length; ++i) {
-	chk = true;
-
-	for(value in values) {
-		if(values[value] == arr[i]) {
-			chk = false;
-		}
-	}
-	
-	if(chk)
-		values.push(arr[i]);
-}
-
-console.log("arr : " + arr);
-console.log("values : " + values);
-for(var i=0; i<values.length; i++){
-	if(values[i] == true)
-      $("input:checkbox[value="+values[i]+"]").prop("checked", true);
-}
+$('input:checkbox[name="food"]').each(function() {
+	if( foodArr.indexOf(this.value) > -1){  
+		$(this).prop('checked', true); 
+	   }
+});
 
 // 유저가 선택한 음식의 칼로리 합 구하기
 function itemSum(frm) {
@@ -149,25 +130,32 @@ function getCheckboxValue()  {
 	  // 선택된 목록 가져오기
 	  const query = 'input[name="food"]:checked';
 	  const selectedEls = 
-	      document.querySelectorAll(query);
+	      document.querySelectorAll(query);  
+	  
+	  var values = [];
+
+	  <c:forEach items="${foodArr}" var="arr" varStatus="status">
+	  values.push("${arr}");
+	  </c:forEach>
+
+	  console.log("values : " + values);
 	  
 	  // 선택된 목록에서 value 찾기
 	  var result = [];
-	  selectedEls.forEach((el) => {
-		  if(values == null || values == "") {
-			  result += el.value + ',';
-			  document.getElementById('foodArr').value = result;
-			  console.log("result 값 : " + result);
-		  } else if(values != null || values != ""){
-			  values += ',' + el.value;
-			  document.getElementById('foodArr').value = values;
-			  console.log("values 값 : " + values);
-		  }
-		  
-	  });
-	  //console.log("체크 값 : " + result);
-	  // hidden 타입의 input에 value 추가
-	  //document.getElementById('foodArr').value = result;
+	 
+	  if(values == null || values == "") {
+		  selectedEls.forEach((el) => {
+		  result += el.value + ',';
+		  });
+		  document.getElementById('foodArr').value = result;
+		  console.log("result 값 : " + result);
+	  } else if(values != null && values != ""){
+		  selectedEls.forEach((el) => {
+		  values += ',' + el.value;
+		  });
+		  document.getElementById('foodArr').value = values;
+		  console.log("values 값 : " + values);
+	  }
 }
 
 // 페이징 처리

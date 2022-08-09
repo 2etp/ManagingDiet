@@ -1,5 +1,6 @@
 package com.diet.view.dietProgram;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -88,10 +89,19 @@ public class DietController {
 		if(request.getParameter("food") != null && request.getParameter("food") != "") {
 			String food = request.getParameter("food");
 			System.out.println("체크 값은 : " + food);
+			
 			String[] foodArr = food.split(",");
-			session.setAttribute("foodArr", foodArr);
-			System.out.println(Arrays.toString(foodArr));
-			//model.addAttribute("foodArr", foodArr);
+			
+			ArrayList<String> arrayList = new ArrayList<String>();
+
+	        for(String item : foodArr){
+	          if(!arrayList.contains(item))
+	          arrayList.add(item);
+	        }  
+			
+			session.setAttribute("foodArr", arrayList);
+			//System.out.println(Arrays.toString(answer));
+			System.out.println(arrayList);
 			model.addAttribute("foodList", dietProgramService.getFoodList(cri));
 			int totalFood = dietProgramService.getTotalFood2();
 			PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
