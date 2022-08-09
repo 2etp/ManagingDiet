@@ -64,7 +64,7 @@
 		
 			<div class="typewriter">
 				<h1 id="text">
-					<span style="font-size: 40px;">당신의 일일 칼로리는 ${kcal}입니다. 돼지야</span><br><br>
+					<span style="font-size: 40px;">당신의 일일 칼로리는 ${kcal}입니다.</span><br><br>
 				</h1>           
 			</div>
 		<div class="main">

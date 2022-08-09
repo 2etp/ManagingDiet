@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="KO" >
 <head>
-  <meta charset="UTF-8">
-  <title></title>
+<meta charset="UTF-8">
+<title></title>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./css/typing.css">
 <link rel="stylesheet" href="./css/step3.css">
@@ -112,6 +112,7 @@
       <form class="form" id="signin-form" action="login.do" method="post">
         <p class="fieldset">
           <label class="image-replace email" for="signin-email">E-mail</label>
+          <input class="full-width has-padding has-border width" id="signin-email" type="email" name="id" value="${user.id }" placeholder="ì´ë©ì¼">
           <input class="full-width has-padding has-border width" id="signin-email" type="email" name="id" value="${user.id }" placeholder="이메일">
           <span class="error-message" id="login-email">이메일을 입력하세요.</span>
           <span class="error-message" id="login-email2">이메일 형태로 입력하세요.</span>
@@ -144,6 +145,7 @@
       <form action="signup.do" method="post" class="form" id="signup-form">
         <p class="fieldset">
           <label class="image-replace username" for="signup-username">Username</label>
+          <input class="full-width has-padding has-border width" id="signup-username" type="text" name="name" placeholder="ì´ë¦">
           <input class="full-width has-padding has-border width" id="signup-username" type="text" name="name" placeholder="이름">
           <span class="error-message" id="user-danger">이름을 입력하세요</span>
           <span class="error-message" id="user-danger2">이름이 잘못 되었습니다.</span>
@@ -151,6 +153,7 @@
 
         <p class="fieldset">
           <label class="image-replace email" for="signup-email">E-mail</label>
+          <input type="email" class="full-width has-padding has-border width" id="signup-email" name="id"  placeholder="ì´ë©ì¼">
           <input type="email" class="full-width has-padding has-border width" id="signup-email" name="id"  placeholder="이메일">
           <span class="error-message" id="email-danger">이메일을 입력하세요.</span>
           <span class="error-message" id="email-danger2">이메일 형태로 입력하세요.</span>
@@ -159,6 +162,7 @@
         <p class="fieldset">
           <i class="fa-solid fa-mobile-screen"></i>
           <label class="image-replace phone" for="signup-phone">Phone-number</label>
+          <input class="full-width has-padding has-border width" id="signup-phone" type="tel" name="mobile" placeholder="í´ëí° ë²í¸ ex)01012345678">
           <input class="full-width has-padding has-border width" id="signup-phone" type="tel" name="mobile" placeholder="휴대폰 번호 ex)01012345678">
           <span class="error-message" id="phone-danger">휴대폰 번호를 입력하세요.</span>
           <span class="error-message" id="phone-danger2">휴대폰 번호를 양식에 맞게 입력해주세요.</span>
@@ -231,10 +235,7 @@
 </body>
 </html>
 
-
-<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+<!-- 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>

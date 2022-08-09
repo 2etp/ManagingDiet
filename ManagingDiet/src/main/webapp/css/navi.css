@@ -80,7 +80,7 @@
 }
 
 ul li {
-    color: #fff;
+    color: #fff!important;
     font-family: '메이플';
     padding: 20px 0;
 }
