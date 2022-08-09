@@ -65,7 +65,6 @@
 		</svg>
 	</div>
 
-  
   <!-- title -->
   <div class="wrap ten">
     <span class="letter">음</span>
@@ -81,8 +80,9 @@
   </div>
 
     <!-- card img -->
+    <div class="main-container">
     <div class="main">
-		<form action="insertFood.do" method="post" name="frm">
+		<form action="insertFood.do" method="post" name="frm" class="form1">
 			<c:forEach items="${foodList}" varStatus="status" var="food">
 				<div class='cards'>
 					<!-- line 1 -->
@@ -115,6 +115,9 @@
 		</c:forEach>
 
 		</form>
+  </div>
+</div>
+
 		<!-- paging Number -->
 		<div class="pageInfo_wrap" >
 			<div class="pageInfo_area">
@@ -138,15 +141,14 @@
 				</ul>
 			</div>
 		</div>
-    </div>
     
    	<form class="moveForm" method="get">	
-		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
-		<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
-		<input type="hidden" name="carbs" value="${session[0]}">
-		<input type="hidden" name="protein" value="${session[1]}">
-		<input type="hidden" name="fat" value="${session[2]}"> 
-	</form>
+      <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+      <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+      <input type="hidden" name="carbs" value="${session[0]}">
+      <input type="hidden" name="protein" value="${session[1]}">
+      <input type="hidden" name="fat" value="${session[2]}"> 
+	  </form>
 
 
     
