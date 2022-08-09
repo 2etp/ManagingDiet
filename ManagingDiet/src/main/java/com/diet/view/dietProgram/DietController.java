@@ -85,8 +85,7 @@ public class DietController {
 	// 식단 수정페이지로 이동하기
 	@RequestMapping(value="/updateDiet.do", method=RequestMethod.GET)
 	public String updateDietView(Model model, Criteria cri, HttpServletRequest request, HttpSession session) {
-		//try {
-			if(request.getParameter("food") != null && request.getParameter("food") != "") {
+		if(request.getParameter("food") != null && request.getParameter("food") != "") {
 			String food = request.getParameter("food");
 			System.out.println("체크 값은 : " + food);
 			String[] foodArr = food.split(",");
@@ -100,7 +99,6 @@ public class DietController {
 			System.out.println("값 존재 시 발동!!!");
 		
 		} else if((request.getParameter("food") == null || request.getParameter("food") == "")) {
-			//catch(NullPointerException e){
 			model.addAttribute("foodList", dietProgramService.getFoodList(cri));
 			int totalFood = dietProgramService.getTotalFood2();
 			PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
