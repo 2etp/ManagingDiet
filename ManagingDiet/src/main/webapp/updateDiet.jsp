@@ -94,16 +94,29 @@
 	
 <script>
 
+var arr = [];
 var values = [];
+var chk = true;
 <c:forEach items="${foodArr}" var="arr" varStatus="status">
-	values.push("${arr}");
+	arr.push("${arr}");
 </c:forEach>
-console.log("values : " + values);
+
 values.forEach(element => {
 	  console.log(element);
 	})
-console.log("length : " + values.length);
+for(var i = 0; i < arr.length; ++i) {
+	chk = true;
 
+	for(value in values) {
+		if(arr[i] !== arr[j]) {
+			values = arr[i];
+			
+		}
+	}
+}
+
+console.log("arr : " + arr);
+console.log("values : " + values);
 for(var i=0; i<values.length; i++){
 	if(values[i] == true)
       $("input:checkbox[value="+values[i]+"]").prop("checked", true);
@@ -137,13 +150,20 @@ function getCheckboxValue()  {
 	      document.querySelectorAll(query);
 	  
 	  // 선택된 목록에서 value 찾기
-	  let result = '';
+	  var result = [];
 	  selectedEls.forEach((el) => {
-		  result += el.value + ',';
+		  if(values == null || values == "") {
+			  result += el.value + ',';
+			  document.getElementById('foodArr').value = result;
+		  } else {
+			  values += ',' + el.value;
+			  document.getElementById('foodArr').value = values;
+		  }
+		  
 	  });
 	  console.log("체크 값 : " + result);
 	  // hidden 타입의 input에 value 추가
-	  document.getElementById('foodArr').value = result;
+	  //document.getElementById('foodArr').value = result;
 }
 
 // 페이징 처리
