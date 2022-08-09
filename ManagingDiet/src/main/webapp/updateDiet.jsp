@@ -108,11 +108,13 @@ for(var i = 0; i < arr.length; ++i) {
 	chk = true;
 
 	for(value in values) {
-		if(arr[i] !== arr[j]) {
-			values = arr[i];
-			
+		if(values[value] == arr[i]) {
+			chk = false;
 		}
 	}
+	
+	if(chk)
+		values.push(arr[i]);
 }
 
 console.log("arr : " + arr);
@@ -155,13 +157,15 @@ function getCheckboxValue()  {
 		  if(values == null || values == "") {
 			  result += el.value + ',';
 			  document.getElementById('foodArr').value = result;
-		  } else {
+			  console.log("result 값 : " + result);
+		  } else if(values != null || values != ""){
 			  values += ',' + el.value;
 			  document.getElementById('foodArr').value = values;
+			  console.log("values 값 : " + values);
 		  }
 		  
 	  });
-	  console.log("체크 값 : " + result);
+	  //console.log("체크 값 : " + result);
 	  // hidden 타입의 input에 value 추가
 	  //document.getElementById('foodArr').value = result;
 }
