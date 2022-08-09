@@ -1,7 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-
 <!DOCTYPE html>
 <html lang="KO" >
 <head>
@@ -44,7 +40,7 @@
 		<div class="menu-inner">
 			
 			<ul class="index-control">
-				<!-- ë¡ê·¸ì¸ -->
+				<!-- 로그인 -->
         <li class=" main-nav">
           <c:if test="${empty idKey}">
             <a id="rainbow-btn" class="signin" href="#0" >Login / Signup</a>
@@ -58,14 +54,14 @@
           </c:if>
         </li>
 				
-				<!-- ë©ë´ -->
+				<!-- 메뉴 -->
 				<li><a class="hover-1" href="./index.jsp">MAIN</a></li>
 				<li><a class="hover-1" href="./main.html">INTRODUCE</a></li>
 				<li><a class="hover-1" href="./dietCategory.jsp">DIET PROGRAM</a></li>
 				<li><a class="hover-1" href="#">RECORD</a></li>
 							
 			</ul>
-    		 <!-- sns ë²í¼ -->
+    		 <!-- sns 버튼 -->
 			<section class="btn-section">
 				<button class="btn-cp"><i class="fab fa-lg first-logo fa-codepen"></i><i class="fab fa-lg second-logo fa-codepen"></i></button>
 				<button class="btn-tw"><i class="fab fa-lg first-logo fa-twitter"></i><i class="fab fa-lg second-logo fa-twitter"></i></button>
@@ -116,14 +112,18 @@
       <form class="form" id="signin-form" action="login.do" method="post">
         <p class="fieldset">
           <label class="image-replace email" for="signin-email">E-mail</label>
+<<<<<<< HEAD
           <input class="full-width has-padding has-border width" id="signin-email" type="email" name="id" value="${user.id }" placeholder="ì´ë©ì¼">
+=======
+          <input class="full-width has-padding has-border width" id="signin-email" type="email" name="id" value="${user.id }" placeholder="이메일">
+>>>>>>> 36f05cbfc8e694f7094c20e8fad4bd955949ab96
           <span class="error-message" id="login-email">이메일을 입력하세요.</span>
           <span class="error-message" id="login-email2">이메일 형태로 입력하세요.</span>
         </p>
 
         <p class="fieldset">
           <label class="image-replace password" for="signin-password">Password</label>
-          <input class="full-width has-padding has-border width" id="signin-password" type="password" name="password" value="${user.password }"  placeholder="ë¹ë°ë²í¸">
+          <input class="full-width has-padding has-border width" id="signin-password" type="password" name="password" value="${user.password }"  placeholder="비밀번호">
           <a href="#0" class="hide-password">Show</a>
           <span class="error-message" id="login-pw">비밀번호를 확인해주세요.</span>
           <span class="error-message" id="login-pw2">숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.</span>
@@ -148,14 +148,22 @@
       <form action="signup.do" method="post" class="form" id="signup-form">
         <p class="fieldset">
           <label class="image-replace username" for="signup-username">Username</label>
+<<<<<<< HEAD
           <input class="full-width has-padding has-border width" id="signup-username" type="text" name="name" placeholder="ì´ë¦">
+=======
+          <input class="full-width has-padding has-border width" id="signup-username" type="text" name="name" placeholder="이름">
+>>>>>>> 36f05cbfc8e694f7094c20e8fad4bd955949ab96
           <span class="error-message" id="user-danger">이름을 입력하세요</span>
           <span class="error-message" id="user-danger2">이름이 잘못 되었습니다.</span>
         </p>
 
         <p class="fieldset">
           <label class="image-replace email" for="signup-email">E-mail</label>
+<<<<<<< HEAD
           <input type="email" class="full-width has-padding has-border width" id="signup-email" name="id"  placeholder="ì´ë©ì¼">
+=======
+          <input type="email" class="full-width has-padding has-border width" id="signup-email" name="id"  placeholder="이메일">
+>>>>>>> 36f05cbfc8e694f7094c20e8fad4bd955949ab96
           <span class="error-message" id="email-danger">이메일을 입력하세요.</span>
           <span class="error-message" id="email-danger2">이메일 형태로 입력하세요.</span>
         </p>
@@ -163,7 +171,11 @@
         <p class="fieldset">
           <i class="fa-solid fa-mobile-screen"></i>
           <label class="image-replace phone" for="signup-phone">Phone-number</label>
+<<<<<<< HEAD
           <input class="full-width has-padding has-border width" id="signup-phone" type="tel" name="mobile" placeholder="í´ëí° ë²í¸ ex)01012345678">
+=======
+          <input class="full-width has-padding has-border width" id="signup-phone" type="tel" name="mobile" placeholder="휴대폰 번호 ex)01012345678">
+>>>>>>> 36f05cbfc8e694f7094c20e8fad4bd955949ab96
           <span class="error-message" id="phone-danger">휴대폰 번호를 입력하세요.</span>
           <span class="error-message" id="phone-danger2">휴대폰 번호를 양식에 맞게 입력해주세요.</span>
         </p>
@@ -241,7 +253,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ë¤ ë²ì§¸ ë¨ê³</title>
+<title>네 번째 단계</title>
 
 </head>
 <body>
@@ -249,10 +261,10 @@
 <div class="main">
    <div id="table">
       <div id="centeralign">
-        <h1>ìììì ë§ë ì¹¼ë¡ë¦¬ êµ¬ì±</h1>
-        <p>íìíë¬¼: ${nutrients[0]}</p>
-        <p>ë¨ë°±ì§: ${nutrients[1]}</p>
-        <p>ì§ë°©: ${nutrients[2]}</p>
+        <h1>영양소에 맞는 칼로리 구성</h1>
+        <p>탄수화물: ${nutrients[0]}</p>
+        <p>단백질: ${nutrients[1]}</p>
+        <p>지방: ${nutrients[2]}</p>
       </div>
    </div>
 </div>
@@ -262,7 +274,7 @@
 	<input type="hidden" name="carbs" value="${nutrients[0]}">
 	<input type="hidden" name="protein" value="${nutrients[1]}">
 	<input type="hidden" name="fat" value="${nutrients[2]}">
-	<input type="submit" value="4ë¨ê³">
+	<input type="submit" value="4단계">
 </form>
 
 

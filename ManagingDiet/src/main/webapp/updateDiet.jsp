@@ -103,8 +103,9 @@ values.forEach(element => {
 	  console.log(element);
 	})
 console.log("length : " + values.length);
+
 for(var i=0; i<values.length; i++){
-	if(values[i].checked == true)
+	if(values[i] == true)
       $("input:checkbox[value="+values[i]+"]").prop("checked", true);
 }
 
@@ -127,111 +128,6 @@ function itemSum(frm) {
 
 }
 
-/* //쿠키 불러오기 함수
-function getCookie(Name) {
-	
-	Name = Name + '=';
-
-	var cookieData = document.cookie;
-	var start = cookieData.indexOf(Name);
-	var Value = ';' 
-	
-	if(start != -1) {
-		// 'courseCode='의 길이만큼 추가
-		start += Name.length;
-
-		// ';'가 없기 때문에 변수 end는 -1이 나옴
-		var end = cookieData.indexOf(';', start);
-
-		if(end == -1)
-			// 'courseCode=과목코드'까지의 길이를 변수 end에 할당
-			end = cookieData.length;
-		// 'courseCode='이후부터 실제 과목코드까지 자름
-		// 결국 과목코드만 Value에 남게 됨
-		Value = cookieData.substring(start, end);
-		console.log("Value: " + Value);
-
-	}
-	
-	return unescape(Value);
-}
-
-var foodArr = "";
-<c:forEach items="${foodArr}" var="arr">
-	foodArr = "${arr}";
-</c:forEach>
-console.log("foodArr : " + foodArr);
-//쿠키 더미 생성 함수
-function addCookie(Name, Value) {
-	var expire = new Date(); 
-	expire.setDate(expire.getDate()); 
-	let foodName;
-	/* for(var i = 0; i < 8; ++i) {
-	const checkbox = document.getElementById('checkbox' + i);
-	console.log(checkbox);
-	const is_checked = checkbox.checked;
-	console.log("체크 유뮤 : " +is_checked); */
-/* 	const query = 'input[name="food"]:checked';
-  	const selectedEls = document.querySelectorAll(query);
-  	 let result = "";
-	  selectedEls.forEach((el) => {
-		  if(foodArr == "") {
-			  result += el.value;
-		  } else if(foodArr != "") {
-			  foodArr += el.value;
-		  }
-	  });
-	  console.log("result: " + result);
-	  console.log("foodArr11: " + foodArr);
-	  document.getElementById('foodArr').value = result; */
-	
-	// 쿠키가 존재하지 않을 때 new 쿠키 생성
-	/* if (document.cookie.indexOf('foodName=') == -1) {
-		foodName = Name + '=' + result + '; path=/ ';
-		console.log("new " + foodName);
-	} else if (document.cookie.indexOf('foodName=') != -1) {
-		let foodCookie = getCookie("foodName");
-		console.log("before: " + foodCookie);
-		foodCookie += ";" + result;
-		console.log("after: " + foodCookie);
-		foodName = 'foodName=' + escape(foodCookie) + '; path=/ '; */
-		
-/* 		foodName = Name + '=' + result + '; path=/ ';
-		console.log("new " + foodName); */
-	
-		// 쿠키가 존재하면 getCookie 함수를 통해 과목코드 가져옴
-		/* let foodCookie = getCookie("foodName");
-		console.log("foodCookie: " + foodCookie);
-		let arr = foodCookie.split(";");
-		console.log("arr(" + arr.length + "): " + arr);
-		
-		console.log("before: " + foodCookie);
-		foodCookie += ";" + result;
-		console.log("after: " + foodCookie);
-		foodName = 'foodName=' + escape(foodCookie) + '; path=/ ';
-		console.log("add: " + foodName);
-    } else  {
-    	let foodCookie = getCookie("foodName");
-		console.log("foodCookie: " + foodCookie);
-
-		let arr = foodCookie.split(";");
-		console.log("arr(" + arr.length + "): " + arr);
-		
-		let newValue = foodCookie.replace(Value, "");
-		console.log("새 값 : " + newValue);
-		
-		console.log("before: " + foodCookie);
-    	//foodCookie -= ";" + Value;
-	    //console.log("체크해제 시 after: " + newValue);
-	    foodName = 'foodName=' + escape(newValue) + '; path=/ '; */
-    //}
-	
-	// 쿠키 생성 코드
-	//document.cookie = foodName; 
-	//}
-	
-//} */
-
 
 // 체크박스 값 가져오기
 function getCheckboxValue()  {
@@ -243,9 +139,9 @@ function getCheckboxValue()  {
 	  // 선택된 목록에서 value 찾기
 	  let result = '';
 	  selectedEls.forEach((el) => {
-	    result += el.value + ',';
+		  result += el.value + ',';
 	  });
-	  
+	  console.log("체크 값 : " + result);
 	  // hidden 타입의 input에 value 추가
 	  document.getElementById('foodArr').value = result;
 }
