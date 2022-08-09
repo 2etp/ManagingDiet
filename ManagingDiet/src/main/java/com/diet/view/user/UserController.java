@@ -33,7 +33,7 @@ public class UserController {
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "login.jsp";
+		return "index.jsp";
 	}
 	
 	@RequestMapping(value="/signup.do", method=RequestMethod.GET)
