@@ -1,7 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-
 <!DOCTYPE html>
 <html lang="KO" >
 <head>
@@ -23,16 +19,16 @@
 	<!-- float Img -->
 	<div class="image-grid">				
 		<div class="image-grid__item pos-2">
-			<img src="./image/íìíë¬¼.png" alt="">
+			<img src="./image/탄수화물.png" alt="">
 		</div>
 		<div class="image-grid__item pos-4">
-			<img src="./image/ë¨ë°±ì§.png" alt="">
+			<img src="./image/단백질.png" alt="">
 		</div>
 		<div class="image-grid__item pos-5">
-			<img src="./image/íë¨ì§.png" alt="">
+			<img src="./image/탄단지.png" alt="">
 		</div>
 		<div class="image-grid__item pos-9">
-			<img src="./image/ì§ë°©.png" alt="">
+			<img src="./image/지방.png" alt="">
 		</div>		
 	</div>
     <div id="menu">

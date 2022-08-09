@@ -1,0 +1,22 @@
+diff a/ManagingDiet/src/main/webapp/dietStep4.jsp b/ManagingDiet/src/main/webapp/dietStep4.jsp	(rejected hunks)
+@@ -23,16 +23,16 @@
+ 	<!-- float Img -->
+ 	<div class="image-grid">				
+ 		<div class="image-grid__item pos-2">
+-			<img src="./image/탄수화물.png" alt="">
++			<img src="./image/íìíë¬¼.png" alt="">
+ 		</div>
+ 		<div class="image-grid__item pos-4">
+-			<img src="./image/단백질.png" alt="">
++			<img src="./image/ë¨ë°±ì§.png" alt="">
+ 		</div>
+ 		<div class="image-grid__item pos-5">
+-			<img src="./image/탄단지.png" alt="">
++			<img src="./image/íë¨ì§.png" alt="">
+ 		</div>
+ 		<div class="image-grid__item pos-9">
+-			<img src="./image/지방.png" alt="">
++			<img src="./image/ì§ë°©.png" alt="">
+ 		</div>		
+ 	</div>
+     <div id="menu">
