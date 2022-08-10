@@ -75,7 +75,7 @@
           </li>
 				<!-- 메뉴 -->
 				<li><a class="hover-1" href="./index.jsp">MAIN</a></li>
-				<li><a class="hover-1" href="./main.html">INTRODUCE</a></li>
+				<li><a class="hover-1" href="./introduce.jsp">INTRODUCE</a></li>
 				<li><a class="hover-1" href="./dietCategory.jsp">DIET PROGRAM</a></li>
 				<li><a class="hover-1" href="#">RECORD</a></li>
 							

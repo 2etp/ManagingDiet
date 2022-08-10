@@ -19,7 +19,7 @@ public class DietProgramServiceImpl implements DietProgramService{
 	private DietProgramDAOSpring dietProgramDAO;
 
 	@Override
-	public double dietStep1(KcalVO vo) {
+	public int dietStep1(KcalVO vo) {
 		return dietProgramDAO.dietStep1(vo);
 	}
 	
