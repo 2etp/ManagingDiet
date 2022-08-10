@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
 <html lang="KO" >
 <head>
 <meta charset="UTF-8">
@@ -19,16 +23,16 @@
 	<!-- float Img -->
 	<div class="image-grid">				
 		<div class="image-grid__item pos-2">
-			<img src="./image/탄수화물.png" alt="">
+			<img src="../picture/단백질.png" alt="">
 		</div>
 		<div class="image-grid__item pos-4">
-			<img src="./image/단백질.png" alt="">
+			<img src="../picture/탄수화물.png" alt="">
 		</div>
 		<div class="image-grid__item pos-5">
-			<img src="./image/탄단지.png" alt="">
+			<img src="../picture/달걀.png" alt="">
 		</div>
 		<div class="image-grid__item pos-9">
-			<img src="./image/지방.png" alt="">
+			<img src="../picture/지방.png" alt="">
 		</div>		
 	</div>
     <div id="menu">
@@ -112,7 +116,6 @@
       <form class="form" id="signin-form" action="login.do" method="post">
         <p class="fieldset">
           <label class="image-replace email" for="signin-email">E-mail</label>
-          <input class="full-width has-padding has-border width" id="signin-email" type="email" name="id" value="${user.id }" placeholder="ì´ë©ì¼">
           <input class="full-width has-padding has-border width" id="signin-email" type="email" name="id" value="${user.id }" placeholder="이메일">
           <span class="error-message" id="login-email">이메일을 입력하세요.</span>
           <span class="error-message" id="login-email2">이메일 형태로 입력하세요.</span>
@@ -221,11 +224,8 @@
 	 
 
 <script src="./js/navi.js"></script>
-<script src="./js/index.js"></script>
 <!-- 로그인 js -->
 <script src="./js/login.js"></script>
-<!-- egg Toggle -->
-<scripts src="./js/eggToggle.js" ></script>
 <!-- Submit Button -->
 <script src="./js/submit3.js"></script>
 <script src="./js/Typing.js"></script>

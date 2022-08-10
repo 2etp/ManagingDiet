@@ -46,6 +46,7 @@ label{
 h1 {
     font-weight: 400;
     font-size: 40px;
+    margin-top: -100px;
 }
   
   .title {
@@ -85,15 +86,15 @@ h1 {
   
 
   .pos-2 {
-    grid-area: 1 / 21 / 17 / 30;
+    grid-area: 1 / 22 / 16 / 29;
   }  
 
   .pos-4 {
-    grid-area: 20 / 10 / 31 / 18;
+    grid-area: 15 / 10 / 31 / 18;
   }
   
   .pos-5 {
-    grid-area: 20 / 35 / 35 / 45;
+    grid-area: 20 / 33 / 35 / 45;
   }
   
   .pos-9 {

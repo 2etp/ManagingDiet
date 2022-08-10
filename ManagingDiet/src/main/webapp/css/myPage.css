@@ -94,9 +94,9 @@ body {
     cursor: pointer;
   }
   
-  .underline.yellow {
-    background-image: linear-gradient(transparent 60%, #F8CD07 40%);
-  }
-  .underline:hover {
-    background-size: 100% 100%;
-  }
+.underline.yellow {
+background-image: linear-gradient(transparent 60%, #F8CD07 40%);
+}
+.underline:hover {
+background-size: 100% 100%;
+}
