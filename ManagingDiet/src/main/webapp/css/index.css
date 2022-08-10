@@ -233,6 +233,8 @@ body.loaded #wrap #panels section.panel h1 span.word {
   margin: -1vmin 0;
   position: relative;
   color: transparent;
+  bottom: 410px;
+  right: 300px;
 }
 body.loaded #wrap #panels section.panel h1 span.word:before {
   content: attr(data-word);
@@ -302,12 +304,12 @@ body.loaded #wrap #panels section.panel:nth-of-type(3) .image:nth-of-type(3) .in
   opacity: 0.5;
 }
 body.loaded #wrap #panels section.panel .image {
-  width: 30vh;
-  height: 30vh;
-  position: absolute;
+  width: 120vh;
+  height: 70vh;
+  position: relative;
   overflow: hidden;
-  top: 5vh;
-  left: 10vh;
+  top: 18vh;
+  left: 0px;
   z-index: 3;
   box-sizing: border-box;
   transform-origin: bottom;
@@ -435,6 +437,12 @@ body.loaded #wrap #panels section.panel .image .inner:before {
   100% {
     width: 30%;
   }
+}
+
+.image {
+  position: relative;
+  top: 210px;
+  left: -2%;
 }
 
 .loading {

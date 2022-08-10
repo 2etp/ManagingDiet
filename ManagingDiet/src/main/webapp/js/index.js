@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ScrollTrigger.create({
         trigger: document.body,
         end: "bottom bottom",
-        snap: { snapTo: 0.1, duration: 0.6, delay: 0, ease: "power4.inOut" },
+        snap: { snapTo: 0.67, duration: 0.6, delay: 0, ease: "power4.inOut" },
         onUpdate: (self) => {
             const totalVelocity = (self.getVelocity() / 1400);
             const posVelocity = Math.abs((self.getVelocity() / 2400));

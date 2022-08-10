@@ -87,15 +87,20 @@
 				<div class='cards'>
 					<!-- line 1 -->
 						<div class="card-line">
-						<div class='card' data-card>
-							<div class='card__inner'>
-							<div class='card__image'>
-								<img id="img-btn" src='image/${food.imgPath}' alt='The Fountain' />
-							</div>
-							</div>
-						<div class="food-name">${food.foodName}</div>
-						</div>              
-					</div>
+              <div class='card' data-card>
+                <div class='card__inner'>
+                  <div class='card__image'>
+                    <img id="img-btn" src='image/${food.imgPath}' alt='The Fountain' />
+                  </div>              
+                </div>
+              </div> 
+              <div class="food-name">
+                <label for="food-name${status.index}">
+                    ${food.foodName}
+                  <input class="food-choice" id="food-name${status.index}" type="checkbox" name="food" value="${food.foodName}" onClick="itemSum(this.form);">
+                </label>
+              </div>             
+            </div>
 				</div>
 
             
@@ -104,7 +109,7 @@
 			<div class='content'>
 				<div class='content__group'>
 					<p class='content__heading'>${food.foodName}</p>
-					<p class='content__category'>칼로리 : <span id="foodCalorie">${food.foodCalorie}</span>kcal</p>
+					<p class='content__category'>칼로리 : <span class="foodCalorie" id="foodCalorie">${food.foodCalorie}</span>kcal</p>
 					<p class='content__description'>
 						탄수화물 : ${food.foodCarbs}g <br>
 						단백질 : ${food.foodProtein}g <br>
@@ -113,7 +118,12 @@
 				</div>
 			</div>     
 		</c:forEach>
-
+    <div>
+      <div>칼로리 합계</div>
+      <input type="text" name="sum" id="sum" readonly><br><br>
+      <input type="hidden" name="id" value="${idKey.id}">
+      <input type="submit" value="식단짜기">
+    </div>    
 		</form>
   </div>
 </div>
@@ -450,7 +460,7 @@
 	var count = frm.food.length;
 	for(var i = 0; i < count; ++i) {
 		if(frm.food[i].checked == true) {
-			sum += parseInt(document.getElementsByTagName('span')[i].innerText);
+			sum += parseInt(document.getElementsByClassName('foodCalorie')[i].innerText);
 			
 			if(sum > kcal) {
 				alert("일일칼로리를 초과하였습니다! 다시 선택해 주세요.");
