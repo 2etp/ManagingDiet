@@ -42,18 +42,22 @@ public class DietProgramDAOSpring {
 	private final String NUTRIENTS_UPDATE = "update tblmember set carbs = ?, protein = ?, fat = ? where id = ?";
 	
 	// 사용자 스펙을 통한 기초대사량 계산
-	public double dietStep1(KcalVO vo) {
+	public int dietStep1(KcalVO vo) {
 		
-		double bmr = 0;
+		int bmr = 0;
 		
 		// 해리스 베네딕트 방정식 이용
 		if(vo.getSex().equals("남")) {
-			bmr = 66 + (13.7 * vo.getWeight() + (5 * vo.getHeight()) - (6.8 * vo.getAge()));
+			double doubleBmr = 66 + (13.7 * vo.getWeight() + (5 * vo.getHeight()) - (6.8 * vo.getAge()));
+			bmr = (int) doubleBmr;
 			System.out.println("남자용 방적식 결과");
+			System.out.println("bmr :" + bmr);
 			
 		} else if(vo.getSex().equals("여")) {
-			bmr = 655 + (9.6 * vo.getWeight() + (1.7 * vo.getHeight()) - (4.7 * vo.getAge()));
+			double doubleBmr = 655 + (9.6 * vo.getWeight() + (1.7 * vo.getHeight()) - (4.7 * vo.getAge()));
+			bmr = (int) doubleBmr;
 			System.out.println("여자용 방적식 결과");
+			System.out.println("bmr :" + bmr);
 		}
 		
 		return bmr;
