@@ -118,12 +118,14 @@
 				</div>
 			</div>     
 		</c:forEach>
-    <div>
-      <div>칼로리 합계</div>
-      <input type="text" name="sum" id="sum" readonly><br><br>
-      <input type="hidden" name="id" value="${idKey.id}">
-      <input type="submit" value="식단짜기">
-    </div>    
+      <div class="calorieSum">
+        <div style="float: left; margin-left: 36%;">
+          칼로리 합계: 
+          <input type="text" name="sum" id="sum" readonly>
+          <input type="hidden" name="id" value="${idKey.id}">
+          <input type="submit" value="식단짜기">
+        </div>      
+      </div>      
 		</form>
   </div>
 </div>

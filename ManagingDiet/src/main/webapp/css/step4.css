@@ -41,12 +41,16 @@ body {
   
 label{
     position: relative;
-    margin-right: 70px!important;
+    margin-right: -40px!important;
 }
 
 .main-container {
   display: flex;
   justify-content: center;
+}
+
+.update-btn {
+  margin-top: 60px;
 }
 
 .form1 {
@@ -57,10 +61,17 @@ label{
 }
 
 .calorieSum {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  font-size: 30px;
 }
 
+#sum {
+  width: 250px;
+  height: 40px;
+  font-size: 30px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
 
 .main {
     display: block;
@@ -96,6 +107,8 @@ label{
 .pageInfo_wrap {
   display: flex;
   justify-content: center;
+  margin-top: -40px;
+  margin-left: -10%;
 }
 
 .update-btn {
@@ -331,8 +344,6 @@ h1 {
 .visible-hidden {
   visibility: hidden;
 }
-
-
 
 .pagination {
   width: 400px;
