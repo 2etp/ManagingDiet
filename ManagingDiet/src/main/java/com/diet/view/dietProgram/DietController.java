@@ -85,43 +85,21 @@ public class DietController {
 	
 	// 식단 수정페이지로 이동하기
 	@RequestMapping(value="/updateDiet.do", method=RequestMethod.GET)
-	public String updateDietView(Model model, Criteria cri, HttpServletRequest request, HttpSession session) {
-		/*if(request.getParameter("food") != null && request.getParameter("food") != "") {
-			String food = request.getParameter("food");
-			System.out.println("체크 값은 : " + food);
-			
-			String[] foodArr = food.split(",");
-			
-			ArrayList<String> arrayList = new ArrayList<String>();
-
-	        for(String item : foodArr){
-	          if(!arrayList.contains(item))
-	          arrayList.add(item);
-	        }  
-			
-			session.setAttribute("foodArr", arrayList);
-			//System.out.println(Arrays.toString(answer));
-			System.out.println(arrayList);
-			model.addAttribute("foodList", dietProgramService.getFoodList(cri));
-			int totalFood = dietProgramService.getTotalFood2();
-			PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
-			model.addAttribute("pageMaker", pageMake);
-			System.out.println("값 존재 시 발동!!!");
-		
-		} else if((request.getParameter("food") == null || request.getParameter("food") == "")) {*/
-			model.addAttribute("foodList", dietProgramService.getFoodList(cri));
-			int totalFood = dietProgramService.getTotalFood2();
-			PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
-			model.addAttribute("pageMaker", pageMake);
-			System.out.println("값 부재 시 발동!!!");
-		//}
+	public String updateDietView(Model model, Criteria cri) {
+		model.addAttribute("foodList", dietProgramService.getFoodList(cri));
+		int totalFood = dietProgramService.getTotalFood2();
+		PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
+		model.addAttribute("pageMaker", pageMake);
+		System.out.println("값 부재 시 발동!!!");
 		return "updateDiet.jsp";
 	}
 	
 	// 식단 수정하기
 	@RequestMapping(value="/updateDiet.do", method=RequestMethod.POST)
-	public String updateDiet(UserDietVO vo, RedirectAttributes redirectAttributes) {
-		dietProgramService.updateDiet(vo);
+	public String updateDiet(UserDietVO vo, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+		String foodArr = request.getParameter("food");
+		System.out.println("foodArr :" + foodArr);
+		dietProgramService.updateDiet(vo, foodArr);
 		redirectAttributes.addFlashAttribute("msg", "updateDiet");
 		return "redirect:index.do";
 	}

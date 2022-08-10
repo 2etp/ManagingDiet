@@ -38,7 +38,7 @@
 	<form action="updateDiet.do" method="post" name="frm" class="chkForm">
 		<c:forEach items="${foodList}" var="food"  varStatus="status">
 			<label>	
-			<input type="checkbox" name="food" id="checkbox${status.index}" value="${food.foodName}" onClick="itemSum(this.form); getCheckboxValue(${status.index})">
+			<input type="checkbox" name="food" id="checkbox${status.index}" value="${food.foodName}" onClick="itemSum(this.form); getCheckboxValue()">
 				<div id="list-wrap">
 					<img src="image/${food.imgPath}" width="300px" height="300px">
 					<p>음식명 : ${food.foodName}</p>
@@ -55,6 +55,7 @@
 		칼로리 합계 <input type="text" name="sum" id="sum" readonly><br><br>
 
 		<input type="hidden" name="id" value="${idKey.id}">
+		<input type="hidden" id="foodArr" name="food" value="">
 		<input type="submit" value="식단 수정하기">
 
 	</form>
@@ -84,7 +85,6 @@
 		<input type="hidden" name="userCarbs" value="${idKey.userCarbs}">
 		<input type="hidden" name="userProtein" value="${idKey.userProtein}">
 		<input type="hidden" name="userFat" value="${idKey.userFat}">
-		<input type="hidden" id="foodArr" name="food" value="">
 	</form>
 	
 	<c:forEach items="${foodArr}" var="arr">
@@ -113,26 +113,29 @@ function itemSum(frm) {
 
 }
 
-var sessionLength = sessionStorage.length;
+/* var sessionLength = sessionStorage.length;
 	console.log("길이 :" + sessionLength);
 var foodArr = "";
 
 for(var i = 1; i <= sessionLength; ++i) {
 	foodArr += sessionStorage.getItem("foodSession" + i);
+	console.log("foodSession :" + sessionStorage.getItem("foodSession" + i));
 }
 
 var substringArr = foodArr.substring(0, foodArr.length - 1);
+console.log("substringArr: " + substringArr);
 var splitArr = substringArr.split(",");
+document.getElementById('foodArr').value = substringArr;
 
 // 세션에 저장돼 있는 체크박스 값들 페이징 후에도 유지
 $('input:checkbox[name="food"]').each(function() {
 	if( splitArr.indexOf(this.value) > -1){  
 		$(this).prop('checked', true); 
 	}
-});
+}); */
 
 // 체크박스 값 가져오기
-function getCheckboxValue(index)  {
+function getCheckboxValue()  {
 	  // 선택된 목록 가져오기
 	  const query = 'input[name="food"]:checked';
 	  const selectedEls = 
@@ -146,8 +149,23 @@ function getCheckboxValue(index)  {
 		  
 	  // 체크박스 값 누적하여 세션에 저장
 	  sessionStorage.setItem("foodSession" + num, result);
-	  document.getElementById('foodArr').value = result;
 	  console.log("result :" + result);
+	  
+	  var sessionLength = sessionStorage.length;
+		console.log("길이 :" + sessionLength);
+	  var foodArr = "";
+
+	  for(var i = 1; i <= sessionLength; ++i) {
+		  foodArr += sessionStorage.getItem("foodSession" + i);
+		  console.log("foodSession :" + sessionStorage.getItem("foodSession" + i));
+	  }
+
+	  var substringArr = foodArr.substring(0, foodArr.length - 1);
+	  console.log("substringArr: " + substringArr);
+	  var splitArr = substringArr.split(",");
+	  document.getElementById('foodArr').value = substringArr;
+	  var foodArr1 = document.getElementById('foodArr').value;
+	  console.log("foodArr1 :" + foodArr1);
 }
 
 // 페이징 처리

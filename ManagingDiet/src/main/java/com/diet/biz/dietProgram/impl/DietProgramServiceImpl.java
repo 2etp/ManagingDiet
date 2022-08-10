@@ -56,8 +56,8 @@ public class DietProgramServiceImpl implements DietProgramService{
 	}
 	
 	// 유저가 선택한 음식 리스트 수정하기
-	public void updateDiet(UserDietVO vo) {
-		dietProgramDAO.updateDiet(vo);
+	public void updateDiet(UserDietVO vo, String foodArr) {
+		dietProgramDAO.updateDiet(vo, foodArr);
 	}
 	
 	// tbldiet의 유저 정보 유무 확인하기
