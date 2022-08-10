@@ -53,7 +53,12 @@ label{
   display: block;
   width: 1490px;
   height: 660px;
-  margin-top: 100px;
+  margin-top: 50px;
+}
+
+.calorieSum {
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -75,13 +80,17 @@ label{
 .card-line {
   display: block;
   justify-content: space-between;
-  margin: 20px;
+  margin: 40px;
   
 }
 .food-name {
   text-align: center;
-  margin-top: 5px;
   font-size: 20px;
+  height: 20px;
+}
+
+.food-choice {
+  z-index: 101!important;
 }
 
 .pageInfo_wrap {
@@ -202,7 +211,7 @@ h1 {
   .card {
     cursor: pointer;
     flex: 0 0 auto;
-    margin: 20px;
+    margin: 0;
   }
   
   .card__inner {
