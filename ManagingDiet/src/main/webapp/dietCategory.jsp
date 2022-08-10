@@ -180,26 +180,26 @@
 	  <!-- 선택지 애니메이션 -->
 	  <section class="cards__wrapper">
 			<figure class="card">
-				<a href="./diet.jsp">
+				<a onClick="service()">
 				<div class="card__image--wrapper">
 					<div class="card__image--outer">
 						<img src="./image/Diet.jpg" alt="Portrait" class="card__image" />
 					</div>
 				</div>
-				<div class="card__text">
-					<span class="card__text--inner" data-splitting>DIET</span>
+				<div class="card__text" >
+					<span class="card__text--inner" id="diet" data-splitting>DIET</span>
 				</div>
 			</a>
 			</figure>	
 
 			<figure class="card">
-				<a href="./bulkup.jsp">
+				<a onClick="service()">
 					<div class="card__image--wrapper">
 						<div class="card__image--outer">
 							<img src="./image/bulkup.jfif" alt="Portrait" class="card__image" />
 						</div>
 					</div>
-					<div class="card__text">
+					<div class="card__text" id="bulkup">
 						<span class="card__text--inner" data-splitting>BULKUP</span>
 					</div>
 				</a>
@@ -209,6 +209,23 @@
 	</section>
 
 </body>
+
+<script>
+	const diet = document.getElementById("diet").innerText;
+	const bulkup = document.getElementById("bulkup").innerText;
+	
+	function service() {
+		let signIn = "${idKey.id}";
+		if(signIn == "") {
+			alert("로그인해 주세요.");
+			location.href="/ManagingDiet/index.do";
+		} else if(signIn != "" && diet == "DIET") {
+			location.href="diet.jsp";
+		} else if(signIn != "" && bulkup == "BULKUP") {
+			location.href="bulkup.jsp";
+		}
+	}
+</script>
     
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js'></script>

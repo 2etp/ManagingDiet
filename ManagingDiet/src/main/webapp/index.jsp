@@ -26,10 +26,15 @@
     var msg = "${msg}";
     if (msg === "insertDiet") {
         alert("성공적으로 저장되었습니다.");
-    } else if (msg == "updateDiet") {
+    } else if (msg === "updateDiet") {
         alert("성공적으로 수정되었습니다.");
-    } else if (msg == "failure") {
+    } else if (msg === "failure") {
     	alert("다시 선택해 주세요.");
+    }
+    
+    var loginEmpty = "${loginEmpty}";
+    if(loginEmpty === "loginEmpty") {
+    	alert("로그인해 주세요.");
     }
 </script>
 
