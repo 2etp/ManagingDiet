@@ -5,6 +5,7 @@ body {
   display: flex;
   justify-content: center;
   font-family: '동희체';
+  overflow-y: hidden;
 }
 
 .cards__wrapper {

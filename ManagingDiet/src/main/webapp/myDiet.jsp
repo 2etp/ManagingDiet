@@ -75,11 +75,11 @@
     <span class="space"></span>
     <span class="letter">선</span>
     <span class="letter">택</span>
-	<span class="letter">한</span>
+	  <span class="letter">한</span>
     <span class="space"></span>
     <span class="letter">음</span>
     <span class="letter">식</span>
-	<span class="space"></span>
+	  <span class="space"></span>
     <span class="letter">리</span>
     <span class="letter">스</span>
     <span class="letter">트</span>

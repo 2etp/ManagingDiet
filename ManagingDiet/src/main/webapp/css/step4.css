@@ -816,8 +816,9 @@ button {
   font-size: inherit;
   font-family: inherit;
 }
-button.learn-more {
-  margin-top: -62px;
+button.learn-more {  
+  padding: 13px;
+  margin-top: -42px;
   margin-bottom: 20px;
   font-weight: 600;
   color: #382b22;

@@ -7,6 +7,7 @@ body {
   font-family: '메이플';
   background-color: rgb(55, 55, 102);
   color: white;
+  overflow-y: hidden;
 }
 
 p{

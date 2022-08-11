@@ -84,7 +84,7 @@
     <!-- card img -->
     <div class="main-container">
     <div class="main">
-		<form action="insertFood.do" method="post" name="frm" class="form1">
+		<form action="insertFood.do" method="post" name="frm" class="form1" id="frm">
 			<c:forEach items="${foodList}" varStatus="status" var="food">
 				<div class='cards'>
 					<!-- line 1 -->
@@ -126,7 +126,8 @@
           <input type="text" name="sum" id="sum" readonly>
           <input type="hidden" name="id" value="${idKey.id}">
           <input type="hidden" id="foodArr" name="food" value="">
-          <input type="submit" value="식단짜기">
+          <button class="learn-more" onclick="submitBtn();">식단짜기</button>
+          <!-- <input type="submit" value="식단짜기"> -->
         </div>      
       </div>      
 		</form>
@@ -458,6 +459,11 @@
   </div>
 </div>
 <script>
+  // 식단짜기 버튼
+  function submitBtn() {
+    document.getElementById('frm').submit();
+    return false;
+  }
 	// 유저가 선택한 음식의 칼로리 합 구하기
 	function itemSum(frm) {
 		var kcal = "${kcal}";
