@@ -32,26 +32,28 @@
 		<div class="menu-inner">
 			
 			<ul class="index-control">
-				<!-- 로그인 -->
+        <!-- 로그인 -->
         <li class=" main-nav">
           <c:if test="${empty idKey}">
             <a id="rainbow-btn" class="signin" href="#0" >Login / Signup</a>
           </c:if>
-        </li>
-        <li>
+          </li>
+          <li>
           <c:if test="${!empty idKey}">
-            <p>${idKey.name}님 환영합니다!</p>
-            <a class="signin" href="./myPage.jsp" >My page</a><br><br>
+            <p class="login-after">${idKey.name}님 환영합니다!</p>
+            <br><br>
             <a id="rainbow-btn" class="signin" href="logout.do" >Logout</a>
           </c:if>
         </li>
-				
-				<!-- 메뉴 -->
-				<li><a class="hover-1" href="./index.jsp">MAIN</a></li>
-				<li><a class="hover-1" href="./main.html">INTRODUCE</a></li>
-				<li><a class="hover-1" href="./dietCategory.jsp">DIET PROGRAM</a></li>
-				<li><a class="hover-1" href="#">RECORD</a></li>						
-			</ul>
+        
+        <!-- 메뉴 -->
+        <li><a class="hover-1" href="./index.jsp">MAIN</a></li>
+        <li><a class="hover-1" href="./introduce.jsp">INTRODUCE</a></li>
+        <li><a class="hover-1" href="./dietCategory.jsp">DIET PROGRAM</a></li>
+        <c:if test="${!empty idKey}">
+          <li><a class="hover-1 signin" href="./myPage.jsp">My page</a></li>
+        </c:if>
+      </ul>
     		 <!-- sns 버튼 -->
 			<section class="btn-section">
 				<button class="btn-cp"><i class="fab fa-lg first-logo fa-codepen"></i><i class="fab fa-lg second-logo fa-codepen"></i></button>
@@ -73,11 +75,11 @@
     <span class="space"></span>
     <span class="letter">선</span>
     <span class="letter">택</span>
-	<span class="letter">한</span>
+	  <span class="letter">한</span>
     <span class="space"></span>
     <span class="letter">음</span>
     <span class="letter">식</span>
-	<span class="space"></span>
+	  <span class="space"></span>
     <span class="letter">리</span>
     <span class="letter">스</span>
     <span class="letter">트</span>

@@ -31,26 +31,28 @@
 		<div class="menu-inner">
 			
 			<ul class="index-control">
-				<!-- 로그인 -->
+        <!-- 로그인 -->
         <li class=" main-nav">
           <c:if test="${empty idKey}">
             <a id="rainbow-btn" class="signin" href="#0" >Login / Signup</a>
           </c:if>
-        </li>
-        <li>
+          </li>
+          <li>
           <c:if test="${!empty idKey}">
-            <p>${idKey.name}님 환영합니다!</p>
-            <a class="signin" href="./myPage.jsp" >My page</a><br><br>
+            <p class="login-after">${idKey.name}님 환영합니다!</p>
+            <br><br>
             <a id="rainbow-btn" class="signin" href="logout.do" >Logout</a>
           </c:if>
         </li>
-				
-				<!-- 메뉴 -->
-				<li><a class="hover-1" href="./index.jsp">MAIN</a></li>
-				<li><a class="hover-1" href="./main.html">INTRODUCE</a></li>
-				<li><a class="hover-1" href="./dietCategory.jsp">DIET PROGRAM</a></li>
-				<li><a class="hover-1" href="#">RECORD</a></li>						
-			</ul>
+        
+        <!-- 메뉴 -->
+        <li><a class="hover-1" href="./index.jsp">MAIN</a></li>
+        <li><a class="hover-1" href="./introduce.jsp">INTRODUCE</a></li>
+        <li><a class="hover-1" href="./dietCategory.jsp">DIET PROGRAM</a></li>
+        <c:if test="${!empty idKey}">
+          <li><a class="hover-1 signin" href="./myPage.jsp">My page</a></li>
+        </c:if>
+      </ul>
     		 <!-- sns 버튼 -->
 			<section class="btn-section">
 				<button class="btn-cp"><i class="fab fa-lg first-logo fa-codepen"></i><i class="fab fa-lg second-logo fa-codepen"></i></button>
@@ -82,7 +84,7 @@
     <!-- card img -->
     <div class="main-container">
     <div class="main">
-		<form action="insertFood.do" method="post" name="frm" class="form1">
+		<form action="insertFood.do" method="post" name="frm" class="form1" id="frm">
 			<c:forEach items="${foodList}" varStatus="status" var="food">
 				<div class='cards'>
 					<!-- line 1 -->
@@ -124,7 +126,8 @@
           <input type="text" name="sum" id="sum" readonly>
           <input type="hidden" name="id" value="${idKey.id}">
           <input type="hidden" id="foodArr" name="food" value="">
-          <input type="submit" value="식단짜기">
+          <button type="button" class="learn-more" style="font-size: 20px;" onclick="submitBtn();">식단짜기</button>
+          <!-- <input class="learn-more" type="button" value="식단짜기" onclick="submitBtn();"> -->
         </div>      
       </div>      
 		</form>
@@ -456,6 +459,18 @@
   </div>
 </div>
 <script>
+  // 식단짜기 버튼
+  function submitBtn() {
+    const foodCalorie = document.getElementById('sum').value;
+    if(foodCalorie == null || foodCalorie == "") {
+      alert("음식을 선택해 주세요!")
+    }
+    else if (foodCalorie > 1) {
+      document.getElementById('frm').submit();
+     return false;
+    }
+    
+  }
 	// 유저가 선택한 음식의 칼로리 합 구하기
 	function itemSum(frm) {
 		var kcal = "${kcal}";

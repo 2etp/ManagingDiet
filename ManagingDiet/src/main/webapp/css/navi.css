@@ -1,3 +1,7 @@
+@font-face {
+  font-family: '메이플';
+  src: url(../font/Maplestory\ Light.ttf);    
+}
 :root {
     --white: #fdf9f3;
     --bg: #fdf9f3;
