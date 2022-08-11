@@ -161,10 +161,10 @@
    	<form class="moveForm" method="get">	
       <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
       <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
-      <input type="hidden" name="carbs" value="${session[0]}">
-      <input type="hidden" name="protein" value="${session[1]}">
-      <input type="hidden" name="fat" value="${session[2]}"> 
-	  </form>
+      <input type="hidden" name="userCarbs" value="${idKey.userCarbs}">
+      <input type="hidden" name="userProtein" value="${idKey.userProtein}">
+      <input type="hidden" name="userFat" value="${idKey.userFat}"> 
+   </form>
 
 
     
@@ -473,14 +473,15 @@
   }
 	// 유저가 선택한 음식의 칼로리 합 구하기
 	function itemSum(frm) {
-		var kcal = "${kcal}";
+		var userKcal = "${idKey.userKcal}";
+		console.log("userKcal:" + userKcal);
 		var sum = 0;
 		var count = frm.foodList.length;
 		for(var i = 0; i < count; ++i) {
 			if(frm.foodList[i].checked == true) {
 				sum += parseInt(document.getElementsByClassName('foodCalorie')[i].innerText);
-				
-				if(sum > kcal) {
+				console.log("sum:" + sum);
+				if(sum > userKcal) {
 					alert("일일칼로리를 초과하였습니다! 다시 선택해 주세요.");
 					frm.foodList[i].checked == false;
 				}
