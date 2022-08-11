@@ -13,6 +13,11 @@ font-family: '메이플';
 src: url(../font/Maplestory\ Light.ttf);    
 }
 
+@font-face {
+  font-family: '동희체';
+  src: url(../font/나눔손글씨\ 노력하는\ 동희.ttf);    
+  }
+
 a {
   font-family: '메이플';
 }
@@ -29,11 +34,12 @@ body {
   --blue: #3975B3;
   --orange: #E77553;
   --delay: 0s;
-  background: var(--pink);
+  background: var(--cream);
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body.app {
@@ -61,7 +67,7 @@ body.loaded #backgrounds .bg {
   display: flex;
   height: 100vh;
   width: 100vw;
-  background: var(--pink);
+  background: var(--green);
   overflow: visible;
   position: relative;
 }
@@ -118,6 +124,10 @@ body.loaded #backgrounds .bg:nth-of-type(3n) {
 }
 body.loaded #backgrounds .bg:nth-of-type(3n):before {
   background: var(--blue);
+}
+
+#wrap {
+  position: relative;
 }
 body.loaded #wrap {
   width: calc(100% - 32px);
@@ -226,6 +236,18 @@ body.loaded #wrap #panels section.panel h1 {
   line-height: 10vmin;
   width: 70vmin;
 }
+
+body.loaded #wrap #panels section.panel p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 12vmin;
+  z-index: 9;
+  transform: translate(-50%, -50%);
+  margin: 0px;
+  line-height: 10vmin;
+  width: 70vmin;
+}
 body.loaded #wrap #panels section.panel h1 span.word {
   padding: 1vmin 10px;
   display: inline-block;
@@ -233,8 +255,8 @@ body.loaded #wrap #panels section.panel h1 span.word {
   margin: -1vmin 0;
   position: relative;
   color: transparent;
-  bottom: 410px;
-  right: 300px;
+  bottom: 260px;
+  right: -340px;
 }
 body.loaded #wrap #panels section.panel h1 span.word:before {
   content: attr(data-word);
@@ -252,6 +274,7 @@ body.loaded #wrap #panels section.panel h1 span.word:before {
   top: 50%;
   left: 50%;
 }
+
 body.loaded #wrap #panels section.panel:nth-of-type(even) {
   transform: scaleX(-1);
 }
@@ -262,16 +285,12 @@ body.loaded #wrap #panels section.panel:nth-of-type(1) .image {
   transform: scaleY(0);
 }
 body.loaded #wrap #panels section.panel:nth-of-type(1) .image:nth-of-type(1) .inner:before {
-  background: url("../image/아라찌.jpg") center/cover;
+  background: url("../image/소개.png") center/cover;
   opacity: 0.5;
 }
 body.loaded #wrap #panels section.panel:nth-of-type(1) .image:nth-of-type(2) .inner:before {
-  background: url("../picture/아라찌.jpg") center/cover;
-  opacity: 0.5;
-}
-body.loaded #wrap #panels section.panel:nth-of-type(1) .image:nth-of-type(3) .inner:before {
-  background: url("../picture/아라찌.jpg") center/cover;
-  opacity: 0.5;
+  background: url("../image/소개.png") center/cover;
+  transform: scaleX(-1); transition: .3s;
 }
 body.loaded #wrap #panels section.panel:nth-of-type(2) .image {
   transform: scaleY(0);
@@ -281,28 +300,22 @@ body.loaded #wrap #panels section.panel:nth-of-type(2) .image:nth-of-type(1) .in
   opacity: 0.5;
 }
 body.loaded #wrap #panels section.panel:nth-of-type(2) .image:nth-of-type(2) .inner:before {
-  background: url("https://assets.codepen.io/383755/fieri4.jpg") center/cover;
+  background: url("../image/Diet.jpg") center/cover;
   opacity: 0.5;
 }
 body.loaded #wrap #panels section.panel:nth-of-type(2) .image:nth-of-type(3) .inner:before {
-  background: url("https://assets.codepen.io/383755/fieri5.jpg") center/cover;
+  background: url("../image/bulkup.jfif") center/cover;
   opacity: 0.5;
 }
 body.loaded #wrap #panels section.panel:nth-of-type(3) .image {
   transform: scaleY(0);
 }
-body.loaded #wrap #panels section.panel:nth-of-type(3) .image:nth-of-type(1) .inner:before {
-  background: url("https://assets.codepen.io/383755/fieri4.jpg") center/cover;
-  opacity: 0.5;
-}
+
 body.loaded #wrap #panels section.panel:nth-of-type(3) .image:nth-of-type(2) .inner:before {
-  background: url("https://assets.codepen.io/383755/fieri5.jpg") center/cover;
+  background: url("../image/성취도.png") center/cover;
   opacity: 0.5;
 }
-body.loaded #wrap #panels section.panel:nth-of-type(3) .image:nth-of-type(3) .inner:before {
-  background: url("https://assets.codepen.io/383755/fieri6.jpg") center/cover;
-  opacity: 0.5;
-}
+
 body.loaded #wrap #panels section.panel .image {
   width: 30vh;
   height: 30vh;
@@ -328,19 +341,21 @@ body.loaded #wrap #panels section.panel .image * {
   box-sizing: border-box;
 }
 body.loaded #wrap #panels section.panel .image:nth-of-type(2) {
-  top: auto;
+  top: 39px;
   bottom: 7.5vh;
-  right: 10vh;
+  right: -20vh;
   left: auto;
   height: 50vh;
+  z-index: 10;
 }
 body.loaded #wrap #panels section.panel .image:nth-of-type(2):before {
   background: var(--green);
 }
 body.loaded #wrap #panels section.panel .image:nth-of-type(3) {
-  top: auto;
+  top: 10px;
   bottom: 5vh;
-  left: 15vh;
+  left: 5vh;
+
 }
 body.loaded #wrap #panels section.panel .image .inner {
   position: absolute;
@@ -360,7 +375,6 @@ body.loaded #wrap #panels section.panel .image .inner:after {
   top: 0px;
   z-index: 1;
   background: var(--cream);
-  mix-blend-mode: darken;
 }
 body.loaded #wrap #panels section.panel .image .inner:before {
   content: "";
@@ -370,8 +384,6 @@ body.loaded #wrap #panels section.panel .image .inner:before {
   left: 0px;
   top: 0px;
   z-index: 2;
-  filter: saturate(0) contrast(2);
-  mix-blend-mode: lighten;
 }
 
 /* 로딩화면 */
@@ -497,4 +509,60 @@ body.loaded #wrap #panels section.panel .image .inner:before {
   background: lightgray;
   border-radius: 20px;
   animation: shadow 2s infinite;
+}
+
+.section-content {
+  position: absolute;
+  top: 260px;
+  left: 610px;
+  color: black;
+  font-family: '동희체';
+  font-size: 90px;
+  width: 660px;
+}
+.point {
+  background-color: orange;
+}
+
+.text-d {
+  transform: scaleX(-1); transition: .3s;
+}
+
+/* 이동하기 버튼 */
+.pushme {
+  color: black;
+  position: absolute;
+  font-weight: 700;
+  background-color: var(--green);
+  border-radius: 0.6em;
+  display: inline-block;
+  margin: 1em;
+}
+.pushme .inner {
+  display: inline-block;
+  background-color: var(--cream);
+  border-radius: 0.6em;
+  border: 0.3em solid var(--green);
+  padding: 1em;
+  cursor: pointer;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transform: translate3d(0.6em, -0.6em, 0);
+  transition: transform 240ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-delay: 220ms;
+}
+.pushme:active .inner, .pushme.click .inner {
+  transform: translate3d(0, 0, 0);
+  transition: transform 120ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.center {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  width: 80vw;
+  text-align: center;
+  transform: translate3d(-50%, -50%, 0);
 }

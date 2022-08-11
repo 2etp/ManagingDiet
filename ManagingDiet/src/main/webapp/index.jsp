@@ -241,30 +241,31 @@
 <div id='wrap'>
   <div id='panels'>
     <section class='panel'>
-      <h1 data-splitting='words'>AraZZi</h1>
-      <div class='image'>
+      <h1 data-splitting='words'>INTRODUCE</h1>
+        <h3 class="section-content">푸드퐁에 대해 알고싶다면?</h3>
+        <div class="center"><a href="./introduce.jsp" class="pushme"><span class="inner">알아보기!</span></a></div>
+      <div class='image' style="width: 390px; top: 140px; right: -100px;">
         <div class='inner'></div>
-      </div>
-      <div class='image right'>
-        <div class='inner'></div>
-      </div>
-      <div class='image'>
-        <div class='inner'></div>
-      </div>
+      </div>    
     </section>
     <section class='panel'>
-      <h1 data-splitting='words'>Welcome to Flavortown</h1>
+      <h1 style="margin-left: 57%;" data-splitting='words'>DIET PROGRAM</h1>
+      <h3 class="section-content text-d">자신의 신체정보를 <span class="point">입력</span>하면 음식 리스트를 추천 해줘요!</h3>
+      <div class="center text-d" style="margin-top: 80px;"><a href="./dietCategory.jsp" class="pushme"><span class="inner" style="transform: scaleX(-1); transition: .3s;">추천받기!</span></a></div>
       <div class='image'>
         <div class='inner'></div>
       </div>
-      
+      <div class='image right' style="z-index: 11;">
+        <div class='inner'></div>
+      </div>  
     </section>
     <section class='panel'>
-      <h1 data-splitting='words'>I’ve Been Stricken by Chicken</h1>
-      <div class='image'>
+      <h1 data-splitting='words'>ACHIEVEMENT</h1>
+      <h3 class="section-content">나의 <span class="point">성취도</span>를 한눈에 보자!</h3>
+      <div class="center"><a href="./statistics.jsp" class="pushme"><span class="inner">추천받기!</span></a></div>
+      <div class='image' style="width: 40vh; height: 70vh; margin-left: -120px;">
         <div class='inner'></div>
       </div>
-      
     </section>
     
     <div id='backgrounds'>
