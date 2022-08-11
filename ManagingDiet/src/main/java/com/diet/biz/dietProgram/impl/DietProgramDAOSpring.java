@@ -27,7 +27,7 @@ public class DietProgramDAOSpring {
 	private JdbcTemplate jdbcTemplate;
 	
 	// SQL 명령어들
-	private final String FOOD_SELECT = "select * from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ? limit ?, ?";
+	private final String FOOD_SELECT = "select * from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ? order by `1인분칼로리(kcal)` desc limit ?, ?";
 	private final String FOOD_TOT_COUNT = "select count(*) from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ?";
 	private final String DIET_INSERT = "insert into tbldiet(id, food, reg_date) values(?, ?, now())";
 	private final String DIET_UPDATE = "update tbldiet set food = ?, reg_date = now() where id = ? order by reg_date desc limit 1";

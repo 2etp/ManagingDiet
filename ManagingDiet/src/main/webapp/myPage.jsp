@@ -75,7 +75,7 @@
             <div class="user-info">
                 <div class="board-content">아이디 : ${idKey.id }</div>
                 <div class="board-content">이름 : ${idKey.name }</div>
-                <div class="board-content">휴대폰 번호 : ${idKey.mobile }</div>                    
+                <div class="board-content" id="mobile">휴대폰 번호 : ${idKey.mobile }</div>                    
             </div> 
             <hr style="margin: 100px 0px -120px 0px;">
             <div class="board-link">
@@ -204,6 +204,12 @@
 
 <script>
 	sessionStorage.clear();
+	
+	var mobile = "${idKey.mobile}";
+    var formatMobile = mobile.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+	document.getElementById('mobile').innerHTML = "휴대폰 번호 : " + formatMobile;
+  
+	
 </script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="./js/navi.js"></script>
