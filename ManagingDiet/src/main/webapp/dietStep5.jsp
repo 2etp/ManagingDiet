@@ -97,7 +97,7 @@
               <div class="food-name">
                 <label for="food-name${status.index}">
                     ${food.foodName}
-                  <input class="food-choice" id="food-name${status.index}" type="checkbox" name="food" value="${food.foodName}" onClick="itemSum(this.form);">
+                  <input class="food-choice" id="food-name${status.index}" type="checkbox" name="foodList" value="${food.foodName}" onClick="itemSum(this.form); getCheckboxValue()">
                 </label>
               </div>             
             </div>
@@ -123,6 +123,7 @@
           칼로리 합계: 
           <input type="text" name="sum" id="sum" readonly>
           <input type="hidden" name="id" value="${idKey.id}">
+          <input type="hidden" id="foodArr" name="food" value="">
           <input type="submit" value="식단짜기">
         </div>      
       </div>      
@@ -457,21 +458,67 @@
 <script>
 	// 유저가 선택한 음식의 칼로리 합 구하기
 	function itemSum(frm) {
-	var kcal = "${kcal}";
-	var sum = 0;
-	var count = frm.food.length;
-	for(var i = 0; i < count; ++i) {
-		if(frm.food[i].checked == true) {
-			sum += parseInt(document.getElementsByClassName('foodCalorie')[i].innerText);
-			
-			if(sum > kcal) {
-				alert("일일칼로리를 초과하였습니다! 다시 선택해 주세요.");
-				frm.food[i].checked == false;
+		var kcal = "${kcal}";
+		var sum = 0;
+		var count = frm.foodList.length;
+		for(var i = 0; i < count; ++i) {
+			if(frm.foodList[i].checked == true) {
+				sum += parseInt(document.getElementsByClassName('foodCalorie')[i].innerText);
+				
+				if(sum > kcal) {
+					alert("일일칼로리를 초과하였습니다! 다시 선택해 주세요.");
+					frm.foodList[i].checked == false;
+				}
 			}
 		}
-	}
 		frm.sum.value = sum;
 
+	}
+	
+	var sessionLength = sessionStorage.length;
+	var foodArr = "";
+	
+	for(var i = 1; i <= sessionLength; ++i) {
+		foodArr += sessionStorage.getItem("foodSession" + i);
+	}
+	
+	var substringArr = foodArr.substring(0, foodArr.length - 1);
+	var splitArr = substringArr.split(",");
+	document.getElementById('foodArr').value = substringArr;
+	
+	// 세션에 저장돼 있는 체크박스 값들 페이징 후에도 유지
+	$('input:checkbox[name="foodList"]').each(function() {
+		if( splitArr.indexOf(this.value) > -1){  
+			$(this).prop('checked', true); 
+		}
+	});
+	
+	//체크박스 값 가져오기
+	function getCheckboxValue()  {
+	  // 선택된 목록 가져오기
+	  const query = 'input[name="foodList"]:checked';
+	  const selectedEls = 
+	      document.querySelectorAll(query); 
+	  
+	  var num = "${pageMaker.cri.pageNum}";
+	  var result = ""; 
+		  selectedEls.forEach((el, i) => {
+		 	 result += el.value + ',';
+		  });
+		  
+	  // 체크박스 값 누적하여 세션에 저장
+	  sessionStorage.setItem("foodSession" + num, result);
+	  console.log("result :" + result);
+	  
+	  var sessionLength = sessionStorage.length;
+	  var foodArr = "";
+	
+	  for(var i = 1; i <= sessionLength; ++i) {
+		  foodArr += sessionStorage.getItem("foodSession" + i);
+	  }
+	
+	  var substringArr = foodArr.substring(0, foodArr.length - 1);
+	  document.getElementById('foodArr').value = substringArr;
 	}
 
 	// 페이징 처리

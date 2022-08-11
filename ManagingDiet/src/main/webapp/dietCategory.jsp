@@ -211,6 +211,7 @@
 </body>
 
 <script>
+	sessionStorage.clear();
 	const diet = document.getElementById("diet").innerText;
 	const bulkup = document.getElementById("bulkup").innerText;
 	

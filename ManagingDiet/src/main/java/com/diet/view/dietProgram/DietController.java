@@ -90,7 +90,6 @@ public class DietController {
 		int totalFood = dietProgramService.getTotalFood2();
 		PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
 		model.addAttribute("pageMaker", pageMake);
-		System.out.println("값 부재 시 발동!!!");
 		return "updateDiet.jsp";
 	}
 	
@@ -106,7 +105,11 @@ public class DietController {
 	
 	// 유저가 선택한 음식 리스트 확인하기
 	@RequestMapping("/myDiet.do")
-	public String getDietList(UserVO vo, Model model) {
+	public String getDietList(UserVO vo, Model model, Criteria cri) {
+		model.addAttribute("foodList", dietProgramService.getFoodList(cri));
+		int totalFood = dietProgramService.getTotalFood2();
+		PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
+		model.addAttribute("pageMaker", pageMake);
 		String dietChk = dietProgramService.dietListChk(vo);
 		String[] dietArr = dietChk.split(",");
 		System.out.println(Arrays.toString(dietArr));

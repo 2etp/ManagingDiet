@@ -151,13 +151,13 @@
 			</div>
 		</div>
     
-   	<form class="moveForm" method="get">	
-      <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
-      <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
-      <input type="hidden" name="carbs" value="${session[0]}">
-      <input type="hidden" name="protein" value="${session[1]}">
-      <input type="hidden" name="fat" value="${session[2]}"> 
-	  </form>
+	<form class="moveForm" method="get">	
+		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+		<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+		<input type="hidden" name="userCarbs" value="${idKey.userCarbs}">
+		<input type="hidden" name="userProtein" value="${idKey.userProtein}">
+		<input type="hidden" name="userFat" value="${idKey.userFat}">
+	</form>
 
 
     

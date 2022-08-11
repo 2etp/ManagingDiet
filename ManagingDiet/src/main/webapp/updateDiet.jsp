@@ -38,7 +38,7 @@
 	<form action="updateDiet.do" method="post" name="frm" class="chkForm">
 		<c:forEach items="${foodList}" var="food"  varStatus="status">
 			<label>	
-			<input type="checkbox" name="food" id="checkbox${status.index}" value="${food.foodName}" onClick="itemSum(this.form); getCheckboxValue()">
+			<input type="checkbox" name="foodList" id="checkbox${status.index}" value="${food.foodName}" onClick="itemSum(this.form); getCheckboxValue()">
 				<div id="list-wrap">
 					<img src="image/${food.imgPath}" width="300px" height="300px">
 					<p>음식명 : ${food.foodName}</p>
@@ -87,57 +87,52 @@
 		<input type="hidden" name="userFat" value="${idKey.userFat}">
 	</form>
 	
-	<c:forEach items="${foodArr}" var="arr">
-		<p>${arr}</p>	
-	</c:forEach>
-
-	
 <script>
 
 // 유저가 선택한 음식의 칼로리 합 구하기
-function itemSum(frm) {
-	var kcal = "${idKey.userKcal}";
-	var sum = 0;
-	var count = frm.food.length;
-	for(var i = 0; i < count; ++i) {
-		if(frm.food[i].checked == true) {
-			sum += parseInt(document.getElementsByTagName('span')[i].innerText);
-			
-			if(sum > kcal) {
-				alert("일일칼로리를 초과하였습니다! 다시 선택해 주세요.");
-				frm.food[i].checked == false;
+	function itemSum(frm) {
+		var kcal = "${idKey.userKcal}";
+		var sum = 0;
+		var count = frm.foodList.length;
+		for(var i = 0; i < count; ++i) {
+			if(frm.foodList[i].checked == true) {
+				sum += parseInt(document.getElementsByTagName('span')[i].innerText);
+				
+				if(sum > kcal) {
+					alert("일일칼로리를 초과하였습니다! 다시 선택해 주세요.");
+					frm.foodList[i].checked == false;
+				}
 			}
 		}
+		 frm.sum.value = sum;
+	
 	}
-	 frm.sum.value = sum;
 
-}
-
-/* var sessionLength = sessionStorage.length;
-	console.log("길이 :" + sessionLength);
-var foodArr = "";
-
-for(var i = 1; i <= sessionLength; ++i) {
-	foodArr += sessionStorage.getItem("foodSession" + i);
-	console.log("foodSession :" + sessionStorage.getItem("foodSession" + i));
-}
-
-var substringArr = foodArr.substring(0, foodArr.length - 1);
-console.log("substringArr: " + substringArr);
-var splitArr = substringArr.split(",");
-document.getElementById('foodArr').value = substringArr;
-
-// 세션에 저장돼 있는 체크박스 값들 페이징 후에도 유지
-$('input:checkbox[name="food"]').each(function() {
-	if( splitArr.indexOf(this.value) > -1){  
-		$(this).prop('checked', true); 
+	var sessionLength = sessionStorage.length;
+		console.log("길이 :" + sessionLength);
+	var foodArr = "";
+	
+	for(var i = 1; i <= sessionLength; ++i) {
+		foodArr += sessionStorage.getItem("foodSession" + i);
+		console.log("foodSession :" + sessionStorage.getItem("foodSession" + i));
 	}
-}); */
+	
+	var substringArr = foodArr.substring(0, foodArr.length - 1);
+	console.log("substringArr: " + substringArr);
+	var splitArr = substringArr.split(",");
+	document.getElementById('foodArr').value = substringArr;
+	
+	// 세션에 저장돼 있는 체크박스 값들 페이징 후에도 유지
+	$('input:checkbox[name="foodList"]').each(function() {
+		if( splitArr.indexOf(this.value) > -1){  
+			$(this).prop('checked', true); 
+		}
+	});
 
 // 체크박스 값 가져오기
 function getCheckboxValue()  {
 	  // 선택된 목록 가져오기
-	  const query = 'input[name="food"]:checked';
+	  const query = 'input[name="foodList"]:checked';
 	  const selectedEls = 
 	      document.querySelectorAll(query); 
 	  
@@ -162,22 +157,21 @@ function getCheckboxValue()  {
 
 	  var substringArr = foodArr.substring(0, foodArr.length - 1);
 	  console.log("substringArr: " + substringArr);
-	  var splitArr = substringArr.split(",");
 	  document.getElementById('foodArr').value = substringArr;
-	  var foodArr1 = document.getElementById('foodArr').value;
-	  console.log("foodArr1 :" + foodArr1);
+	  var inputHidden = document.getElementById('foodArr').value;
+	  console.log("inputHidden :" + inputHidden);
 }
 
-// 페이징 처리
-let moveForm = $(".moveForm");
-let chkForm = $(".chkForm");
-
-$(".pageInfo a").on("click", function(e){
-	e.preventDefault();
-	moveForm.find("input[name='pageNum']").val($(this).attr("href"));
-	moveForm.attr("action", "updateDiet.do");
-	moveForm.submit();
-});
+	// 페이징 처리
+	let moveForm = $(".moveForm");
+	let chkForm = $(".chkForm");
+	
+	$(".pageInfo a").on("click", function(e){
+		e.preventDefault();
+		moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+		moveForm.attr("action", "updateDiet.do");
+		moveForm.submit();
+	});
 </script>
 </body>
 </html>

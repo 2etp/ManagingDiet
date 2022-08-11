@@ -30,7 +30,7 @@ public class DietProgramDAOSpring {
 	private final String FOOD_SELECT = "select * from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ? limit ?, ?";
 	private final String FOOD_TOT_COUNT = "select count(*) from tblfood where `탄수화물(g)` < ? and `단백질(g)` < ? and `지방(g)` < ?";
 	private final String DIET_INSERT = "insert into tbldiet(id, food, reg_date) values(?, ?, now())";
-	private final String DIET_UPDATE = "update tbldiet set food = ?, reg_date = now() where id = ?";
+	private final String DIET_UPDATE = "update tbldiet set food = ?, reg_date = now() where id = ? order by reg_date desc limit 1";
 	private final String DIET_CHECK = "select food from tbldiet where id = ? order by reg_date desc limit 1";
 	private final String DIET_SELECT = "select * from tblfood where `음식명` = ?";
 	private final String STAMP_CNT_UPDATE = "update tblmember set stamp_cnt = ? where id = ?";
@@ -184,6 +184,7 @@ public class DietProgramDAOSpring {
 	// 유저가 선택한 음식 리스트 수정하기
 	public void updateDiet(UserDietVO vo, String foodArr) {
 		System.out.println("updateFood 발동!!!");
+		System.out.println("foodArr :" + foodArr);
 		jdbcTemplate.update(DIET_UPDATE, foodArr, vo.getId());
 	}
 	
