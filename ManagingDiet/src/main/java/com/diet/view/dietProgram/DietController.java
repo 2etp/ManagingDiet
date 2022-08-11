@@ -105,14 +105,9 @@ public class DietController {
 	
 	// 유저가 선택한 음식 리스트 확인하기
 	@RequestMapping("/myDiet.do")
-	public String getDietList(UserVO vo, Model model, Criteria cri) {
-		model.addAttribute("foodList", dietProgramService.getFoodList(cri));
-		int totalFood = dietProgramService.getTotalFood2();
-		PageMakerDTO pageMake = new PageMakerDTO(cri, totalFood);
-		model.addAttribute("pageMaker", pageMake);
+	public String getDietList(UserVO vo, Model model) {
 		String dietChk = dietProgramService.dietListChk(vo);
 		String[] dietArr = dietChk.split(",");
-		System.out.println(Arrays.toString(dietArr));
 		model.addAttribute("dietList", dietProgramService.getDietList(dietArr));
 		System.out.println("컨트롤러 getDietList 발동!!!");
 		return "myDiet.jsp";
