@@ -84,7 +84,7 @@
     <!-- card img -->
     <div class="main-container">
     <div class="main">
-		<form action="insertFood.do" method="post" name="frm" class="form1" id="frm">
+		<form action="updateDiet.do" method="post" name="frm" class="form1" id="frm">
 			<c:forEach items="${foodList}" varStatus="status" var="food">
 				<div class='cards'>
 					<!-- line 1 -->
@@ -542,7 +542,7 @@
 	$(".pageInfo a").on("click", function(e){
 	e.preventDefault();
 	moveForm.find("input[name='pageNum']").val($(this).attr("href"));
-	moveForm.attr("action", "dietStep4.do");
+	moveForm.attr("action", "updateDiet.do");
 	moveForm.submit();	
 	});
 </script>

@@ -243,9 +243,14 @@
     <section class='panel'>
       <h1 data-splitting='words'>AraZZi</h1>
       <div class='image'>
-        <div class='inner'>dd</div>
+        <div class='inner'></div>
       </div>
-      
+      <div class='image right'>
+        <div class='inner'></div>
+      </div>
+      <div class='image'>
+        <div class='inner'></div>
+      </div>
     </section>
     <section class='panel'>
       <h1 data-splitting='words'>Welcome to Flavortown</h1>
