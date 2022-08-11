@@ -243,7 +243,7 @@
     <section class='panel'>
       <h1 data-splitting='words'>AraZZi</h1>
       <div class='image'>
-        <div class='inner'></div>
+        <div class='inner'>dd</div>
       </div>
       
     </section>

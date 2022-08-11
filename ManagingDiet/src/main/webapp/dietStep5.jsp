@@ -126,8 +126,8 @@
           <input type="text" name="sum" id="sum" readonly>
           <input type="hidden" name="id" value="${idKey.id}">
           <input type="hidden" id="foodArr" name="food" value="">
-          <button class="learn-more" onclick="submitBtn();">식단짜기</button>
-          <!-- <input type="submit" value="식단짜기"> -->
+          <button type="button" class="learn-more" style="font-size: 20px;" onclick="submitBtn();">식단짜기</button>
+          <!-- <input class="learn-more" type="button" value="식단짜기" onclick="submitBtn();"> -->
         </div>      
       </div>      
 		</form>
@@ -461,8 +461,15 @@
 <script>
   // 식단짜기 버튼
   function submitBtn() {
-    document.getElementById('frm').submit();
-    return false;
+    const foodCalorie = document.getElementById('sum').value;
+    if(foodCalorie == null || foodCalorie == "") {
+      alert("음식을 선택해 주세요!")
+    }
+    else if (foodCalorie > 1) {
+      document.getElementById('frm').submit();
+     return false;
+    }
+    
   }
 	// 유저가 선택한 음식의 칼로리 합 구하기
 	function itemSum(frm) {

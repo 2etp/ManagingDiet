@@ -73,11 +73,11 @@
         
             
         <form  id="frm" class="frm" action="dietStep2.do" metion="post">
-          <label for="activityAmount1"><input id="choice_1" class="choice" type="radio" name="activityAmount" value="few">거의 없다(거의 좌식생활을 하고 운동 안함)<br><br>
-          <label for="activityAmount1"><input id="choice_2" class="choice" type="radio" name="activityAmount" value="aFew">조금 있다(활동량이 보통이거나 주 1~3회 운동)<br><br>
-          <input id="choice_3" class="choice" type="radio" name="activityAmount" value="normal">보통(활동량이 다소 많거나 주 3~5회 운동)<br><br>
-          <input id="choice_4" class="choice" type="radio" name="activityAmount" value="quite">꽤 있다(활동량이 많거나, 주 6~7회 운동)<br><br>
-          <input id="choice_5" class="choice" type="radio" name="activityAmount" value="aLot">아주 많다(활동량이 매우 많거나, 거의 매일 하루 2번 운동)<br><br>
+          <label for="choice_1"><input id="choice_1" class="choice" type="radio" name="activityAmount" value="few">거의 없다(거의 좌식생활을 하고 운동 안함)</label><br><br>
+          <label for="choice_2"><input id="choice_2" class="choice" type="radio" name="activityAmount" value="aFew">조금 있다(활동량이 보통이거나 주 1~3회 운동)</label><br><br>
+          <label for="choice_3"><input id="choice_3" class="choice" type="radio" name="activityAmount" value="normal">보통(활동량이 다소 많거나 주 3~5회 운동)</label><br><br>
+          <label for="choice_4"><input id="choice_4" class="choice" type="radio" name="activityAmount" value="quite">꽤 있다(활동량이 많거나, 주 6~7회 운동)</label><br><br>
+          <label for="choice_5"><input id="choice_5" class="choice" type="radio" name="activityAmount" value="aLot">아주 많다(활동량이 매우 많거나, 거의 매일 하루 2번 운동)</label><br><br>
             
 			<input type="hidden" name="bmr" value="${dietStep1.bmr}">
 			<input type="hidden" name="type" value="${dietStep1.type}">
