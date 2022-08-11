@@ -1,0 +1,24 @@
+@font-face {
+    font-family: '동희체';
+    src: url(../font/나눔손글씨\ 노력하는\ 동희.ttf);    
+}
+
+body {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    font-family: '동희체';
+    font-size: 40px;
+}
+
+p {
+    font-weight: bold;
+    text-align: center;
+}
+
+.point {
+    background-color: orange;
+}

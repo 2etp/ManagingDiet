@@ -378,3 +378,7 @@
   #login.is-selected, #signup.is-selected, #reset-password.is-selected {
     display: block;
   }
+
+  .login-after {
+    margin-left: -50px;
+  }
