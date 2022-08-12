@@ -119,10 +119,10 @@
 		</c:forEach>
       <div class="calorieSum">
         <div style="float: left; margin-left: 36%;">
-			<span class="calorieSumTitle">칼로리 합계:<input type="text" name="sum" id="sum" readonly> </span>
+			<span class="calorieSumTitle">칼로리 합계:<input type="text" name="sum" id="sum" readonly> kcal</span>
           <input type="hidden" name="id" value="${idKey.id}">
           <input type="hidden" id="foodArr" name="food" value="">
-          <button type="button" class="learn-more" style="font-size: 20px;" onclick="submitBtn();">식단짜기</button>
+          <button type="button" class="learn-more" style="font-size: 20px; top: 13px; left: 156%;" onclick="submitBtn();">식단짜기</button>
           <!-- <input class="learn-more" type="button" value="식단짜기" onclick="submitBtn();"> -->
         </div>      
       </div>      
