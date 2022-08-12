@@ -6,7 +6,7 @@
 <html lang="KO" >
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>푸드퐁 | 4단계</title>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./css/typing.css">
 <link rel="stylesheet" href="./css/step4.css">

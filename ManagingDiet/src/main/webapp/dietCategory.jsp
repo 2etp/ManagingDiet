@@ -6,7 +6,7 @@
 <html lang="KO" >
 <head>
   <meta charset="UTF-8">
-  <title>식단관리 | 분류</title>
+  <title>푸드퐁 | 식단관리 분류</title>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="./css/dietProgram.css">
 <link rel="stylesheet" href="./css/navi.css">

@@ -10,7 +10,7 @@
 <html lang="KO" >
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>푸드퐁 | 성취도 확인</title>
 <link rel="stylesheet" href="./css/statistics.css">
 <link rel="stylesheet" href="./css/navi.css">
 <link rel="stylesheet" href="./css/login.css">

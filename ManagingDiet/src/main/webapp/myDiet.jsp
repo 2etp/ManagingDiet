@@ -7,7 +7,7 @@
 <html lang="KO" >
 <head>
   <meta charset="UTF-8">
-  <title>내 식단 확인하기</title>
+  <title>푸드퐁 | 식단 확인</title>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./css/typing.css">
 <link rel="stylesheet" href="./css/myDiet.css">
@@ -125,7 +125,7 @@
   </div>
 </div>
 <a class="update-btn" href="updateDiet.do">
-	<button class="learn-more">수정하기</button>
+	<button class="learn-more">수정하러 가기</button>
 </a>
 
 <!-- 모달 로그인 -->

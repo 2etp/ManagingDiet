@@ -6,7 +6,7 @@
 <html lang="KO" >
 <head>
   <meta charset="UTF-8">
-  <title>두 번째 단계</title>
+  <title>푸드퐁 | 1단계</title>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="./css/typing.css">
 <link rel="stylesheet" href="./css/step2.css">
