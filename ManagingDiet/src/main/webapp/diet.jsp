@@ -97,7 +97,7 @@
 							</svg>
 						</label>
 					</div>
-	
+					<span class="unit">cm</span>
 					<div style="margin-top: 30px;">
 						<label for="inp2" class="inp">
 							<input type="number" id="inp2" min="1" max="250" maxlength="3" oninput="numberMaxLength(this);" name="weight" placeholder="&nbsp;">
@@ -107,7 +107,7 @@
 							</svg>
 						</label>
 					</div>
-	
+					<span class="unit2">kg</span>
 					<div style="margin-top: 30px;">
 						<label for="inp3" class="inp">
 							<input type="number" id="inp3" min="1" max="150" maxlength="3" oninput="numberMaxLength(this);" name="age" placeholder="&nbsp;">
