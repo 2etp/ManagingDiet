@@ -64,7 +64,7 @@
     
 		<div class="typewriter">
 			<h1 id="text">
-				<span style="font-size: 40px;">현재 사용자의 기초대사량은 ${dietStep1.bmr}입니다.</span><br><br>
+				<span style="font-size: 40px;">현재 사용자의 기초대사량은 <span class="text-color">${dietStep1.bmr}</span> kcal입니다.</span><br><br>
 				<span style="font-size: 40px; color: black;">활동량</span><br>          
 			</h1>           
 		</div>

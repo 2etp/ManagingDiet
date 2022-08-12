@@ -23,16 +23,16 @@
 	<!-- float Img -->
 	<div class="image-grid">				
 		<div class="image-grid__item pos-2">
-			<img src="../picture/단백질.png" alt="">
+			<img src="./image/단백질.png" alt="">
 		</div>
 		<div class="image-grid__item pos-4">
-			<img src="../picture/탄수화물.png" alt="">
+			<img src="./image/탄수화물.png" alt="">
 		</div>
 		<div class="image-grid__item pos-5">
-			<img src="../picture/달걀.png" alt="">
+			<img src="./image/달걀.png" alt="">
 		</div>
 		<div class="image-grid__item pos-9">
-			<img src="../picture/지방.png" alt="">
+			<img src="./image/지방.png" alt="">
 		</div>		
 	</div>
     <div id="menu">

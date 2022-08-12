@@ -19,7 +19,6 @@
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://unpkg.com/splitting@1.0.5/dist/splitting.min.js'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.10.1/bodymovin.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 
 <script>
@@ -250,7 +249,7 @@
     </section>
     <section class='panel'>
       <h1 style="margin-left: 57%;" data-splitting='words'>DIET PROGRAM</h1>
-      <h3 class="section-content text-d">자신의 신체정보를 <span class="point">입력</span>하면 음식 리스트를 추천 해줘요!</h3>
+      <h3 class="section-content text-d" style="width: 705px;">로그인 후 <span class="point">식단 관리</span>해보세요!</h3>
       <div class="center text-d" style="margin-top: 80px;"><a href="./dietCategory.jsp" class="pushme"><span class="inner" style="transform: scaleX(-1); transition: .3s;">추천받기!</span></a></div>
       <div class='image'>
         <div class='inner'></div>

@@ -10,7 +10,7 @@
   <title>내 식단 확인하기</title>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./css/typing.css">
-<link rel="stylesheet" href="./css/step4.css">
+<link rel="stylesheet" href="./css/myDiet.css">
 <link rel="stylesheet" href="./css/navi.css">
 <link rel="stylesheet" href="./css/login.css">
 <link rel="stylesheet" href="./css/common.css">
