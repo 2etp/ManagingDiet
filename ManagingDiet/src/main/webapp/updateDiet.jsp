@@ -72,9 +72,6 @@
     <span class="letter">음</span>
     <span class="letter">식</span>
     <span class="space"></span>
-    <span class="letter">추</span>
-    <span class="letter">천</span>
-    <span class="space"></span>
     <span class="letter">리</span>
     <span class="letter">스</span>
     <span class="letter">트</span>
