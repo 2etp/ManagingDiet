@@ -396,14 +396,3 @@ form input[type="radio"]:not(:checked)::before {
   opacity: 1;
 }
 
-.unit {
-  position: absolute;
-  top: 20px;
-  left: 130px;
-}
-
-.unit2{
-  position: absolute;
-  top: 120px;
-  left: 130px;
-}
