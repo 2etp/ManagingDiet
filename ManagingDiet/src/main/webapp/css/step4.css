@@ -835,7 +835,7 @@ button.learn-more {
   transform-style: preserve-3d;
   transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
   font-size: 20px;
-  position: absolute;
+  position: relative;
   top: 21px;
   left: 150%;
 }
