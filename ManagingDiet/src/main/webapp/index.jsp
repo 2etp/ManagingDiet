@@ -249,8 +249,8 @@
     </section>
     <section class='panel'>
       <h1 style="margin-left: 57%;" data-splitting='words'>DIET PROGRAM</h1>
-      <h3 class="section-content text-d" style="width: 705px;">로그인 후 <span class="point">식단 관리</span>해보세요!</h3>
-      <div class="center text-d" style="margin-top: 80px;"><a href="./dietCategory.jsp" class="pushme"><span class="inner" style="transform: scaleX(-1); transition: .3s;">추천받기!</span></a></div>
+      <h3 class="section-content text-d" style="width: 705px;">로그인 후 <span class="point">식단관리</span>해보세요!</h3>
+      <div class="center text-d" style="margin-top: 80px;"><a href="./dietCategory.jsp" class="pushme"><span class="inner" style="transform: scaleX(-1); transition: .3s;">식단관리 하러 가기!</span></a></div>
       <div class='image'>
         <div class='inner'></div>
       </div>
@@ -261,7 +261,7 @@
     <section class='panel'>
       <h1 data-splitting='words'>ACHIEVEMENT</h1>
       <h3 class="section-content">나의 <span class="point">성취도</span>를 한눈에 보자!</h3>
-      <div class="center"><a href="./statistics.jsp" class="pushme"><span class="inner">추천받기!</span></a></div>
+      <div class="center"><a href="./statistics.jsp" class="pushme"><span class="inner">기록 보러 가기!</span></a></div>
       <div class='image' style="width: 40vh; height: 70vh; margin-left: -120px;">
         <div class='inner'></div>
       </div>
